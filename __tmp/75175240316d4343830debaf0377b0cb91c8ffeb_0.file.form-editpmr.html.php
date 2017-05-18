@@ -1,7 +1,7 @@
-<?php /* Smarty version 3.1.27, created on 2017-05-18 07:49:58
+<?php /* Smarty version 3.1.27, created on 2017-05-19 06:44:50
          compiled from "/home/vagrant/Code/nokia/__application/views/backend/modul/form/form-editpmr.html" */ ?>
 <?php
-/*%%SmartyHeaderCode:6063544591cefb66a7fc5_19536944%%*/
+/*%%SmartyHeaderCode:1013018483591e31f265fe38_65334096%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
@@ -9,11 +9,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '75175240316d4343830debaf0377b0cb91c8ffeb' => 
     array (
       0 => '/home/vagrant/Code/nokia/__application/views/backend/modul/form/form-editpmr.html',
-      1 => 1495068583,
+      1 => 1495151087,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '6063544591cefb66a7fc5_19536944',
+  'nocache_hash' => '1013018483591e31f265fe38_65334096',
   'variables' => 
   array (
     'acak' => 0,
@@ -25,13 +25,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => '3.1.27',
-  'unifunc' => 'content_591cefb66efd11_52136513',
+  'unifunc' => 'content_591e31f26ba741_24327151',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_591cefb66efd11_52136513')) {
-function content_591cefb66efd11_52136513 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_591e31f26ba741_24327151')) {
+function content_591e31f26ba741_24327151 ($_smarty_tpl) {
 
-$_smarty_tpl->properties['nocache_hash'] = '6063544591cefb66a7fc5_19536944';
+$_smarty_tpl->properties['nocache_hash'] = '1013018483591e31f265fe38_65334096';
 ?>
 <div class="row wrapper border-bottom blueaye-bg page-heading">
 	<div class="col-lg-10" style='margin-left:20px;'>
@@ -352,7 +352,7 @@ get/material-atf',
 			            	var number = 1;
 			            	$.each(dataMaterial, function(index, element) {
 			            		$template = '<tr id="element_tr_'+ element.id + '">' +
-			            						'<td>'+ number +'<td>' +
+			            						'<td width="2px">'+ number +'<td>' +
 			            						'<td>'+element.material_type_l3+'</td>' +
 			            						'<td><a class="btn btn-primary" onClick="editMaterial(' + element.id + ')"  id="editMaterial" for="save">Edit</a> ' +
 			            							'<a class="btn btn-primary" onClick="deleteMaterial('+ element.id +')"  id="deleteMaterial" for="save">delete</a> ' +

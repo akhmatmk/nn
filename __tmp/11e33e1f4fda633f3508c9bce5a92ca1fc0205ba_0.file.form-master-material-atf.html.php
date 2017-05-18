@@ -1,7 +1,7 @@
-<?php /* Smarty version 3.1.27, created on 2017-05-18 13:21:05
+<?php /* Smarty version 3.1.27, created on 2017-05-19 06:47:47
          compiled from "/home/vagrant/Code/nokia/__application/views/backend/modul/form/form-master-material-atf.html" */ ?>
 <?php
-/*%%SmartyHeaderCode:380650147591d3d51c188f4_28795779%%*/
+/*%%SmartyHeaderCode:974352044591e32a3dde597_60273936%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
@@ -9,11 +9,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '11e33e1f4fda633f3508c9bce5a92ca1fc0205ba' => 
     array (
       0 => '/home/vagrant/Code/nokia/__application/views/backend/modul/form/form-master-material-atf.html',
-      1 => 1495082897,
+      1 => 1495151263,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '380650147591d3d51c188f4_28795779',
+  'nocache_hash' => '974352044591e32a3dde597_60273936',
   'variables' => 
   array (
     'host' => 0,
@@ -21,13 +21,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => '3.1.27',
-  'unifunc' => 'content_591d3d51c5c674_79168070',
+  'unifunc' => 'content_591e32a3e0ebb0_92473979',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_591d3d51c5c674_79168070')) {
-function content_591d3d51c5c674_79168070 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_591e32a3e0ebb0_92473979')) {
+function content_591e32a3e0ebb0_92473979 ($_smarty_tpl) {
 
-$_smarty_tpl->properties['nocache_hash'] = '380650147591d3d51c188f4_28795779';
+$_smarty_tpl->properties['nocache_hash'] = '974352044591e32a3dde597_60273936';
 ?>
 			  	<div style="display: none;" id="atr_content">
 					<div class="row wrapper border-bottom bluedrak-bg page-heading" style="background-color : #134292;color: white">
@@ -125,7 +125,7 @@ $_smarty_tpl->properties['nocache_hash'] = '380650147591d3d51c188f4_28795779';
 
 					</form>
 
-					<div style="height: 10px" class="row wrapper border-bottom bluedrak-bg page-heading" style="background-color : #134292;color: white">
+					<div class="row wrapper border-bottom bluedrak-bg page-heading" style="background-color : #134292;color: white">
 						<div class="col-lg-10" style="margin-left:20px;">
 							<h3>Result</h3>
 						</div>
@@ -135,12 +135,13 @@ $_smarty_tpl->properties['nocache_hash'] = '380650147591d3d51c188f4_28795779';
 					    <tbody id="bodyPreview">
 					      	
 					    </tbody>
+					    <tr>
+					    	<td colspan="3" align="right">
+					    		<a class="btn btn-primary" id='previewMaterial'>Next Review</a>
+					    	</td>
+					    </tr>
 				  </table>
-					<div class="form-group">
-						<div class="col-sm-4 col-sm-offset-4">
-					        <a class="btn btn-primary" id='previewMaterial'>Next Review</a>
-					    </div>
-					</div>
+					
 					<link href="<?php echo $_smarty_tpl->tpl_vars['host']->value;?>
 __assets/css/select2.min.css" rel="stylesheet" />
 			  		<?php echo '<script'; ?>
@@ -437,16 +438,33 @@ get/data-material-atf',
 				        					});
 
 				        					$('.selectSearch').select2();
+				            				$('#material_type_l3').select2();
+				            				$("#material_type_l3").val(dataMaterial.material_type_l3).trigger("change");
+				            				
+							            }
+				        			});
 
+				        			$.ajax({ 
+							            url: '<?php echo $_smarty_tpl->tpl_vars['host']->value;?>
+get/data-material-atf',
+							            data: {
+			                				'modular_type'	: dataMaterial.material_type_l3,
+			                				'group'	: ['a.product_code']
+			            				},
+							            type: 'get',
+							            dataType: 'json',
+							            success: function(data)
+							            {
 				        					$("#product_code_l4").html("");
 				            				$("#product_code_l4").append("<option value='null'>--silahkan pilih--</option>");
 				            				$.each(data, function(index, element) {
-				            					$("#product_code_l4").append("<option value='" +element.product_code+ "'>"+element.product_code+"</option>");
+				            					$("#product_code_l4").append("<option selected value='" +element.product_code+ "'>"+element.product_code+"</option>");
+				            					
 				        					});
-				            				$('#material_type_l3').select2();
-		        							$('#product_code_l4').select2();
-				            				$("#material_type_l3").val(dataMaterial.material_type_l3).trigger("change");
-				            				$("#product_code_l4").val(dataMaterial.product_code_l4).trigger("change");
+
+				            				$('.selectSearch').select2();
+				        					$('#product_code_l4').select2();
+				        					$("#product_code_l4").val(dataMaterial.product_code).trigger("change");
 							            }
 				        			});
 
