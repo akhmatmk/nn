@@ -1,0 +1,164 @@
+<div class="row wrapper border-bottom blueaye-bg page-heading">
+	<div class="col-lg-10" style='margin-left:20px;'>
+		<h3><b>Master Progress</b></h3>
+		<ol class="breadcrumb" style='margin-bottom:10px !important;'>
+            <li>
+                Input PMR
+            </li>
+            <li class="active">
+                <strong>Input PMR</strong>
+            </li>
+        </ol>		
+	</div>
+</div>
+<div class="wrapper wrapper-content">
+	<div class="row">
+		<div class="col-lg-12" style='padding-right:0px !important;'>
+			
+			<div class="ibox">
+				<div class="ibox-content" style='padding-bottom:5px !important;'>
+					
+					<form method="post" id='frmpmr_{$acak}' url='{$host}backend/simpandata/tbl_master_progress_pmr' class="form-horizontal">
+						<input type='hidden' name='editstatus' value='{$editstatus}' /> 
+						<input type='hidden' name='id' value="{$data.id|default:''}" /> 
+	
+					<div class="form-group"><label class="col-sm-2 control-label">PMR No</label>
+						<div class="col-sm-4">
+							<select class="form-control-mobile" name='tbl_master_phase_id'>
+								{$pmr_no}
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-4 col-sm-offset-2">
+					        <a class="btn btn-primary" id='editPMR' >Edit</a>
+					        <a class="btn btn-primary" id='newPMR'>New</a>
+					    </div>	
+				    </div>
+				    <div class="form-group"><label class="col-sm-2 control-label">Pick Up At</label>
+						<div class="col-sm-10">
+							<input class="form-control-mobile" id="pickup" type="text" name='pick_up_at' value="{$data.pick_up_at|default:''}" />
+						</div>
+					</div>
+					<div class="form-group"><label class="col-sm-2 control-label">Site Address At</label>
+						<div class="col-sm-10">
+							<input class="form-control-mobile" type="text" name='site_address_at' value="{$data.site_address_at|default:''}" />
+						</div>
+					</div>
+					<div class="form-group"><label class="col-sm-2 control-label">Region At</label>
+						<div class="col-sm-10">
+							<input class="form-control-mobile" type="text" name='region_at' value="{$data.region_at|default:''}" />
+						</div>
+					</div>
+					<div class="form-group"><label class="col-sm-2 control-label">PIC 1</label>
+						<div class="col-sm-10">
+							<input class="form-control-mobile" type="text" name='pic1' value="{$data.pic1|default:''}" />
+						</div>
+					</div>
+					<div class="form-group"><label class="col-sm-2 control-label">Delivery To</label>
+						<div class="col-sm-10">
+							<input class="form-control-mobile" type="text" name='delivery_to' value="{$data.delivery_to|default:''}" />
+						</div>
+					</div>
+					<div class="form-group"><label class="col-sm-2 control-label">Site Address To</label>
+						<div class="col-sm-10">
+							<input class="form-control-mobile" type="text" name='site_addreess_to' value="{$data.site_addreess_to|default:''}" />
+						</div>
+					</div>
+					<div class="form-group"><label class="col-sm-2 control-label">Region To</label>
+						<div class="col-sm-10">
+							<input class="form-control-mobile" type="text" name='region_to' value="{$data.region_to|default:''}" />
+						</div>
+					</div>
+					<div class="form-group"><label class="col-sm-2 control-label">Tranporter</label>
+						<div class="col-sm-10">
+							<input class="form-control-mobile" type="text" name='tranporter' value="{$data.tranporter|default:''}" />
+						</div>
+					</div>
+					<div class="form-group"><label class="col-sm-2 control-label">PIC 2</label>
+						<div class="col-sm-10">
+							<input class="form-control-mobile" type="text" name='pic2' value="{$data.pic2|default:''}" />
+						</div>
+					</div>
+					<div class="form-group"><label class="col-sm-2 control-label">Hardware NE</label>
+						<div class="col-sm-10">
+							<input class="form-control-mobile" type="text" name='hardware_ne' value="{$data.hardware_ne|default:''}" />
+						</div>
+					</div>
+				    <div class="form-group">
+				        <div class="col-sm-4 col-sm-offset-2">
+				            <a class="btn btn-primary" id='savePMR'>Save</a>
+				             <a class="btn btn-primary" id='idbutton' >Show</a>
+				        </div>
+				    </div>
+				    <div class="hr-line-dashed"></div>	
+				</form>
+
+				<form method="post" style="display:none" id='frmsendemail_{$acak}' url='{$host}backend/simpandata/tbl_master_progress_pmr' class="form-horizontal">
+						<input type='hidden' name='editstatus' value='{$editstatus}' /> 
+						<input type='hidden' name='id' value="{$data.id|default:''}" /> 
+	
+					<div class="form-group"><label class="col-sm-2 control-label">To</label>
+						<div class="col-sm-10">
+							<input class="form-control-mobile" type="text" name='pic1' value="{$data.pic1|default:''}" />
+						</div>
+					</div>
+					<div class="form-group"><label class="col-sm-2 control-label">CC</label>
+						<div class="col-sm-10">
+							<input class="form-control-mobile" type="text" name='remark' value="{$data.remark|default:''}" />
+						</div>
+					</div>
+					<div class="form-group"><label class="col-sm-2 control-label">Subject</label>
+						<div class="col-sm-10">
+							<input class="form-control-mobile" type="text" name='remark' value="{$data.remark|default:''}" />
+						</div>
+					</div>
+				    <div class="form-group">
+				        <div class="col-sm-4 col-sm-offset-2">
+				            <a class="btn btn-primary" id='sendPMR'>Send</a>
+				        </div>
+				    </div>	
+				</form>
+					
+					
+					<div id='frm_{$submodul}' style='display:none;'></div>
+				
+				</div>
+			</div>
+			
+		</div>
+	</div>
+</div>
+
+<script>
+	var submodul = "{$submodul|default:''}";
+	var param = {};
+	
+	$("#idbutton").click(function(){
+		var buttonnya = $("#idbutton").html();
+		if(buttonnya ==='Show'){
+			$("#frmsendemail_{$acak}").show();
+			$("#idbutton").html('Hide');
+		}else{
+			$("#frmsendemail_{$acak}").hide();
+			$("#idbutton").html('Show');
+		}
+	});
+
+	$('#savePMR').on('click',function(){
+		submit_form('frmpmr_{$acak}',function(r){
+			if(r==1){
+				$.messager.alert('POIN', "Data Saved", 'info');
+				$('.info-empty').remove();
+			}else{
+				$.messager.alert('POIN', "Failed Saved", 'error');
+			}
+			$('#frmpmr_{$acak}').form('clear');
+		});
+		return false;
+	});
+
+	$('#editPMR').on('click',function(){
+		
+	});
+</script>

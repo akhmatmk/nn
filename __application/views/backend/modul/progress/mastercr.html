@@ -1,0 +1,116 @@
+<div class="row wrapper border-bottom blueaye-bg page-heading">
+	<div class="col-lg-10" style='margin-left:20px;'>
+		<h3><b>Master CR</b></h3>
+		<ol class="breadcrumb" style='margin-bottom:10px !important;'>
+            <li>
+                Master Progress
+            </li>
+            <li class="active">
+                <strong>Master CR</strong>
+            </li>
+        </ol>		
+	</div>
+</div>
+<div class="wrapper wrapper-content">
+	<div class="row">
+		<div class="col-lg-12" style='padding-right:0px !important;'>
+			
+			<div class="ibox">
+				<div class="ibox-content" style='padding-bottom:0px !important;'>
+					
+					<div id='grid_nya_{$submodul}' style='height:400px;width:100%;'>
+						<div id='tb_{$submodul}' style='margin-bottom:10px;'>
+							{*
+							<select id='{$submodul}_filter_kategori' style='width:100px;padding:5px;'>
+								<option value='all'>All</option>
+								<option value=''>not</option>
+							</select>
+							<input type='text' style='width:150px;padding:5px;' id='{$submodul}_txt' />
+							<a href="javascript:void(0)" class="l-btn l-btn-small l-btn-plain" group="" id="search_{$submodul}" onClick="">
+								<span class="l-btn-left l-btn-icon-left">
+									<span class="l-btn-text"></span><span class="l-btn-icon icon-search">&nbsp;</span>
+								</span>
+							</a>
+							*}
+
+							<div style='width:100%;margin-bottom: 3px;'>
+								{include file="backend/template/button_grid.html"}	
+								<label>Year</label> : <input type='text' style='width:75px;padding:2px;' id='{$submodul}_phaseyear' /> &nbsp;
+								<label>Phase</label> : <input type='text' style='width:75px;padding:2px;' id='{$submodul}_phasename' /> &nbsp;
+								<label>CR Status</label> : <input type='text' style='width:75px;padding:2px;' id='{$submodul}_crstatus' /> &nbsp;
+								<label>CR Type</label> : <input type='text' style='width:75px;padding:2px;' id='{$submodul}_crtype' /> &nbsp;
+								<label>All Field</label> : <input type='text' style='width:75px;padding:2px;' id='{$submodul}_allfield' /> &nbsp;
+								<a href="javascript:void(0)" class="l-btn l-btn-small l-btn-plain" group="" id="search_{$submodul}" onClick="">
+									<span class="l-btn-left l-btn-icon-left">
+										<span class="l-btn-text">Filter Data</span><span class="l-btn-icon icon-search">&nbsp;</span>
+									</span>	
+								</a>
+								<a href="javascript:void(0)" style="float: right;" class="l-btn l-btn-small l-btn-plain" group="" id="" onClick="genform('import_data', '{$main}','{$submodul}', 'windowform');">
+									<span class="l-btn-left l-btn-icon-left">
+										<span class="l-btn-text">Import</span><span class="l-btn-icon icon-import">&nbsp;</span>
+									</span>
+								</a>	
+								<a href="javascript:void(0)" style="float: right;" class="l-btn l-btn-small l-btn-plain" group="" id="exportdata_{$submodul}" onClick="">
+									<span class="l-btn-left l-btn-icon-left">
+										<span class="l-btn-text">Export</span><span class="l-btn-icon icon-xls">&nbsp;</span>
+									</span>
+								</a>						
+							</div>
+						</div>
+						
+						{include file="backend/template/grid_editable.html" tinggi_grid="getClientHeight()-220" tablenya="tbl_master_cr"}
+					</div>
+					
+					<div id='frm_{$submodul}' style='display:none;'></div>
+				
+				</div>
+			</div>
+			
+		</div>
+	</div>
+</div>
+
+<script>
+	var submodul = "{$submodul|default:''}";
+	var param = {};
+	
+	$(document).keypress(function(e) {
+		if(e.which == 13) {
+			$('#grid_{$submodul}').datagrid('reload',{
+				'table' : 'tbl_master_cr',
+				'phaseyear' : $('#{$submodul}_phaseyear').val(),
+				'phasename' : $('#{$submodul}_phasename').val(),
+				'crstatus' 	: $('#{$submodul}_crstatus').val(),
+				'crtype' : $('#{$submodul}_crtype').val(),
+				'allfield' 	: $('#{$submodul}_allfield').val(),
+				'initial_phase' : 'B',
+				
+			});
+		}
+	});
+	$('#search_{$submodul}').on('click', function(){
+		$('#grid_{$submodul}').datagrid('reload',{
+			'table' : 'tbl_master_cr',
+			'phaseyear' : $('#{$submodul}_phaseyear').val(),
+			'phasename' : $('#{$submodul}_phasename').val(),
+			'crstatus' 	: $('#{$submodul}_crstatus').val(),
+			'crtype' : $('#{$submodul}_crtype').val(),
+			'allfield' 	: $('#{$submodul}_allfield').val(),
+			'initial_phase' : 'B',
+			
+		});
+	});
+	
+	$('#exportdata_{$submodul}').on('click', function(){
+		param['table'] = 'tbl_master_cr';
+		param['phaseyear']   = $('#{$submodul}_phaseyear').val();
+		param['phasename']   = $('#{$submodul}_phasename').val();
+		param['crstatus']    = $('#{$submodul}_crstatus').val();
+		param['crtype']    = $('#{$submodul}_crtype').val();
+		param['allfield']    = $('#{$submodul}_allfield').val();
+		param['initial_phase']   = 'B';
+		
+		
+		openWindowWithPostRequest('{$host}backend/exportdatawithtemplate/mastercrexport', param);
+	});
+</script>

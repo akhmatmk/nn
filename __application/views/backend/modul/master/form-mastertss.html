@@ -1,0 +1,225 @@
+<form method="post" id='frmmastertss_{$acak}' url='{$host}backend/simpandata/tbl_master_tss' class="form-horizontal">
+	<input type='hidden' name='editstatus' value='{$editstatus}' /> 
+	<input type='hidden' name='id' value="{$data.id|default:''}" /> 
+	
+	<div class="form-group"><label class="col-sm-2 control-label">Site Owner</label>
+		<div class="col-sm-10">
+			<input class="form-control" type="text" name='siteowner' value="{$data.siteowner|default:''}" />
+		</div>
+	</div>
+	<div class="form-group"><label class="col-sm-2 control-label">Site Type</label>
+		<div class="col-sm-10">
+			<input class="form-control" type="text" name='sitetype' value="{$data.sitetype|default:''}" />
+		</div>
+	</div>
+	<div class="form-group"><label class="col-sm-2 control-label">BTS Type</label>
+		<div class="col-sm-10">
+			<input class="form-control" type="text" name='btstype' value="{$data.btstype|default:''}" />
+		</div>
+	</div>
+	<div class="form-group"><label class="col-sm-2 control-label">Shelter</label>
+		<div class="col-sm-10">
+			<input class="form-control" type="text" name='shelter' value="{$data.shelter|default:''}" />
+		</div>
+	</div>
+	<div class="form-group"><label class="col-sm-2 control-label">ACC On</label>
+		<div class="col-sm-10">
+			<input class="form-control" type="text" name='accon' value="{$data.accon|default:''}" />
+		</div>
+	</div>
+	<div class="form-group"><label class="col-sm-2 control-label">Tower Type</label>
+		<div class="col-sm-10">
+			<input class="form-control" type="text" name='towertype' value="{$data.towertype|default:''}" />
+		</div>
+	</div>
+	<div class="form-group"><label class="col-sm-2 control-label">Tower Height</label>
+		<div class="col-sm-10">
+			<input class="form-control" type="text" name='towerheight' value="{$data.towerheight|default:''}" />
+		</div>
+	</div>
+	<div class="form-group"><label class="col-sm-2 control-label">Leg Type</label>
+		<div class="col-sm-10">
+			<input class="form-control" type="text" name='legtype' value="{$data.legtype|default:''}" />
+		</div>
+	</div>
+	<div class="form-group"><label class="col-sm-2 control-label">Leg Size</label>
+		<div class="col-sm-10">
+			<input class="form-control" type="text" name='legsize' value="{$data.legsize|default:''}" />
+		</div>
+	</div>
+	<div class="form-group"><label class="col-sm-2 control-label">Leg Toleg</label>
+		<div class="col-sm-10">
+			<input class="form-control" type="text" name='legtoleg' value="{$data.legtoleg|default:''}" />
+		</div>
+	</div>
+	<div class="form-group"><label class="col-sm-2 control-label">Tower Con</label>
+		<div class="col-sm-10">
+			<input class="form-control" type="text" name='towercon' value="{$data.towercon|default:''}" />
+		</div>
+	</div>
+	<div class="form-group"><label class="col-sm-2 control-label">Feed Type</label>
+		<div class="col-sm-10">
+			<input class="form-control" type="text" name='feedtype' value="{$data.feedtype|default:''}" />
+		</div>
+	</div>
+	<div class="form-group"><label class="col-sm-2 control-label">Feed Length</label>
+		<div class="col-sm-10">
+			<input class="form-control" type="text" name='feedlength' value="{$data.feedlength|default:''}" />
+		</div>
+	</div>
+	<div class="form-group"><label class="col-sm-2 control-label">RF Meter</label>
+		<div class="col-sm-10">
+			<input class="form-control" type="text" name='rfmeter' value="{$data.rfmeter|default:''}" />
+		</div>
+	</div>
+	<div class="form-group"><label class="col-sm-2 control-label">Opsi</label>
+		<div class="col-sm-10">
+			<input class="form-control" type="text" name='opsi' value="{$data.opsi|default:''}" />
+		</div>
+	</div>
+	<div class="form-group"><label class="col-sm-2 control-label">ANT</label>
+		<div class="col-sm-10">
+			<input class="form-control" type="text" name='ant' value="{$data.ant|default:''}" />
+		</div>
+	</div>
+	<div class="form-group"><label class="col-sm-2 control-label">Brand</label>
+		<div class="col-sm-10">
+			<input class="form-control" type="text" name='brand' value="{$data.brand|default:''}" />
+		</div>
+	</div>
+	<div class="form-group"><label class="col-sm-2 control-label">Freq Band</label>
+		<div class="col-sm-10">
+			<input class="form-control" type="text" name='freqband' value="{$data.freqband|default:''}" />
+		</div>
+	</div>
+	<div class="form-group"><label class="col-sm-2 control-label">RF Pos</label>
+		<div class="col-sm-10">
+			<input class="form-control" type="text" name='rfpos' value="{$data.rfpos|default:''}" />
+		</div>
+	</div>
+	<div class="form-group"><label class="col-sm-2 control-label">SM Pos</label>
+		<div class="col-sm-10">
+			<input class="form-control" type="text" name='smpos' value="{$data.smpos|default:''}" />
+		</div>
+	</div>
+	<div class="form-group"><label class="col-sm-2 control-label">Space</label>
+		<div class="col-sm-10">
+			<input class="form-control" type="text" name='space' value="{$data.space|default:''}" />
+		</div>
+	</div>
+	<div class="form-group"><label class="col-sm-2 control-label">Space Rack</label>
+		<div class="col-sm-10">
+			<input class="form-control" type="text" name='spacerack' value="{$data.spacerack|default:''}" />
+		</div>
+	</div>
+	<div class="form-group"><label class="col-sm-2 control-label">ACC AP</label>
+		<div class="col-sm-10">
+			<input class="form-control" type="text" name='accap' value="{$data.accap|default:''}" />
+		</div>
+	</div>
+	<div class="form-group"><label class="col-sm-2 control-label">PLN Stat</label>
+		<div class="col-sm-10">
+			<input class="form-control" type="text" name='plnstat' value="{$data.plnstat|default:''}" />
+		</div>
+	</div>
+	<div class="form-group"><label class="col-sm-2 control-label">Genset Brand</label>
+		<div class="col-sm-10">
+			<input class="form-control" type="text" name='gensetbrand' value="{$data.gensetbrand|default:''}" />
+		</div>
+	</div>
+	<div class="form-group"><label class="col-sm-2 control-label">Rec Brand</label>
+		<div class="col-sm-10">
+			<input class="form-control" type="text" name='recbrand' value="{$data.recbrand|default:''}" />
+		</div>
+	</div>
+	<div class="form-group"><label class="col-sm-2 control-label">Batt Brand</label>
+		<div class="col-sm-10">
+			<input class="form-control" type="text" name='battbrand' value="{$data.battbrand|default:''}" />
+		</div>
+	</div>
+	<div class="form-group"><label class="col-sm-2 control-label">Rec UPG</label>
+		<div class="col-sm-10">
+			<input class="form-control" type="text" name='recupg' value="{$data.recupg|default:''}" />
+		</div>
+	</div>
+	<div class="form-group"><label class="col-sm-2 control-label">TTA Bracket</label>
+		<div class="col-sm-10">
+			<input class="form-control" type="text" name='ttabracket' value="{$data.ttabracket|default:''}" />
+		</div>
+	</div>
+	<div class="form-group"><label class="col-sm-2 control-label">ANT Bracket</label>
+		<div class="col-sm-10">
+			<input class="form-control" type="text" name='antbracket' value="{$data.antbracket|default:''}" />
+		</div>
+	</div>
+	<div class="form-group"><label class="col-sm-2 control-label">Mod ANT</label>
+		<div class="col-sm-10">
+			<input class="form-control" type="text" name='modant' value="{$data.modant|default:''}" />
+		</div>
+	</div>
+	<div class="form-group"><label class="col-sm-2 control-label">Plinth</label>
+		<div class="col-sm-10">
+			<input class="form-control" type="text" name='plinth' value="{$data.plinth|default:''}" />
+		</div>
+	</div>
+	<div class="form-group"><label class="col-sm-2 control-label">CME Shelter</label>
+		<div class="col-sm-10">
+			<input class="form-control" type="text" name='cmeshelter' value="{$data.cmeshelter|default:''}" />
+		</div>
+	</div>
+	<div class="form-group"><label class="col-sm-2 control-label">Pole</label>
+		<div class="col-sm-10">
+			<input class="form-control" type="text" name='pole' value="{$data.pole|default:''}" />
+		</div>
+	</div>
+	<div class="form-group"><label class="col-sm-2 control-label">Strength</label>
+		<div class="col-sm-10">
+			<input class="form-control" type="text" name='strength' value="{$data.strength|default:''}" />
+		</div>
+	</div>
+	<div class="form-group"><label class="col-sm-2 control-label">PLN UPG</label>
+		<div class="col-sm-10">
+			<input class="form-control" type="text" name='plnupg' value="{$data.plnupg|default:''}" />
+		</div>
+	</div>
+	<div class="form-group"><label class="col-sm-2 control-label">Tray Length</label>
+		<div class="col-sm-10">
+			<input class="form-control" type="text" name='traylength' value="{$data.traylength|default:''}" />
+		</div>
+	</div>
+	<div class="form-group"><label class="col-sm-2 control-label">Num</label>
+		<div class="col-sm-10">
+			<input class="form-control" type="text" name='num' value="{$data.num|default:''}" />
+		</div>
+	</div>
+	<div class="hr-line-dashed"></div>
+    <div class="form-group">
+        <div class="col-sm-4 col-sm-offset-2">
+            <a class="btn btn-primary" id='saveMasterTSS' >Save</a>
+            <a class="btn btn-danger" id='cancelMasterTSS'>Cancel</a>
+        </div>
+    </div>	
+</form>
+
+<script>
+	$('#saveMasterTSS').on('click',function(){
+		submit_form('frmmastertss_{$acak}',function(r){
+			if(r==1){
+				$.messager.alert('POIN', "Data Saved", 'info');
+				$('.info-empty').remove();
+			}else{
+				$.messager.alert('POIN', "Failed Saved", 'error');
+			}
+			closeWindow();
+			$('#grid_mastertss').datagrid('reload');
+		});
+		return false;
+	});
+	
+	$('#cancelMasterTSS').on('click',function(){
+		closeWindow();
+		$('#grid_mastertss').datagrid('reload');
+		return false;
+	});
+
+</script>

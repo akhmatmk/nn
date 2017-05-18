@@ -1,0 +1,111 @@
+<div class="row wrapper border-bottom blueaye-bg page-heading">
+	<div class="col-lg-10" style='margin-left:20px;'>
+		<h3><b>Master Data</b></h3>
+		<ol class="breadcrumb" style='margin-bottom:10px !important;'>
+            <li>
+                Master Data
+            </li>
+            <li class="active">
+                <strong>Master Partner</strong>
+            </li>
+        </ol>		
+	</div>
+</div>
+<div class="wrapper wrapper-content">
+	<div class="row">
+		<div class="col-lg-12" style='padding-right:0px !important;'>
+			
+			<div class="ibox">
+				<div class="ibox-content" style='padding-bottom:0px !important;'>
+					
+					<div id='grid_nya_{$submodul}' style='height:400px;width:100%;'>
+						<div id='tb_{$submodul}' style='margin-bottom:10px;'>
+							{*
+							<select id='{$submodul}_filter_kategori' style='width:100px;padding:5px;'>
+								<option value='all'>All</option>
+								<option value=''>not</option>
+							</select>
+							<input type='text' style='width:150px;padding:5px;' id='{$submodul}_txt' />
+							<a href="javascript:void(0)" class="l-btn l-btn-small l-btn-plain" group="" id="search_{$submodul}" onClick="">
+								<span class="l-btn-left l-btn-icon-left">
+									<span class="l-btn-text"></span><span class="l-btn-icon icon-search">&nbsp;</span>
+								</span>
+							</a>
+							*}
+
+							<div style='width:100%;margin-bottom: 3px;'>
+								{include file="backend/template/button_grid.html"}	
+								<label>Partner Code</label> : <input type='text' style='width:75px;padding:2px;' id='{$submodul}_partnercode' /> &nbsp;
+								<label>Partner Name</label> : <input type='text' style='width:75px;padding:2px;' id='{$submodul}_partnername' /> &nbsp;
+								<label>Company</label> : <input type='text' style='width:75px;padding:2px;' id='{$submodul}_company' /> &nbsp;
+								<a href="javascript:void(0)" class="l-btn l-btn-small l-btn-plain" group="" id="search_{$submodul}" onClick="">
+									<span class="l-btn-left l-btn-icon-left">
+										<span class="l-btn-text">Filter Data</span><span class="l-btn-icon icon-search">&nbsp;</span>
+									</span>	
+								</a>
+								<a href="javascript:void(0)" style="float: right;" class="l-btn l-btn-small l-btn-plain" group="" id="" onClick="genform('import_data', '{$main}','{$submodul}', 'windowform');">
+									<span class="l-btn-left l-btn-icon-left">
+										<span class="l-btn-text">Import</span><span class="l-btn-icon icon-import">&nbsp;</span>
+									</span>
+								</a>	
+								<a href="javascript:void(0)" style="float: right;" class="l-btn l-btn-small l-btn-plain" group="" id="exportdata_{$submodul}" onClick="">
+									<span class="l-btn-left l-btn-icon-left">
+										<span class="l-btn-text">Export</span><span class="l-btn-icon icon-xls">&nbsp;</span>
+									</span>
+								</a>						
+							</div>
+						</div>
+						
+						{include file="backend/template/grid.html" tablenya="tbl_master_partner"}
+					</div>
+					
+					<div id='frm_{$submodul}' style='display:none;'></div>
+				
+				</div>
+			</div>
+			
+		</div>
+	</div>
+</div>
+
+<script>
+	var submodul = "{$submodul|default:''}";
+	var param = {};
+	
+	$(document).keypress(function(e) {
+		if(e.which == 13) {
+			$('#grid_{$submodul}').datagrid('reload',{
+				'table' : 'tbl_master_partner',
+				'partnername' : $('#{$submodul}_partnername').val(),
+				'partnercode' : $('#{$submodul}_partnercode').val(),
+				'company' 	: $('#{$submodul}_company').val(),
+				'initial_partnername' : 'A',
+				'initial_partnercode' : 'A',
+				'initial_company' : 'A',
+			});
+		}
+	});
+	$('#search_{$submodul}').on('click', function(){
+		$('#grid_{$submodul}').datagrid('reload',{
+			'table' : 'tbl_master_partner',
+			'partnername' : $('#{$submodul}_partnername').val(),
+			'partnercode' : $('#{$submodul}_partnercode').val(),
+			'company' 	: $('#{$submodul}_company').val(),
+			'initial_partnername' : 'A',
+			'initial_partnercode' : 'A',
+			'initial_company' : 'A',
+		});
+	});
+	
+	$('#exportdata_{$submodul}').on('click', function(){
+		param['table'] = 'tbl_master_partner';
+		param['partnername']   = $('#{$submodul}_partnername').val();
+		param['partnercode']   = $('#{$submodul}_partnercode').val();
+		param['company']   = $('#{$submodul}_company').val();
+		param['initial_partnername']   = 'A';
+		param['initial_partnercode']   = 'A';
+		param['initial_company']   = 'A';
+		
+		openWindowWithPostRequest('{$host}backend/exportdatawithtemplate/partner', param);
+	});
+</script>

@@ -1,0 +1,55 @@
+<form method="post" id='frmpartner_{$acak}' url='{$host}backend/simpandata/tbl_master_partner' class="form-horizontal">
+	<input type='hidden' name='editstatus' value='{$editstatus}' /> 
+	<input type='hidden' name='id' value="{$data.id|default:''}" /> 
+	
+	<div class="form-group"><label class="col-sm-2 control-label">Partner Code</label>
+		<div class="col-sm-3">
+			<input class="form-control" type="text" name='partner_code' value="{$data.partner_code|default:''}" />
+		</div>
+	</div>
+	<div class="form-group"><label class="col-sm-2 control-label">Partner Name</label>
+		<div class="col-sm-3">
+			<input class="form-control" type="text" name='partner_name' value="{$data.partner_name|default:''}" />
+		</div>
+	</div>
+	<div class="form-group"><label class="col-sm-2 control-label">Company</label>
+		<div class="col-sm-3">
+			<input class="form-control" type="text" name='company' value="{$data.company|default:''}" />
+		</div>
+	</div>
+	<div class="form-group"><label class="col-sm-2 control-label">Remarks</label>
+		<div class="col-sm-10">
+			<input class="form-control" type="text" name='remarks' value="{$data.remarks|default:''}" />
+		</div>
+	</div>
+	<div class="hr-line-dashed"></div>
+    <div class="form-group">
+        <div class="col-sm-4 col-sm-offset-2">
+            <a class="btn btn-primary" id='savePartner' >Save</a>
+            <a class="btn btn-danger" id='cancelPartner'>Cancel</a>
+        </div>
+    </div>	
+</form>
+
+<script>
+	$('#savePartner').on('click',function(){
+		submit_form('frmpartner_{$acak}',function(r){
+			if(r==1){
+				$.messager.alert('POIN', "Data Saved", 'info');
+				$('.info-empty').remove();
+			}else{
+				$.messager.alert('POIN', "Failed Saved", 'error');
+			}
+			closeWindow();
+			$('#grid_partner').datagrid('reload');
+		});
+		return false;
+	});
+	
+	$('#cancelPartner').on('click',function(){
+		closeWindow();
+		$('#grid_partner').datagrid('reload');
+		return false;
+	});
+
+</script>

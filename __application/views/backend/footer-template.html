@@ -1,0 +1,40 @@
+			<div class="footer">
+				<div>
+					Purchase Order Inventory Nokia v.2 &copy; 2016
+				</div>
+			</div>
+		</div>
+	</div>
+	
+    <!-- Mainly scripts -->
+    <script src="{$host}__assets/js/jquery-2.1.1.js"></script>
+    <script src="{$host}__assets/js/bootstrap.min.js"></script>
+    <script src="{$host}__assets/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="{$host}__assets/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+	<!-- Easy UI -->
+	<script src="{$host}__assets/plugin/easyui/jquery.easyui.min.js"></script>
+	<script src="{$host}__assets/plugin/easyui/edatagrid.js"></script>
+	<script src="{$host}__assets/plugin/easyui/cellediting.js"></script>
+
+    <!-- Custom and plugin javascript -->
+    <script src="{$host}__assets/js/inspinia.js"></script>
+    
+	
+    <!-- Toastr -->
+    <script src="{$host}__assets/js/plugins/toastr/toastr.min.js"></script>	
+	<script>
+        $(document).ready(function() {
+            setTimeout(function() {
+                toastr.options = {
+                    closeButton: true,
+                    progressBar: true,
+                    showMethod: 'slideDown',
+                    timeOut: 4000
+                };
+                toastr.success('Nokia', 'Welcome to POIN v.2');
+            }, 1300);
+		});
+	</script>
+</body>
+</html>

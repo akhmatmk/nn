@@ -1,0 +1,118 @@
+<form method="post" id='frmreceiveddollar_{$acak}' url='{$host}backend/simpandata/tbl_all_database' class="form-horizontal">
+	<input type='hidden' name='editstatus' value='{$editstatus}' /> 
+
+	<div class="form-group">
+		<div class="col-sm-3">
+			<input class="form-control" type="hidden" readonly="true" name='materials_quantity' value="{$data.materials_quantity|default:''}" />
+		</div>
+		<div class="col-sm-3">
+			<input class="form-control" type="hidden" readonly="true" name='actual_qty' value="{$data.actual_qty|default:''}" />
+		</div>
+		<div class="col-sm-3">
+			<input class="form-control" type="hidden" readonly="true" name='material_gross_price' value="{$data.material_gross_price|default:''}" />
+		</div>
+		<div class="col-sm-3">
+			<input class="form-control" type="hidden" readonly="true" name='material_nett_price' value="{$data.material_nett_price|default:''}" />
+		</div>
+		<div class="col-sm-3">
+			<input class="form-control" type="hidden" readonly="true" name='total_gross_price' value="{$data.total_gross_price|default:''}" />
+		</div>
+		<div class="col-sm-3">
+			<input class="form-control" type="hidden" readonly="true" name='total_nett_price' value="{$data.total_nett_price|default:''}" />
+		</div>
+		<div class="col-sm-3">
+			<input class="form-control" type="hidden" readonly="true" name='total_net_actual' value="{$data.total_net_actual|default:''}" />
+		</div>
+		<div class="col-sm-3">
+			<input class="form-control" type="hidden" readonly="true" name='total_net_delta' value="{$data.total_net_delta|default:''}" />
+		</div>
+	</div>
+
+	<div class="form-group"><label class="col-sm-2 control-label">ID</label>
+		<div class="col-sm-3">
+			<input class="form-control" type="text" readonly="true" name='id' value="{$data.id|default:''}" />
+		</div>
+	</div>
+	<div class="form-group"><label class="col-sm-2 control-label">Phase Name</label>
+		<div class="col-sm-3">
+			<input class="form-control" type="text" readonly="true" name='phase_name' value="{$data.phase_name|default:''}" />
+		</div>
+	</div>
+	<div class="form-group"><label class="col-sm-2 control-label">Project Name</label>
+		<div class="col-sm-3">
+			<input class="form-control" type="text" readonly="true" name='project_name' value="{$data.project_name|default:''}" />
+		</div>
+	</div>
+	<div class="form-group"><label class="col-sm-2 control-label">PO Type</label>
+		<div class="col-sm-10">
+			<input class="form-control" type="text" readonly="true" name='po_type' value="{$data.po_type|default:''}" />
+		</div>
+	</div>
+	<div class="form-group"><label class="col-sm-2 control-label">PO No</label>
+		<div class="col-sm-3">
+			<input class="form-control" type="text" readonly="true" name='po_no' value="{$data.po_no|default:''}" />
+		</div>
+	</div>
+	<div class="form-group"><label class="col-sm-2 control-label">Item Text</label>
+		<div class="col-sm-10">
+			<input class="form-control" type="text" readonly="true" name='item_text' value="{$data.item_text|default:''}" />
+		</div>
+	</div>
+	<div class="form-group"><label class="col-sm-2 control-label">Materials Quantity</label>
+		<div class="col-sm-10">
+			<input class="form-control" type="text" readonly="true" name='materials_quantity' value="{$data.materials_quantity|default:''}" />
+		</div>
+	</div>
+	<div class="form-group"><label class="col-sm-2 control-label">Actual Quatity</label>
+		<div class="col-sm-10">
+			<input class="form-control" type="text" readonly="true" name='actual_qty' value="{$data.actual_qty|default:''}" />
+		</div>
+	</div>
+	<div class="form-group"><label class="col-sm-2 control-label">Delta Quantity</label>
+		<div class="col-sm-10">
+			<input class="form-control" type="text" readonly="true" name='delta_qty' value="{$data.delta_qty|default:''}" />
+		</div>
+	</div>
+	<div class="form-group"><label class="col-sm-2 control-label">Status CR Quantity</label>
+		<div class="col-sm-10">
+			<input class="form-control" type="text" readonly="true" name='status_cr_qty' value="{$data.status_cr_qty|default:''}" />
+		</div>
+	</div>
+	<div class="form-group"><label class="col-sm-2 control-label">CR No Nokia</label>
+		<div class="col-sm-4">
+			<select class="form-control" name='tbl_master_cr_id'>
+				{$tbl_master_cr_id}
+			</select>
+		</div>
+	</div>
+	<div class="hr-line-dashed"></div>
+    <div class="form-group">
+        <div class="col-sm-4 col-sm-offset-2">
+            <a class="btn btn-primary" id='saveReceivedDollar' >Save</a>
+            <a class="btn btn-danger" id='cancelReceivedDollar'>Cancel</a>
+        </div>
+    </div>	
+</form>
+
+<script>
+	$('#saveReceivedDollar').on('click',function(){
+		submit_form('frmreceiveddollar_{$acak}',function(r){
+			if(r==1){
+				$.messager.alert('POIN', "Data Saved", 'info');
+				$('.info-empty').remove();
+			}else{
+				$.messager.alert('POIN', "Data Saved", 'info');
+			}
+			closeWindow();
+			$('#grid_receiveddollar').datagrid('reload');
+		});
+		return false;
+	});
+	
+	$('#cancelReceivedDollar').on('click',function(){
+		closeWindow();
+		$('#grid_receiveddollar').datagrid('reload');
+		return false;
+	});
+
+</script>

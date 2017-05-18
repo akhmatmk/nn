@@ -1,0 +1,372 @@
+<form method="post" id='frmtss_{$acak}' url='{$host}backend/simpandata/tbl_database_tss' class="form-horizontal">
+	<input type='hidden' name='editstatus' value='{$editstatus}' /> 
+	<input type='hidden' name='id' value="{$data.id|default:''}" /> 
+	<br/>
+	<div class="active form-group">
+		<div class="easyui-linkbutton" type="button" value="bar" id="showProposed1" data-options="iconCls:'icon-add',plain:true"  style="font-weight: bold" >A. Proposed Design (New Material TI) - Bracket and Adapter</div>
+	</div>
+	<div class="form-group"><label class="col-sm-2 control-label">TTA Mounting Type</label>			
+		<div class="col-sm-10">		
+			<select class="form-control-mobile" name='tbl_mastertss_ttabracket'>	
+				{$tbl_mastertss_ttabracket}
+			</select>	
+		</div>		
+	</div>			
+	<div class="form-group"><label class="col-sm-2 control-label">Quantity TTA Mounting</label>			
+		<div class="col-sm-10">		
+			<select class="form-control-mobile" name='tbl_mastertss_num5'>	
+				{$tbl_mastertss_num5}
+			</select>	
+		</div>		
+	</div>			
+	<div class="form-group"><label class="col-sm-2 control-label">Antenna Mounting Type</label>			
+		<div class="col-sm-10">		
+			<select class="form-control-mobile" name='tbl_mastertss_antbracket'>	
+				{$tbl_mastertss_antbracket}
+			</select>	
+		</div>		
+	</div>			
+	<div class="form-group"><label class="col-sm-2 control-label">Quantity Antenna Mounting</label>			
+		<div class="col-sm-10">		
+			<select class="form-control-mobile" name='tbl_mastertss_num6'>	
+				{$tbl_mastertss_num6}
+			</select>	
+		</div>		
+	</div>			
+	<div class="form-group"><label class="col-sm-2 control-label">Modification Required</label>			
+		<div class="col-sm-10">		
+			<select class="form-control-mobile" name='tbl_mastertss_modant'>	
+				{$tbl_mastertss_modant}
+			</select>	
+		</div>		
+	</div>			
+	<div class="form-group"><label class="col-sm-2 control-label">Leg Size on Proposed Tower Height</label>			
+		<div class="col-sm-10">		
+			<select class="form-control-mobile" name='tbl_mastertss_legsize3'>	
+				{$tbl_mastertss_legsize3}
+			</select>	
+		</div>		
+	</div>			
+	<div class="form-group"><label class="col-sm-2 control-label">PRP007</label>			
+		<div class="col-sm-10">		
+			<input class="form-control-mobile" type="text" name='prp007' value="{$data.prp007|default:''}" />	
+		</div>		
+	</div>			
+	<div class="form-group"><label class="col-sm-2 control-label">PRP008</label>			
+		<div class="col-sm-10">		
+			<input class="form-control-mobile" type="text" name='prp008' value="{$data.prp008|default:''}" />	
+		</div>		
+	</div>			
+	<div class="form-group"><label class="col-sm-2 control-label">PRP009</label>			
+		<div class="col-sm-10">		
+			<input class="form-control-mobile" type="text" name='prp009' value="{$data.prp009|default:''}" />	
+		</div>		
+	</div>			
+	<div class="form-group"><label class="col-sm-2 control-label">Remark for Bracket</label>			
+		<div class="col-sm-10">		
+			<input class="form-control-mobile" type="text" name='remark_for_bracket' value="{$data.remark_for_bracket|default:''}" />	
+		</div>		
+	</div>			
+	<div class="active form-group">
+		<div class="easyui-linkbutton" type="button" value="bar" id="showProposed2" data-options="iconCls:'icon-add',plain:true"  style="font-weight: bold" >B. Proposed Design (New Material TI) - Feeder, Jumper and Cabling +</div>
+	</div>
+	<div class="form-group"><label class="col-sm-2 control-label">RF Jumper Length, 900Mhz, Sector 1</label>			
+		<div class="col-sm-10">		
+			<select class="form-control-mobile" name='tbl_mastertss_rfmeter4'>	
+				{$tbl_mastertss_rfmeter4}
+			</select>	
+		</div>		
+	</div>			
+	<div class="form-group"><label class="col-sm-2 control-label">RF Jumper Length, 900Mhz, Sector 2</label>			
+		<div class="col-sm-10">		
+			<select class="form-control-mobile" name='tbl_mastertss_rfmeter5'>	
+				{$tbl_mastertss_rfmeter5}
+			</select>	
+		</div>		
+	</div>			
+	<div class="form-group"><label class="col-sm-2 control-label">RF Jumper Length, 900Mhz, Sector 3</label>			
+		<div class="col-sm-10">		
+			<select class="form-control-mobile" name='tbl_mastertss_rfmeter6'>	
+				{$tbl_mastertss_rfmeter6}
+			</select>	
+		</div>		
+	</div>			
+	<div class="form-group"><label class="col-sm-2 control-label">RF Jumper Length, 1800Mhz, Sector 1</label>			
+		<div class="col-sm-10">		
+			<select class="form-control-mobile" name='tbl_mastertss_rfmeter7'>	
+				{$tbl_mastertss_rfmeter7}
+			</select>	
+		</div>		
+	</div>			
+	<div class="form-group"><label class="col-sm-2 control-label">RF Jumper Length, 1800Mhz, Sector 2</label>			
+		<div class="col-sm-10">		
+			<select class="form-control-mobile" name='tbl_mastertss_rfmeter8'>	
+				{$tbl_mastertss_rfmeter8}
+			</select>	
+		</div>		
+	</div>			
+	<div class="form-group"><label class="col-sm-2 control-label">RF Jumper Length, 1800Mhz, Sector 3</label>			
+		<div class="col-sm-10">		
+			<select class="form-control-mobile" name='tbl_mastertss_rfmeter9'>	
+				{$tbl_mastertss_rfmeter9}
+			</select>	
+		</div>		
+	</div>			
+	<div class="form-group"><label class="col-sm-2 control-label">RF Jumper Length, 2100Mhz, Sector 1</label>			
+		<div class="col-sm-10">		
+			<select class="form-control-mobile" name='tbl_mastertss_rfmeter10'>	
+				{$tbl_mastertss_rfmeter10}
+			</select>	
+		</div>		
+	</div>			
+	<div class="form-group"><label class="col-sm-2 control-label">RF Jumper Length, 2100Mhz, Sector 2</label>			
+		<div class="col-sm-10">		
+			<select class="form-control-mobile" name='tbl_mastertss_rfmeter11'>	
+				{$tbl_mastertss_rfmeter11}
+			</select>	
+		</div>		
+	</div>			
+	<div class="form-group"><label class="col-sm-2 control-label">RF Jumper Length, 2100Mhz, Sector 3</label>			
+		<div class="col-sm-10">		
+			<select class="form-control-mobile" name='tbl_mastertss_rfmeter12'>	
+				{$tbl_mastertss_rfmeter12}
+			</select>	
+		</div>		
+	</div>			
+	<div class="form-group"><label class="col-sm-2 control-label">Feeder Type Band 900MHz</label>			
+		<div class="col-sm-10">		
+			<select class="form-control-mobile" name='tbl_mastertss_feedtype4'>	
+				{$tbl_mastertss_feedtype4}
+			</select>	
+		</div>		
+	</div>			
+	<div class="form-group"><label class="col-sm-2 control-label">Feeder Type Band 1800MHz</label>			
+		<div class="col-sm-10">		
+			<select class="form-control-mobile" name='tbl_mastertss_feedtype5'>	
+				{$tbl_mastertss_feedtype5}
+			</select>	
+		</div>		
+	</div>			
+	<div class="form-group"><label class="col-sm-2 control-label">Feeder Type Band 2100MHz</label>			
+		<div class="col-sm-10">		
+			<select class="form-control-mobile" name='tbl_mastertss_feedtype6'>	
+				{$tbl_mastertss_feedtype6}
+			</select>	
+		</div>		
+	</div>			
+	<div class="form-group"><label class="col-sm-2 control-label">Feeder Length Band 900MHz</label>			
+		<div class="col-sm-10">		
+			<select class="form-control-mobile" name='tbl_mastertss_feedlength4'>	
+				{$tbl_mastertss_feedlength4}
+			</select>	
+		</div>		
+	</div>			
+	<div class="form-group"><label class="col-sm-2 control-label">Feeder Length Band 1800MHz</label>			
+		<div class="col-sm-10">		
+			<select class="form-control-mobile" name='tbl_mastertss_feedlength5'>	
+				{$tbl_mastertss_feedlength5}
+			</select>	
+		</div>		
+	</div>			
+	<div class="form-group"><label class="col-sm-2 control-label">Feeder Length Band 2100MHz</label>			
+		<div class="col-sm-10">		
+			<select class="form-control-mobile" name='tbl_mastertss_feedlength6'>	
+				{$tbl_mastertss_feedlength6}
+			</select>	
+		</div>		
+	</div>			
+	<div class="form-group"><label class="col-sm-2 control-label">Rekap Feeder Type</label>			
+		<div class="col-sm-10">		
+			<input class="form-control-mobile" type="text" name='rekap_feeder_type_3' value="{$data.rekap_feeder_type_3|default:''}" />	
+		</div>		
+	</div>			
+	<div class="form-group"><label class="col-sm-2 control-label">Rekap Feeder Length</label>			
+		<div class="col-sm-10">		
+			<input class="form-control-mobile" type="text" name='rekap_feeder_length' value="{$data.rekap_feeder_length|default:''}" />	
+		</div>		
+	</div>			
+	<div class="form-group"><label class="col-sm-2 control-label">DC Cable Length for 2G SM (meters)</label>			
+		<div class="col-sm-10">		
+			<input class="form-control-mobile" type="text" name='dc_cable_length_for_2g_sm_meters' value="{$data.dc_cable_length_for_2g_sm_meters|default:''}" />	
+		</div>		
+	</div>			
+	<div class="form-group"><label class="col-sm-2 control-label">DC Cable Length for 3G SM (meters)</label>			
+		<div class="col-sm-10">		
+			<input class="form-control-mobile" type="text" name='dc_cable_length_for_3g_sm_meters' value="{$data.dc_cable_length_for_3g_sm_meters|default:''}" />	
+		</div>		
+	</div>			
+	<div class="form-group"><label class="col-sm-2 control-label">DC Cable Length for 4G SM (meters)</label>			
+		<div class="col-sm-10">		
+			<input class="form-control-mobile" type="text" name='dc_cable_length_for_4g_sm_meters' value="{$data.dc_cable_length_for_4g_sm_meters|default:''}" />	
+		</div>		
+	</div>			
+	<div class="form-group"><label class="col-sm-2 control-label">TOTAL DC Cable Length (meters)</label>			
+		<div class="col-sm-10">		
+			<input class="form-control-mobile" type="text" name='total_dc_cable_length_meters' value="{$data.total_dc_cable_length_meters|default:''}" />	
+		</div>		
+	</div>			
+	<div class="form-group"><label class="col-sm-2 control-label">Grounding Cable Length for 2G SM (meters)</label>			
+		<div class="col-sm-10">		
+			<input class="form-control-mobile" type="text" name='grounding_cable_length_for_2g_sm_meters' value="{$data.grounding_cable_length_for_2g_sm_meters|default:''}" />	
+		</div>		
+	</div>			
+	<div class="form-group"><label class="col-sm-2 control-label">Grounding Cable Length for 3G SM (meters)</label>			
+		<div class="col-sm-10">		
+			<input class="form-control-mobile" type="text" name='grounding_cable_length_for_3g_sm_meters' value="{$data.grounding_cable_length_for_3g_sm_meters|default:''}" />	
+		</div>		
+	</div>			
+	<div class="form-group"><label class="col-sm-2 control-label">Grounding Cable Length for 4G SM (meters)</label>			
+		<div class="col-sm-10">		
+			<input class="form-control-mobile" type="text" name='grounding_cable_length_for_4g_sm_meters' value="{$data.grounding_cable_length_for_4g_sm_meters|default:''}" />	
+		</div>		
+	</div>			
+	<div class="form-group"><label class="col-sm-2 control-label">TOTAL Grounding Cable Length (meters)</label>			
+		<div class="col-sm-10">		
+			<input class="form-control-mobile" type="text" name='total_grounding_cable_length_meters' value="{$data.total_grounding_cable_length_meters|default:''}" />	
+		</div>		
+	</div>			
+	<div class="form-group"><label class="col-sm-2 control-label">PRP036</label>			
+		<div class="col-sm-10">		
+			<input class="form-control-mobile" type="text" name='prp036' value="{$data.prp036|default:''}" />	
+		</div>		
+	</div>			
+	<div class="form-group"><label class="col-sm-2 control-label">PRP037</label>			
+		<div class="col-sm-10">		
+			<input class="form-control-mobile" type="text" name='prp037' value="{$data.prp037|default:''}" />	
+		</div>		
+	</div>			
+	<div class="form-group"><label class="col-sm-2 control-label">PRP038</label>			
+		<div class="col-sm-10">		
+			<input class="form-control-mobile" type="text" name='prp038' value="{$data.prp038|default:''}" />	
+		</div>		
+	</div>			
+	<div class="form-group"><label class="col-sm-2 control-label">PRP039</label>			
+		<div class="col-sm-10">		
+			<input class="form-control-mobile" type="text" name='prp039' value="{$data.prp039|default:''}" />	
+		</div>		
+	</div>			
+	<div class="form-group"><label class="col-sm-2 control-label">Remark Feeder, Jumper, Cabling</label>			
+		<div class="col-sm-10">		
+			<input class="form-control-mobile" type="text" name='remark_feeder_jumper_cabling' value="{$data.remark_feeder_jumper_cabling|default:''}" />	
+		</div>		
+	</div>			
+	<div class="active form-group">
+		<div class="easyui-linkbutton" type="button" value="bar" id="showProposed3" data-options="iconCls:'icon-add',plain:true"  style="font-weight: bold" >C. TI Proposed Design (New Material TI) - OTHER +</div>
+	</div>
+	<div class="form-group"><label class="col-sm-2 control-label">New Plinth Required</label>			
+		<div class="col-sm-10">		
+			<select class="form-control-mobile" name='tbl_mastertss_plinth'>	
+				{$tbl_mastertss_plinth}
+			</select>	
+		</div>		
+	</div>		
+	<div class="form-group"><label class="col-sm-2 control-label">PRP042</label>			
+		<div class="col-sm-10">		
+			<input class="form-control-mobile" type="text" name='prp042' value="{$data.prp042|default:''}" />	
+		</div>		
+	</div>			
+	<div class="form-group"><label class="col-sm-2 control-label">PRP043</label>			
+		<div class="col-sm-10">		
+			<input class="form-control-mobile" type="text" name='prp043' value="{$data.prp043|default:''}" />	
+		</div>		
+	</div>			
+	<div class="form-group"><label class="col-sm-2 control-label">PRP044</label>			
+		<div class="col-sm-10">		
+			<input class="form-control-mobile" type="text" name='prp044' value="{$data.prp044|default:''}" />	
+		</div>		
+	</div>			
+	<div class="form-group"><label class="col-sm-2 control-label">PRP045</label>			
+		<div class="col-sm-10">		
+			<input class="form-control-mobile" type="text" name='prp045' value="{$data.prp045|default:''}" />	
+		</div>		
+	</div>			
+	<div class="form-group"><label class="col-sm-2 control-label">PRP046</label>			
+		<div class="col-sm-10">		
+			<input class="form-control-mobile" type="text" name='prp046' value="{$data.prp046|default:''}" />	
+		</div>		
+	</div>			
+	<div class="form-group"><label class="col-sm-2 control-label">PRP047</label>			
+		<div class="col-sm-10">		
+			<input class="form-control-mobile" type="text" name='prp047' value="{$data.prp047|default:''}" />	
+		</div>		
+	</div>			
+	<div class="form-group"><label class="col-sm-2 control-label">PRP048</label>			
+		<div class="col-sm-10">		
+			<input class="form-control-mobile" type="text" name='prp048' value="{$data.prp048|default:''}" />	
+		</div>		
+	</div>			
+	<div class="form-group"><label class="col-sm-2 control-label">PRP049</label>			
+		<div class="col-sm-10">		
+			<input class="form-control-mobile" type="text" name='prp049' value="{$data.prp049|default:''}" />	
+		</div>		
+	</div>			
+	<div class="form-group"><label class="col-sm-2 control-label">Remark Other</label>			
+		<div class="col-sm-10">		
+			<input class="form-control-mobile" type="text" name='remark_other' value="{$data.remark_other|default:''}" />	
+		</div>		
+	</div>			
+	<div class="hr-line-dashed"></div>
+    <div class="form-group">
+        <div class="col-sm-10 col-sm-offset-2">
+            <a class="btn btn-primary" id='saveTSS' >Save</a>
+            <a class="btn btn-danger" id='cancelTSS'>Cancel</a>
+        </div>
+    </div>	
+</form>
+
+<script>
+	var submodul = "{$submodul|default:''}";
+	var param = {};
+
+	$('#saveTSS').on('click',function(){
+		submit_form('frmtss_{$acak}',function(r){
+			if(r==1){
+				$.messager.alert('POIN', "Data Saved", 'info');
+				$('.info-empty').remove();
+			}else{
+				$.messager.alert('POIN', "Failed Saved", 'error');
+			}
+			closeWindow();
+			$('#grid_tss_database_3').datagrid('reload');
+		});
+		return false;
+	});
+	
+	$('#cancelTSS').on('click',function(){
+		closeWindow();
+		$('#grid_tss_database_3').datagrid('reload');
+		return false;
+	});
+
+	$('#dateboxpodate').datebox({
+    	required:false
+    });
+
+    $('#dateboxporeceived').datebox({
+    required:false
+    });
+
+    $('#datbeboxpodelivery').datebox({
+    required:false
+    });
+
+    $.fn.datebox.defaults.formatter = function(date){
+		var y = date.getFullYear();
+		var m = date.getMonth()+1;
+		var d = date.getDate();
+		return y+'-'+(m<10?('0'+m):m)+'-'+(d<10?('0'+d):d);
+	};
+	$.fn.datebox.defaults.parser = function(s){
+		if (!s) return new Date();
+		var ss = s.split('-');
+		var y = parseInt(ss[0],10);
+		var m = parseInt(ss[1],10);
+		var d = parseInt(ss[2],10);
+		if (!isNaN(y) && !isNaN(m) && !isNaN(d)){
+			return new Date(y,m-1,d);
+		} else {
+			return new Date();
+		}
+	};
+
+</script>

@@ -1,0 +1,1705 @@
+<div class="row wrapper border-bottom blueaye-bg page-heading">
+	<div class="col-lg-10" style='margin-left:20px;'>
+		<h3><b>Master Data</b></h3>
+		<ol class="breadcrumb" style='margin-bottom:10px !important;'>
+            <li>
+                Master TSS
+            </li>
+            <li class="active">
+                <strong>Master Data</strong>
+            </li>
+        </ol>		
+	</div>
+</div>
+<div class="wrapper wrapper-content">
+	<div class="row">
+		<div class="col-lg-12" style='padding-right:0px !important;'>
+			
+			<div class="ibox">
+				<div class="ibox-content" style='padding-bottom:5px !important;'>
+					
+					<form method="post" id='frmtss_{$acak}' url='{$host}backend/simpandata/tbl_database_tss' class="form-horizontal">
+						<input type='hidden' name='editstatus' value="{$editstatus}" /> 
+						<input type='hidden' name='id' value="{$data.id|default:''}" /> 
+					
+					{* <div class="form-group"><label class="col-sm-2 control-label">Project / Phase Name</label>
+						<div class="col-sm-4">
+							<select class="form-control-mobile" id='{$submodul}_phasename' data-options="required:true">
+								{$tbl_master_phase_tss}
+							</select>
+						</div>
+						</div>
+					<div class="form-group"><label class="col-sm-2 control-label">Site ID</label>
+						<div class="col-sm-4">
+							<select class="form-control-mobile" id='{$submodul}_boqno' data-options="required:true">		
+							</select>
+						</div>
+					</div> *}
+					<div class="form-group"><label class="col-sm-2 control-label">ID</label>
+						<div class="col-sm-10">
+							<input type='text' id='{$submodul}_siteid' />
+							</div>
+						<a href="javascript:void(0)" class="l-btn l-btn-small l-btn-plain" group="" id="search_{$submodul}" onClick="">
+									<span class="l-btn-left l-btn-icon-left">
+										<span class="l-btn-text">Filter Data</span><span class="l-btn-icon icon-search">&nbsp;</span>
+									</span>	
+								</a>
+					</div>
+					<div class="form-group">
+							<div class="col-sm-4 col-sm-offset-2">
+						        <a class="btn btn-primary" id='loadTSS'>LOAD</a>
+						    </div>
+						</div>
+					<div class="active form-group">
+               			<div class="easyui-linkbutton" type="button" value="bar" id="showSurvey" data-options="iconCls:'icon-add',plain:true"  style="font-weight: bold" >1. Survey Information +</div>
+            		</div>
+            		<div id='survey' style="display:none">
+            			<div class="form-group"><label class="col-sm-2 control-label">TSS ID</label>			
+								<div class="col-sm-4">		
+									<input class="form-control-mobile" readonly="true" type="text" name='tss_id' id="tss_id" value="{$data.tss_id|default:''}" />	
+								</div>		
+							</div>			
+							<div class="form-group"><label class="col-sm-2 control-label">Company Name</label>
+								<div class="col-sm-10">
+									<input class="form-control-mobile"  readonly="true" type="text" name='company_name' id="company_name" value="{$data.company_name|default:''}" />
+								</div>
+							</div>
+						    <div class="form-group"><label class="col-sm-2 control-label">Surveyor Name</label>
+								<div class="col-sm-10">
+									<input class="form-control-mobile" type="text" name='surveyor_name' value="{$data.surveyor_name|default:''}" />
+								</div>
+							</div>
+							<div class="form-group"><label class="col-sm-2 control-label">Surveyor Mobile Phone</label>
+								<div class="col-sm-10">
+									<input class="form-control-mobile" type="text" name='surveyor_mobile_phone' value="{$data.surveyor_mobile_phone|default:''}" />
+								</div>
+							</div>	
+						<div class="form-group">
+							<div class="col-sm-4 col-sm-offset-2">
+						        <a class="btn btn-primary" id='saveTSS'>Save Survey Information</a>
+						    </div>
+						</div>
+					</div>
+					
+					<div class="active form-group">
+	               		<div class="easyui-linkbutton" type="button" value="bar" id="showSite" data-options="iconCls:'icon-add',plain:true"  style="font-weight: bold" >2. Site Information +</div>
+	            	</div>
+	            	<div id='site' style="display:none">
+						<div class="form-group"><label class="col-sm-2 control-label">Project / Phase Name</label>
+							<div class="col-sm-10">
+								<input class="form-control-mobile" readonly="true" type="text" name='project_name' value="{$data.project_name|default:''}" />
+							</div>
+						</div>
+						<div class="form-group"><label class="col-sm-2 control-label">Site ID</label>
+							<div class="col-sm-10">
+								<input class="form-control-mobile" readonly="true" type="text" name='site_id' value="{$data.site_id|default:''}" />
+							</div>
+						</div>
+						<div class="form-group"><label class="col-sm-2 control-label">Site Name</label>
+							<div class="col-sm-10">
+								<input class="form-control-mobile" readonly="true" type="text" name='site_name' value="{$data.site_name|default:''}" />
+							</div>
+						</div>
+						<div class="form-group"><label class="col-sm-2 control-label">Region</label>
+							<div class="col-sm-10">
+								<input class="form-control-mobile" readonly="true" type="text" name='region' value="{$data.region|default:''}" />
+							</div>
+						</div>
+						<div class="form-group"><label class="col-sm-2 control-label">Survey Date</label>
+							<div class="col-sm-4">
+								<input class="form-control-mobile" type="text" name='survey_date' id="dateboxsurveydate" value="{$data.survey_date|default:''}" />
+							</div>
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">Lattitude</label>			
+							<div class="col-sm-4">		
+								<input class="form-control-mobile" type="text" name='lattitude' value="{$data.lattitude|default:''}" />	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">Longitude</label>			
+							<div class="col-sm-4">		
+								<input class="form-control-mobile" type="text" name='longitude' value="{$data.longitude|default:''}" />	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">Site Owner</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_siteowner'>	
+									{$tbl_mastertss_siteowner}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">Site Type</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_sitetype'>	
+									{$tbl_mastertss_sitetype}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">BTS Type 2G GSM</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_btstype'>	
+									{$tbl_mastertss_btstype}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">BTS Type 2G DCS</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_btstype'>	
+									{$tbl_mastertss_btstype}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">BTS Type 3G</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_btstype'>	
+									{$tbl_mastertss_btstype}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">BTS Type 4G</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_btstype'>	
+									{$tbl_mastertss_btstype}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">Shelter Type</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_shelter'>	
+									{$tbl_mastertss_shelter}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">Existing BTS Location</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$existing_bts_location}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">Air Cooling Condition</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_accon'>	
+									{$tbl_mastertss_accon}
+								</select>	
+							</div>		
+						</div>	
+					    <div class="form-group">
+					        <div class="col-sm-4 col-sm-offset-2">
+					            <a class="btn btn-primary" id='saveTSS'>Save Site Information</a>
+					        </div>
+					    </div>
+					</div>
+					<div class="active form-group">
+	               		<div class="easyui-linkbutton" type="button" value="bar" id="showTower" data-options="iconCls:'icon-add',plain:true"  style="font-weight: bold" >3. Tower Information +</div>
+	            	</div>
+	            	<div id='tower' style="display:none">
+	            		<div class="form-group"><label class="col-sm-2 control-label">Tower Type</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_mastertss_towertype'>	
+									{$tbl_mastertss_towertype}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">Tower Height (meter)</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_mastertss_towerheight'>	
+									{$tbl_mastertss_towerheight}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">Straight Leg Length</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$straight_leg_length}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">Leg Type</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_mastertss_legtype'>	
+									{$tbl_mastertss_legtype}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">Leg Size (Top)</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_mastertss_legsize'>	
+									{$tbl_mastertss_legsize}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">Leg Size (Bottom)</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_mastertss_legsize'>	
+									{$tbl_mastertss_legsize}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">Leg to Leg Length (Top)</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_mastertss_legtoleg'>	
+									{$tbl_mastertss_legtoleg}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">Leg to Leg Length (Bottom)</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_mastertss_legtoleg'>	
+									{$tbl_mastertss_legtoleg}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">Tower Condition</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_mastertss_towercon'>	
+									{$tbl_mastertss_towercon}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">SUM035</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$sum035}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">SUM036</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$sum036}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">SUM037</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$sum037}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">SUM038</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$sum038}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">SUM039</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$sum039}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">SUM040</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$sum040}
+								</select>	
+							</div>		
+						</div>	
+						<div class="form-group">
+							<div class="col-sm-4 col-sm-offset-2">
+						        <a class="btn btn-primary" id='saveTower'>Save Tower Information</a>
+						    </div>
+						</div>		
+	            	</div>
+	            	<div class="active form-group">
+	               		<div class="easyui-linkbutton" type="button" value="bar" id="showFeeder" data-options="iconCls:'icon-add',plain:true"  style="font-weight: bold" >4. Existing Feeder Line, Antenna, Acc +</div>
+	            	</div>
+	            	<div id='feeder' style="display:none">
+	            		<div class="form-group"><label class="col-sm-2 control-label">Feeder Type Band 900MHz</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_mastertss_feedtype'>	
+									{$tbl_mastertss_feedtype}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">Feeder Type Band 1800MHz</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_mastertss_feedtype'>	
+									{$tbl_mastertss_feedtype}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">Feeder Type Band 2100MHz</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_mastertss_feedtype'>	
+									{$tbl_mastertss_feedtype}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">Feeder Length Band 900MHz</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_mastertss_feedlength'>	
+									{$tbl_mastertss_feedlength}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">Feeder Length Band 1800MHz</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_mastertss_feedlength'>	
+									{$tbl_mastertss_feedlength}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">Feeder Length Band 2100MHz</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_mastertss_feedlength'>	
+									{$tbl_mastertss_feedlength}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">Rekap Feeder Type</label>
+							<div class="col-sm-10">
+								<input class="form-control-mobile"  readonly="true" type="text" name='rekap_feeder_type' value="{$data.rekap_feeder_type|default:''}" />
+							</div>
+						</div>		
+						<div class="form-group"><label class="col-sm-2 control-label">Rekap Feeder Type</label>
+							<div class="col-sm-10">
+								<input class="form-control-mobile"  readonly="true" type="text" name='rekap_feeder_type_2' value="{$data.rekap_feeder_type_2|default:''}" />
+							</div>
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">RF Jumper Length sector1 (meter)</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_mastertss_rfmeter'>	
+									{$tbl_mastertss_rfmeter}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">RF Jumper Length sector2 (meter)</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_mastertss_rfmeter'>	
+									{$tbl_mastertss_rfmeter}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">RF Jumper Length sector3 (meter)</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_mastertss_rfmeter'>	
+									{$tbl_mastertss_rfmeter}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">All system has same Antenna Type</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_mastertss_ant'>	
+									{$tbl_mastertss_ant}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">Antenna Type </label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_mastertss_ant'>	
+									{$tbl_mastertss_ant}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">Antenna Brand</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_mastertss_brand'>	
+									{$tbl_mastertss_brand}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">Antenna Band Range</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$antenna_band_range}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">Antenna Height (meter)</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$antenna_height}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">Filter G900 Brand</label>			
+							<div class="col-sm-4">		
+								<input class="form-control-mobile" type="text" name='filter_g900_brand' value="{$data.filter_g900_brand|default:''}" />	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">Filter G900 Type</label>			
+							<div class="col-sm-4">		
+								<input class="form-control-mobile" type="text" name='filter_g900_type' value="{$data.filter_g900_type|default:''}" />	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">Filter U2100 Brand</label>			
+							<div class="col-sm-4">		
+								<input class="form-control-mobile" type="text" name='filter_u2100_brand' value="{$data.filter_u2100_brand|default:''}" />	
+							</div>		
+						</div>				
+						<div class="form-group"><label class="col-sm-2 control-label">Filter U2100 Type</label>			
+							<div class="col-sm-4">		
+								<input class="form-control-mobile" type="text" name='filter_u2100_type' value="{$data.filter_u2100_type|default:''}" />	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">Remark Feeder and Antenna</label>			
+							<div class="col-sm-4">		
+								<input class="form-control-mobile" type="text" name='remark_feeder_and_antena' value="{$data.remark_feeder_and_antena|default:''}" />	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">SUM062</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$sum062}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">SUM063</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$sum063}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">SUM064</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$sum064}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">SUM065</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$sum065}
+								</select>	
+							</div>		
+						</div>	
+						<div class="form-group">
+							<div class="col-sm-4 col-sm-offset-2">
+						        <a class="btn btn-primary" id='saveFeeder'>SAVE Feeder Line & Antenna & Acc</a>
+						    </div>
+						</div>		
+	            	</div>
+	            	<div class="active form-group">
+	               		<div class="easyui-linkbutton" type="button" value="bar" id="showDAS" data-options="iconCls:'icon-add',plain:true"  style="font-weight: bold" >5. DAS Information +</div>
+	            	</div>
+	            	<div id='das' style="display:none">
+	            		<div class="form-group"><label class="col-sm-2 control-label">Remark for MCM</label>			
+							<div class="col-sm-4">		
+								<input class="form-control-mobile" type="text" name='remark_for_mcm' value="{$data.remark_for_mcm|default:''}" />	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">Remark for Fiber Connection</label>			
+							<div class="col-sm-4">		
+								<input class="form-control-mobile" type="text" name='remark_for_fiber_connection' value="{$data.remark_for_fiber_connection|default:''}" />	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">Remark for RF Jumper and Connector</label>			
+							<div class="col-sm-4">		
+								<input class="form-control-mobile" type="text" name='remark_for_rf_jumper_and_connector' value="{$data.remark_for_rf_jumper_and_connector|default:''}" />	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">Remark for Power Cable and Source</label>			
+							<div class="col-sm-4">		
+								<input class="form-control-mobile" type="text" name='remark_for_power_cable_and_source' value="{$data.remark_for_power_cable_and_source|default:''}" />	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">Other Remark</label>			
+							<div class="col-sm-4">		
+								<input class="form-control-mobile" type="text" name='other_remark' value="{$data.other_remark|default:''}" />	
+							</div>		
+						</div>
+						<div class="form-group">
+							<div class="col-sm-4 col-sm-offset-2">
+						        <a class="btn btn-primary" id='saveDAS'>SAVE DAS INFORMATION</a>
+						    </div>
+						</div>			
+	            	</div>
+	            	<div class="active form-group">
+	               		<div class="easyui-linkbutton" type="button" value="bar" id="showSystem" data-options="iconCls:'icon-add',plain:true"  style="font-weight: bold" >6. System and RF Module Position +</div>
+	            	</div>
+	            	<div id='system' style="display:none">
+	            		<div class="form-group"><label class="col-sm-2 control-label">RF Module Position</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$rf_module_position}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">Space for RFM Installation</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$space_for_rfm_installation}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">System Module Position</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$system_module_position}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">Space for SM Installation Out Cabinet</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$space_for_sm_installation_out_cabinet}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">Blank Space on Rack</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$blank_space_on_rack}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">Space for Antenna Instalation</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$space_for_antenna_instalation}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">Existing Plinth for SM Available</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$existing_plinth_for_sm_available}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">Remark for SM & RF Position</label>			
+							<div class="col-sm-4">		
+								<input class="form-control-mobile" type="text" name='remark_for_sm_rf_posotion' value="{$data.remark_for_sm_rf_posotion|default:''}" />	
+							</div>		
+						</div>		
+						<div class="form-group"><label class="col-sm-2 control-label">SUM079</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$sum079}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">SUM080</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$sum080}
+								</select>	
+							</div>		
+						</div>
+						<div class="form-group">
+							<div class="col-sm-4 col-sm-offset-2">
+						        <a class="btn btn-primary" id='saveSystem'>SAVE System and RF Module Position</a>
+						    </div>
+						</div>			
+	            	</div>
+	            	<div class="active form-group">
+	               		<div class="easyui-linkbutton" type="button" value="bar" id="showIssues" data-options="iconCls:'icon-add',plain:true"  style="font-weight: bold" >7. Site Issues +</div>
+	            	</div>
+	            	<div id='issues' style="display:none">
+	            		<div class="form-group"><label class="col-sm-2 control-label">Site Issue - Community</label>			
+							<div class="col-sm-4">		
+								<input class="form-control-mobile" type="text" name='site_issue_community' value="{$data.site_issue_community|default:''}" />	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">Site issue - TLP/Landlord</label>			
+							<div class="col-sm-4">		
+								<input class="form-control-mobile" type="text" name='site_issue_tlp/landlord' value="{$data.site_issue_tlp|default:''}" />	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">Site Issue - Implementation</label>			
+							<div class="col-sm-4">		
+								<input class="form-control-mobile" type="text" name='site_issue_implementation' value="{$data.site_issue_implementation|default:''}" />	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">Site Issue - Other</label>			
+							<div class="col-sm-4">		
+								<input class="form-control-mobile" type="text" name='site_issue_other' value="{$data.site_issue_other|default:''}" />	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">Remarks</label>			
+							<div class="col-sm-4">		
+								<input class="form-control-mobile" type="text" name='remarks' value="{$data.remarks|default:''}" />	
+							</div>		
+						</div>	
+						<div class="form-group">
+							<div class="col-sm-4 col-sm-offset-2">
+						        <a class="btn btn-primary" id='saveIssues'>SAVE Site Issues</a>
+						    </div>
+						</div>			
+	            	</div>
+	            	<div class="active form-group">
+	               		<div class="easyui-linkbutton" type="button" value="bar" id="showAC" data-options="iconCls:'icon-add',plain:true"  style="font-weight: bold" >8. Power AC +</div>
+	            	</div>
+	            	<div id='ac' style="display:none">
+	            		<div class="form-group"><label class="col-sm-2 control-label">AC Power Capacity (PLN)</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$ac_power_capacity_pln}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">Usage Capacity</label>			
+							<div class="col-sm-4">		
+								<input class="form-control-mobile" type="text" name='usage_capacity' value="{$data.usage_capacity|default:''}" />	
+							</div>		
+						</div>		
+						<div class="form-group"><label class="col-sm-2 control-label">Remaining Capacity</label>			
+							<div class="col-sm-4">		
+								<input class="form-control-mobile" type="text" name='remaining_capacity' value="{$data.remaining_capacity|default:''}" />	
+							</div>		
+						</div>				
+						<div class="form-group"><label class="col-sm-2 control-label">PLN Upgrade Status</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$pln_upgrade_status}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">Remarks Power AC</label>			
+							<div class="col-sm-4">		
+								<input class="form-control-mobile" type="text" name='remarks_power_ac' value="{$data.remarks_power_ac|default:''}" />	
+							</div>		
+						</div>		
+						<div class="form-group"><label class="col-sm-2 control-label">Existing Genset</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$existing_genset}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">Genset Brand</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$genset_brand}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">Genset Capacity</label>			
+							<div class="col-sm-4">		
+								<input class="form-control-mobile" type="text" name='genset_capacity' value="{$data.genset_capacity|default:''}" />	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">Existing ATS</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$existing_ats}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">SUM095</label>			
+							<div class="col-sm-4">		
+								<input class="form-control-mobile" type="text" name='sum095' value="{$data.sum095|default:''}" />	
+							</div>		
+						</div>
+						<div class="form-group">
+							<div class="col-sm-4 col-sm-offset-2">
+						        <a class="btn btn-primary" id='saveIssues'>SAVE POWER AC</a>
+						    </div>
+						</div>				
+	            	</div>
+	            	<div class="active form-group">
+	               		<div class="easyui-linkbutton" type="button" value="bar" id="showDC" data-options="iconCls:'icon-add',plain:true"  style="font-weight: bold" >9. Power DC +</div>
+	            	</div>
+	            	<div id='dc' style="display:none">
+	            		<div class="form-group"><label class="col-sm-2 control-label">Number of Rectifier</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$number_of_rectifier}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">Rectifier Brand (for PS BTS)</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$rectifier_brand_for_ps_bts}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">Number of Cabinet</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$number_of_cabinet}
+								</select>	
+							</div>		
+						</div>
+						<div class="form-group"><label class="col-sm-2 control-label">Rectifier Type</label>			
+							<div class="col-sm-4">		
+								<input class="form-control-mobile" type="text" name='rectifier_type' value="{$data.rectifier_type|default:''}" />	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">Modul Type</label>			
+							<div class="col-sm-4">		
+								<input class="form-control-mobile" type="text" name='modul_type' value="{$data.modul_type|default:''}" />	
+							</div>		
+						</div>				
+						<div class="form-group"><label class="col-sm-2 control-label">Modul Type</label>			
+							<div class="col-sm-4">		
+								<input class="form-control-mobile" type="text" name='modul_type' value="{$data.modul_type|default:''}" />	
+							</div>		
+						</div>		
+						<div class="form-group"><label class="col-sm-2 control-label">Number of Module</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$number_of_module}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">Maximum Number of Module</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$maximum_number_of_module}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">Number of Broken/Fault/Unused Module</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$number_of_broken/fault/unused_module}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">Usage Capacity</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$usage_capacity_2}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">Battery Brand</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$battery_brand}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">Battery Type</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$battery_type}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">Battery Bank Capacity</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$battery_bank_capacity}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">Number of Battery Bank (String)</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$number_of_battery_bank_string}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">Remaining Rectifier Capacity</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$remaining_rectifier_capacity}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">Space for New Rectifier Rack</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$space_for_new_rectifier_rack}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">Rectifier Upgrade </label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$rectifier_upgrade_}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">Remark for Power DC</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$remark_for_power_dc}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">DC Output (Display)</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$dc_output_display}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">Current Output (Display)</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$current_output_display}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">SUM116</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$sum116}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">SUM117</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$sum117}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">SUM118</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$sum118}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">SUM119</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$sum119}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">SUM120</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$sum120}
+								</select>	
+							</div>		
+						</div>			
+	            	</div>
+	            	<div class="active form-group">
+	               		<div class="easyui-linkbutton" type="button" value="bar" id="showOther" data-options="iconCls:'icon-add',plain:true"  style="font-weight: bold" >10. OTHER INFORMATION +</div>
+	            	</div>
+	            	<div id='other' style="display:none">
+	            		<div class="form-group"><label class="col-sm-2 control-label">SUM121</label>			
+							<div class="col-sm-4">		
+								<input class="form-control-mobile" type="text" name='sum121' value="{$data.sum121|default:''}" />	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">SUM122</label>			
+							<div class="col-sm-4">		
+								<input class="form-control-mobile" type="text" name='sum122' value="{$data.sum122|default:''}" />	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">SUM123</label>			
+							<div class="col-sm-4">		
+								<input class="form-control-mobile" type="text" name='sum123' value="{$data.sum123|default:''}" />	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">SUM124</label>			
+							<div class="col-sm-4">		
+								<input class="form-control-mobile" type="text" name='sum124' value="{$data.sum124|default:''}" />	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">SUM125</label>			
+							<div class="col-sm-4">		
+								<input class="form-control-mobile" type="text" name='sum125' value="{$data.sum125|default:''}" />	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">SUM126</label>			
+							<div class="col-sm-4">		
+								<input class="form-control-mobile" type="text" name='sum126' value="{$data.sum126|default:''}" />	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">SUM127</label>			
+							<div class="col-sm-4">		
+								<input class="form-control-mobile" type="text" name='sum127' value="{$data.sum127|default:''}" />	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">SUM128</label>			
+							<div class="col-sm-4">		
+								<input class="form-control-mobile" type="text" name='sum128' value="{$data.sum128|default:''}" />	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">SUM129</label>			
+							<div class="col-sm-4">		
+								<input class="form-control-mobile" type="text" name='sum129' value="{$data.sum129|default:''}" />	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">SUM130</label>			
+							<div class="col-sm-4">		
+								<input class="form-control-mobile" type="text" name='sum130' value="{$data.sum130|default:''}" />	
+							</div>		
+						</div>			
+	            	</div>
+	            	
+	            	<div class="active form-group"><div class="active form-group">
+	               		<div class="easyui-linkbutton" type="button" value="bar" id="showProposed1" data-options="iconCls:'icon-add',plain:true"  style="font-weight: bold" >A. Proposed Design (New Material TI) - Bracket and Adapter +</div>
+	            	</div>
+	            	<div id='proposed1' style="display:none">
+	            		<div class="form-group"><label class="col-sm-2 control-label">TTA Mounting Type</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$tta_mounting_type}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">Quantity TTA Mounting</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$quantity_tta_mounting}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">Antenna Mounting Type</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$antenna_mounting_type}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">Quantity Antenna Mounting</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$quantity_antenna_mounting}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">Modification Required</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$modification_required}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">Leg Size on Proposed Tower Height</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$leg_size_on_proposed_tower_height}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">PRP007</label>			
+							<div class="col-sm-4">		
+								<input class="form-control-mobile" type="text" name='prp007' value="{$data.prp007|default:''}" />	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">PRP008</label>			
+							<div class="col-sm-4">		
+								<input class="form-control-mobile" type="text" name='prp008' value="{$data.prp008|default:''}" />	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">PRP009</label>			
+							<div class="col-sm-4">		
+								<input class="form-control-mobile" type="text" name='prp009' value="{$data.prp009|default:''}" />	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">Remark for Bracket</label>			
+							<div class="col-sm-4">		
+								<input class="form-control-mobile" type="text" name='remark_for_bracket' value="{$data.remark_for_bracket|default:''}" />	
+							</div>		
+						</div>			
+	            	</div>
+	            	<div class="active form-group">
+	               		<div class="easyui-linkbutton" type="button" value="bar" id="showProposed2" data-options="iconCls:'icon-add',plain:true"  style="font-weight: bold" >B. Proposed Design (New Material TI) - Feeder, Jumper and Cabling +</div>
+	            	</div>
+	            	<div id='proposed2' style="display:none">
+	            		<div class="form-group"><label class="col-sm-2 control-label">RF Jumper Length, 900Mhz, Sector 1</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$rf_jumper_length_900mhz_sector_1}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">RF Jumper Length, 900Mhz, Sector 2</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$rf_jumper_length_900mhz_sector_2}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">RF Jumper Length, 900Mhz, Sector 3</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$rf_jumper_length_900mhz_sector_3}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">RF Jumper Length, 1800Mhz, Sector 1</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$rf_jumper_length_1800mhz_sector_1}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">RF Jumper Length, 1800Mhz, Sector 2</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$rf_jumper_length_1800mhz_sector_2}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">RF Jumper Length, 1800Mhz, Sector 3</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$rf_jumper_length_1800mhz_sector_3}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">RF Jumper Length, 2100Mhz, Sector 1</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$rf_jumper_length_2100mhz_sector_1}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">RF Jumper Length, 2100Mhz, Sector 2</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$rf_jumper_length_2100mhz_sector_2}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">RF Jumper Length, 2100Mhz, Sector 3</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$rf_jumper_length_2100mhz_sector_3}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">Feeder Type Band 900MHz</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$feeder_type_band_900mhz_2}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">Feeder Type Band 1800MHz</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$feeder_type_band_1800mhz_2}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">Feeder Type Band 2100MHz</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$feeder_type_band_2100mhz_2}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">Feeder Length Band 900MHz</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$feeder_length_band_900mhz_2}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">Feeder Length Band 1800MHz</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$feeder_length_band_1800mhz_2}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">Feeder Length Band 2100MHz</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$feeder_length_band_2100mhz_2}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">Rekap Feeder Type</label>			
+							<div class="col-sm-4">		
+								<input class="form-control-mobile" type="text" name='rekap_feeder_type_3' value="{$data.rekap_feeder_type_3|default:''}" />	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">Rekap Feeder Length</label>			
+							<div class="col-sm-4">		
+								<input class="form-control-mobile" type="text" name='rekap_feeder_length' value="{$data.rekap_feeder_length|default:''}" />	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">DC Cable Length for 2G SM (meters)</label>			
+							<div class="col-sm-4">		
+								<input class="form-control-mobile" type="text" name='dc_cable_length_for_2g_sm' value="{$data.dc_cable_length_for_2g_sm|default:''}" />	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">DC Cable Length for 3G SM (meters)</label>			
+							<div class="col-sm-4">		
+								<input class="form-control-mobile" type="text" name='dc_cable_length_for_3g_sm' value="{$data.dc_cable_length_for_3g_sm|default:''}" />	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">DC Cable Length for 4G SM (meters)</label>			
+							<div class="col-sm-4">		
+								<input class="form-control-mobile" type="text" name='dc_cable_length_for_4g_sm' value="{$data.dc_cable_length_for_4g_sm|default:''}" />	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">TOTAL DC Cable Length (meters)</label>			
+							<div class="col-sm-4">		
+								<input class="form-control-mobile" type="text" name='total_dc_cable_length' value="{$data.total_dc_cable_length|default:''}" />	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">Grounding Cable Length for 2G SM (meters)</label>			
+							<div class="col-sm-4">		
+								<input class="form-control-mobile" type="text" name='grounding_cable_length_for_2g_sm' value="{$data.grounding_cable_length_for_2g_sm|default:''}" />	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">Grounding Cable Length for 3G SM (meters)</label>			
+							<div class="col-sm-4">		
+								<input class="form-control-mobile" type="text" name='grounding_cable_length_for_3g_sm' value="{$data.grounding_cable_length_for_3g_sm|default:''}" />	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">Grounding Cable Length for 4G SM (meters)</label>			
+							<div class="col-sm-4">		
+								<input class="form-control-mobile" type="text" name='grounding_cable_length_for_4g_sm' value="{$data.grounding_cable_length_for_4g_sm|default:''}" />	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">TOTAL Grounding Cable Length (meters)</label>			
+							<div class="col-sm-4">		
+								<input class="form-control-mobile" type="text" name='total_grounding_cable_length' value="{$data.total_grounding_cable_length|default:''}" />	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">PRP036</label>			
+							<div class="col-sm-4">		
+								<input class="form-control-mobile" type="text" name='prp036' value="{$data.prp036|default:''}" />	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">PRP037</label>			
+							<div class="col-sm-4">		
+								<input class="form-control-mobile" type="text" name='prp037' value="{$data.prp037|default:''}" />	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">PRP038</label>			
+							<div class="col-sm-4">		
+								<input class="form-control-mobile" type="text" name='prp038' value="{$data.prp038|default:''}" />	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">PRP039</label>			
+							<div class="col-sm-4">		
+								<input class="form-control-mobile" type="text" name='prp039' value="{$data.prp039|default:''}" />	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">Remark Feeder, Jumper, Cabling</label>			
+							<div class="col-sm-4">		
+								<input class="form-control-mobile" type="text" name='remark_feeder_jumper_cabling' value="{$data.remark_feeder_jumper_cabling|default:''}" />	
+							</div>		
+						</div>			
+	            	</div>
+	            	<div class="active form-group">
+	               		<div class="easyui-linkbutton" type="button" value="bar" id="showProposed3" data-options="iconCls:'icon-add',plain:true"  style="font-weight: bold" >C. TI Proposed Design (New Material TI) - OTHER +</div>
+	            	</div>
+	            	<div id='proposed3' style="display:none">
+	            		<div class="form-group"><label class="col-sm-2 control-label">New Plinth Required</label>			
+							<div class="col-sm-4">		
+								<input class="form-control-mobile" type="text" name='new_plinth_required' value="{$data.new_plinth_required|default:''}" />	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">PRP042</label>			
+							<div class="col-sm-4">		
+								<input class="form-control-mobile" type="text" name='prp042' value="{$data.prp042|default:''}" />	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">PRP043</label>			
+							<div class="col-sm-4">		
+								<input class="form-control-mobile" type="text" name='prp043' value="{$data.prp043|default:''}" />	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">PRP044</label>			
+							<div class="col-sm-4">		
+								<input class="form-control-mobile" type="text" name='prp044' value="{$data.prp044|default:''}" />	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">PRP045</label>			
+							<div class="col-sm-4">		
+								<input class="form-control-mobile" type="text" name='prp045' value="{$data.prp045|default:''}" />	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">PRP046</label>			
+							<div class="col-sm-4">		
+								<input class="form-control-mobile" type="text" name='prp046' value="{$data.prp046|default:''}" />	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">PRP047</label>			
+							<div class="col-sm-4">		
+								<input class="form-control-mobile" type="text" name='prp047' value="{$data.prp047|default:''}" />	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">PRP048</label>			
+							<div class="col-sm-4">		
+								<input class="form-control-mobile" type="text" name='prp048' value="{$data.prp048|default:''}" />	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">PRP049</label>			
+							<div class="col-sm-4">		
+								<input class="form-control-mobile" type="text" name='prp049' value="{$data.prp049|default:''}" />	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">Remark Other</label>			
+							<div class="col-sm-4">		
+								<input class="form-control-mobile" type="text" name='remark_other' value="{$data.remark_other|default:''}" />	
+							</div>		
+						</div>			
+	            	</div>
+	               	<div class="easyui-linkbutton" type="button" value="bar" id="showProposed4" data-options="iconCls:'icon-add',plain:true"  style="font-weight: bold" >D. Proposed Design (New Material CME) +</div>
+	            	</div>
+	            	<div id='proposed4' style="display:none">
+	            		<div class="form-group"><label class="col-sm-2 control-label">Shelter/Baseframe/CKD/Modification</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$shelter/baseframe/ckd/modification}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">New Pole</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$new_pole}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">Number of New Pole</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$number_of_new_pole}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">Strengthening</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$strengthening}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">PLN Upgrade</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$pln_upgrade}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">Kabel Tray Outdoor Vertikal</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$kabel_tray_outdoor_vertikal}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">Kabel Tray Outdoor Horisontal</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$kabel_tray_outdoor_horisontal}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">Kabel Tray Indoor</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$kabel_tray_indoor}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">Feeder Entry Port (FEP) </label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$feeder_entry_port_fep_}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">MCB 16A (pcs)</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$mcb_16a_pcs}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">MCB 25A (pcs)</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$mcb_25a_pcs}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">MCB 32A (pcs)</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$mcb_32a_pcs}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">MCB 63A (pcs)</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$mcb_63a_pcs}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">MCB 100A (pcs)</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$mcb_100a_pcs}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">MCB 125A (pcs)</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$mcb_125a_pcs}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">Grounding Sytem</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$grounding_sytem}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">Kabel Grounding BC 50mm</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$kabel_grounding_bc_50mm}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">Busbar Al 300x100x10</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$busbar_al_300x100x10}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">Kabel Grounding Al.tape 3x25mm</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$kabel_grounding_al.tape_3x25mm}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">Kabel Grounding AAL 70 mm</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$kabel_grounding_aal_70_mm}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">Splitzen</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$splitzen}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">DCPDB</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$dcpdb}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">Remark for DCPDB</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$remark_for_dcpdb}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">PRP074</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$prp074}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">PRP075</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$prp075}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">PRP076</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$prp076}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">PRP077</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$prp077}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">PRP078</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$prp078}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">PRP079</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$prp079}
+								</select>	
+							</div>		
+						</div>			
+						<div class="form-group"><label class="col-sm-2 control-label">Remark CME Material</label>			
+							<div class="col-sm-4">		
+								<select class="form-control-mobile" name='tbl_master_tss_id'>	
+									{$remark_cme_material}
+								</select>	
+							</div>		
+						</div>			
+	            	</div>
+				</form>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+</div>
+
+<script>
+	var submodul = "{$submodul|default:''}";
+	var param = {};
+
+	$('#{$submodul}_phasename').on('change', function(){
+		fillCombo(host+'backend/getfillcombo/phase_siteid', '{$submodul}_boqno', '', $(this).val() );
+	});
+
+	$("#search_{$submodul}").click(function(){
+		$('#frmtss_{$acak}').form('load',{
+			'table' : 'tbl_database_tss',
+			'id' : $('#{$submodul}_id').val(),
+			'initial_id' : 'A',
+		});
+	});
+
+	/*function load(){
+		$('#frmtss_{$acak}').form('load',{
+            tss_id:'{$data.tss_id|default:''}',
+            company_name:'company_name',
+            surveyor_name:'surveyor_name',
+            surveyor_mobile_phone:'surveyor_mobile_phone',
+        });
+    }*/
+
+   /* $("#loadTSS").click(function(){
+		$.post("{$host}backend/getdata/database_tss", function(data, status){
+			$("#frmtss_{$acak}").form('load',{
+			'table' : 'tbl_database_tss',
+				'tbl_master_phase_tss' : $('#{$submodul}_phasename').val(),
+				'phase_siteid' : $('#{$submodul}_boqno').val(),
+				'initial_phase' : 'B',
+				'initial_boqno' : 'C',
+			});
+		});
+	}); */
+
+
+    	$("#loadTSS").click(function(){                
+        	var url = "Backend/get_tss";
+        
+	        var success = function(data){
+	            $.each(data, function(i, d){         
+					$("#tss_id").val(d.tss_id);
+					$("#company_name").val(d.company_name);
+	            });
+	        };
+	       var id_tss = $("#id").val();
+	
+	        $.ajax({
+	          type: "GET",    
+	          url: url,
+	          data: "id_tss",
+	          dataType: "json", 
+	          crossDomain: true,          
+	          cache:false, 
+	          success: success,
+	          error:function(jqXHR, textStatus, errorThrown){
+	           // alert(errorThrown);
+	          }
+	        });
+    	}); 
+
+    /* $("#load").onclick(function(){
+    	$.ajax({
+    		type:post, 
+    		url:'info.php',
+    		data:'siteid='+$("#siteid").val(), 
+    		success:munculin rinciaannya 
+    	});
+    }); */
+
+
+	$("#showSurvey").click(function(){
+		var buttonnya = $("#showSurvey").html();
+		if(buttonnya ==='1. Survey Information +'){
+			$("#survey").show();
+			$("#showSurvey").html('1. Survey Information -');
+		}else{
+			$("#survey").hide();
+			$("#showSurvey").html('1. Survey Information +');
+		}
+	});
+
+	$("#showSite").click(function(){
+		var buttonnya = $("#showSite").html();
+		if(buttonnya ==='2. Site Information +'){
+			$("#site").show();
+			$("#showSite").html('2. Site Information -');
+		}else{
+			$("#site").hide();
+			$("#showSite").html('2. Site Information +');
+		}
+	});
+
+	$("#showTower").click(function(){
+		var buttonnya = $("#showTower").html();
+		if(buttonnya ==='3. Tower Information +'){
+			$("#tower").show();
+			$("#showTower").html('3. Tower Information -');
+		}else{
+			$("#tower").hide();
+			$("#showTower").html('3. Tower Information +');
+		}
+	});
+
+	$("#showFeeder").click(function(){
+		var buttonnya = $("#showFeeder").html();
+		if(buttonnya ==='4. Existing Feeder Line, Antenna, Acc +'){
+			$("#feeder").show();
+			$("#showFeeder").html('4. Existing Feeder Line, Antenna, Acc -');
+		}else{
+			$("#feeder").hide();
+			$("#showFeeder").html('4. Existing Feeder Line, Antenna, Acc +');
+		}
+	});
+
+	$("#showDAS").click(function(){
+		var buttonnya = $("#showDAS").html();
+		if(buttonnya ==='5. DAS Information +'){
+			$("#das").show();
+			$("#showDAS").html('5. DAS Information -');
+		}else{
+			$("#das").hide();
+			$("#showDAS").html('5. DAS Information +');
+		}
+	});
+
+	$("#showSystem").click(function(){
+		var buttonnya = $("#showSystem").html();
+		if(buttonnya ==='6. System and RF Module Position +'){
+			$("#system").show();
+			$("#showSystem").html('6. System and RF Module Position -');
+		}else{
+			$("#system").hide();
+			$("#showSystem").html('6. System and RF Module Position +');
+		}
+	});
+
+	$("#showIssues").click(function(){
+		var buttonnya = $("#showIssues").html();
+		if(buttonnya ==='7. Site Issues +'){
+			$("#issues").show();
+			$("#showIssues").html('7. Site Issues -');
+		}else{
+			$("#issues").hide();
+			$("#showIssues").html('7. Site Issues +');
+		}
+	});
+
+	$("#showAC").click(function(){
+		var buttonnya = $("#showAC").html();
+		if(buttonnya ==='8. Power AC +'){
+			$("#ac").show();
+			$("#showAC").html('8. Power AC -');
+		}else{
+			$("#ac").hide();
+			$("#showAC").html('8. Power AC +');
+		}
+	});
+
+	$("#showDC").click(function(){
+		var buttonnya = $("#showDC").html();
+		if(buttonnya ==='9. Power DC +'){
+			$("#dc").show();
+			$("#showDC").html('9. Power DC -');
+		}else{
+			$("#dc").hide();
+			$("#showDC").html('9. Power DC +');
+		}
+	});
+
+	$("#showOther").click(function(){
+		var buttonnya = $("#showOther").html();
+		if(buttonnya ==='10. OTHER INFORMATION +'){
+			$("#other").show();
+			$("#showOther").html('10. OTHER INFORMATION -');
+		}else{
+			$("#other").hide();
+			$("#showOther").html('10. OTHER INFORMATION +');
+		}
+	});
+
+	$("#showProposed1").click(function(){
+		var buttonnya = $("#showProposed1").html();
+		if(buttonnya ==='A. Proposed Design (New Material TI) - Bracket and Adapter +'){
+			$("#proposed1").show();
+			$("#showProposed1").html('A. Proposed Design (New Material TI) - Bracket and Adapter -');
+		}else{
+			$("#proposed1").hide();
+			$("#showProposed1").html('A. Proposed Design (New Material TI) - Bracket and Adapter +');
+		}
+	});
+
+	$("#showProposed2").click(function(){
+		var buttonnya = $("#showProposed2").html();
+		if(buttonnya ==='B. Proposed Design (New Material TI) - Feeder, Jumper and Cabling +'){
+			$("#proposed2").show();
+			$("#showProposed2").html('B. Proposed Design (New Material TI) - Feeder, Jumper and Cabling -');
+		}else{
+			$("#proposed2").hide();
+			$("#showProposed2").html('B. Proposed Design (New Material TI) - Feeder, Jumper and Cabling +');
+		}
+	});
+
+	$("#showProposed3").click(function(){
+		var buttonnya = $("#showProposed3").html();
+		if(buttonnya ==='C. TI Proposed Design (New Material TI) - OTHER +'){
+			$("#proposed3").show();
+			$("#showProposed3").html('C. TI Proposed Design (New Material TI) - OTHER -');
+		}else{
+			$("#proposed3").hide();
+			$("#showProposed3").html('C. TI Proposed Design (New Material TI) - OTHER +');
+		}
+	});
+
+	$("#showProposed4").click(function(){
+		var buttonnya = $("#showProposed4").html();
+		if(buttonnya ==='D. Proposed Design (New Material CME) +'){
+			$("#proposed4").show();
+			$("#showProposed4").html('D. Proposed Design (New Material CME) -');
+		}else{
+			$("#proposed4").hide();
+			$("#showProposed4").html('D. Proposed Design (New Material CME) +');
+		}
+	});
+
+	$('#dateboxsurveydate').datebox({
+    	required:false
+    });
+
+	 $.fn.datebox.defaults.formatter = function(date){
+		var y = date.getFullYear();
+		var m = date.getMonth()+1;
+		var d = date.getDate();
+		return y+'-'+(m<10?('0'+m):m)+'-'+(d<10?('0'+d):d);
+	};
+	$.fn.datebox.defaults.parser = function(s){
+		if (!s) return new Date();
+		var ss = s.split('-');
+		var y = parseInt(ss[0],10);
+		var m = parseInt(ss[1],10);
+		var d = parseInt(ss[2],10);
+		if (!isNaN(y) && !isNaN(m) && !isNaN(d)){
+			return new Date(y,m-1,d);
+		} else {
+			return new Date();
+		}
+	};
+
+</script>

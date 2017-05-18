@@ -1,0 +1,33 @@
+<ul class="nav metismenu" id="side-menu">
+	<li class="nav-header" style=''>
+		<img src="{$host}__assets/img/nokia_white_logo.png" width='130px' height='51px' style='margin-left:15px;'/>
+	</li>
+	
+	{foreach from=$menu item=x}
+		<li>
+			{if $x.type_menu eq 'P'}
+			<a href="#"><i class="fa {$x.icon_menu}"></i> <span class="nav-label">{$x.parent}</span><span class="fa arrow"></span> </a>
+			<ul class="nav nav-second-level collapse">
+				{foreach from=$x.child item=y}
+					{if $y.type_menu eq 'C'}
+						<li><a href="javascript:void(0);" onClick="loadUrl('{$host}{$y.url}')">{$y.menu}</a></li>
+					{elseif $y.type_menu eq 'CHC'}
+						<li>
+							<a href="javascript:void(0);">{$y.menu}<span class="fa arrow"></span></a>
+							{if isset($y.sub_child) }
+								<ul class="nav nav-third-level collapse">
+									{foreach from=$y.sub_child item=z}
+										<li><a href="javascript:void(0);" onClick="loadUrl('{$host}{$z.url}')">- {$z.sub_menu}</a></li>
+									{/foreach}
+								</ul>
+							{/if}
+						</li>
+					{/if}
+				{/foreach}
+			</ul>
+			{elseif $x.type_menu eq 'B'}
+				<a href="{$host}"><i class="fa {$x.icon_menu}"></i> <span class="nav-label">{$x.parent}</span> </a>
+			{/if}
+		</li>
+	{/foreach}
+</ul>

@@ -1,0 +1,131 @@
+<form method="post" id='frmimport_{$acak}' url='{$host}backend/importdata/'  class="form-horizontal" enctype="multipart/form-data">
+	<input type='hidden' id='typeimport' name='typeimport' value='{$type_import}' />
+	<input type='hidden' id='folder' name='folder' value='progress' />
+	
+	<br/>
+	
+	{if $type_import eq 'uploadtracker'}
+	<div class="form-group"><label class="col-sm-2 control-label">Type Tracker</label>
+		<div class="col-sm-2">
+			<select id='typetracker' name='typetracker' style='padding:3px; width:100px;'>
+				{$combotracker}
+			</select>
+		</div>
+	</div>
+	<div id='method' style='display: none;'>	
+		<div class="form-group"><label class="col-sm-2 control-label">Method</label>
+			<div class="col-sm-2">
+				<select id='methodupload' name='methodupload' style='padding:3px; width:100px;'>
+					<option value=''>-- Choose --</option>
+					<option value='N'>New Data</option>
+					<option value='U'>Update</option>
+				</select>
+			</div>
+		</div>	
+	</div>
+	<div class="form-group"><label class="col-sm-2 control-label">Remarks</label>
+		<div class="col-sm-8">
+			<input class="form-control" type="text" name='remark' />
+		</div>
+	</div>	
+	{else}
+	<div class="form-group"><label class="col-sm-2 control-label">Method</label>
+		<div class="col-sm-2">
+			<select id='methodupload' name='methodupload' style='padding:3px; width:100px;'>
+				<option value=''>-- Choose --</option>
+				<option value='N'>New Data</option>
+				<option value='U'>Update</option>
+			</select>
+		</div>
+	</div>
+	{/if}
+	<div class="form-group"><label class="col-sm-2 control-label">File Excell</label>
+		<div class="col-sm-2">
+			<input type='file' name='file_import' class='validasi' />
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="col-sm-2 control-label">&nbsp;</label>
+		<div class="col-sm-6">
+			<a href='javascript:void(0);' id='download' target='_blank'>Download Template</a>
+		</div>
+		<div class="col-sm-8" ><font color="red"> FIELD WITH FORMAT NUMBER AND VALUE CAN'T BLANK (MIN = 0)</font></div>
+	</div>
+	<div class="hr-line-dashed"></div>
+    <div class="form-group">
+        <div class="col-sm-4 col-sm-offset-2">
+            <a class="btn btn-primary" id='saveImport_{$acak}' >Save</a>
+            <a class="btn btn-danger" id='cancelImport_{$acak}'>Cancel</a>
+        </div>
+    </div>	
+	<div class="hr-line-dashed"></div>
+</form>
+<div id='result_{$type_import}'></div>
+
+<script>
+	var typeimport = '{$type_import}';
+	
+	if(typeimport == 'uploadtracker'){
+		$('#typetracker').on('change', function(){
+			$('#typeimport').val($(this).val());
+			//alert($('#typetracker').val());
+			//console.log($('#typetracker').val());
+			if($(this).val() == 'siteinfo'){
+				$('#method').css({ 'display':'inline' });
+			}else{
+				$('#method').css({ 'display':'none' });
+			}
+		});
+	}	
+	
+	$('#download').on('click', function(){
+		if(typeimport == 'uploadtracker'){
+			if($('#typetracker').val() == ""){
+				$.messager.alert('POIN', "Type Tracker Can't Empty!!", 'error');
+				return false;
+			}
+			urltype = $('#typetracker').val();
+		}else{
+			urltype = typeimport;
+		}
+		window.open('{$host}backend/download/'+urltype);
+	});
+	
+	$('#saveImport_{$acak}').on('click',function(){
+		if(typeimport == 'uploadtracker'){
+			if($('#typetracker').val() == ""){
+				$.messager.alert('POIN', "Type Tracker Can't Empty!!", 'error');
+				return false;
+			}
+			if($('#typetracker').val() == "siteinfo"){
+				if($('#methodupload').val() == ""){
+					$.messager.alert('POIN', "Method Upload Can't Empty!!", 'error');
+					return false;
+				}		
+			}
+		}else{
+			if($('#methodupload').val() == ""){
+				$.messager.alert('POIN', "Method Upload Can't Empty!!", 'error');
+				return false;
+			}	
+		}	
+		
+		submit_form('frmimport_{$acak}',function(r){
+			if(r==1){
+				$.messager.alert('POIN', "Data Saved", 'info');
+				$('.info-empty').remove();
+				$('#grid_{$type_import}').datagrid('reload');
+				closeWindow();
+			}else{
+				$('#result_{$type_import}').html(r);
+			}
+		});
+		return false;
+	});
+	
+	$('#cancelImport_{$acak}').on('click',function(){
+		closeWindow();
+		$('#grid_{$type_import}').datagrid('reload');
+		return false;
+	});
+</script>

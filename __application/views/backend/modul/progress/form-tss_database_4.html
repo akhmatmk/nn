@@ -1,0 +1,266 @@
+<form method="post" id='frmtss_{$acak}' url='{$host}backend/simpandata/tbl_database_tss' class="form-horizontal">
+	<input type='hidden' name='editstatus' value='{$editstatus}' /> 
+	<input type='hidden' name='id' value="{$data.id|default:''}" /> 
+	<br/>
+	<div class="active form-group">
+		<div class="easyui-linkbutton" type="button" value="bar" id="showDC" data-options="iconCls:'icon-add',plain:true"  style="font-weight: bold" >9. Power DC +</div>
+	</div>
+	<div class="form-group"><label class="col-sm-2 control-label">Number of Rectifier</label>			
+		<div class="col-sm-10">		
+			<select class="form-control-mobile" name='tbl_mastertss_num'>	
+				{$tbl_mastertss_num}
+			</select>	
+		</div>		
+	</div>			
+	<div class="form-group"><label class="col-sm-2 control-label">Rectifier Brand (for PS BTS)</label>			
+		<div class="col-sm-10">		
+			<select class="form-control-mobile" name='tbl_mastertss_recbrand'>	
+				{$tbl_mastertss_recbrand}
+			</select>	
+		</div>		
+	</div>			
+	<div class="form-group"><label class="col-sm-2 control-label">Number of Cabinet</label>			
+		<div class="col-sm-10">		
+			<select class="form-control-mobile" name='tbl_mastertss_num2'>	
+				{$tbl_mastertss_num2}
+			</select>	
+		</div>		
+	</div>
+	<div class="form-group"><label class="col-sm-2 control-label">Rectifier Type</label>			
+		<div class="col-sm-10">		
+			<input class="form-control-mobile" type="text" name='rectifier_type' value="{$data.rectifier_type|default:''}" />	
+		</div>		
+	</div>			
+	<div class="form-group"><label class="col-sm-2 control-label">Module Type</label>			
+		<div class="col-sm-10">		
+			<input class="form-control-mobile" type="text" name='module_type' value="{$data.module_type|default:''}" />	
+		</div>		
+	</div>				
+	<div class="form-group"><label class="col-sm-2 control-label">Module Capacity</label>			
+		<div class="col-sm-10">		
+			<input class="form-control-mobile" type="text" name='module_capacity' value="{$data.module_capacity|default:''}" />	
+		</div>		
+	</div>		
+	<div class="form-group"><label class="col-sm-2 control-label">Number of Module</label>			
+		<div class="col-sm-10">		
+			<input class="form-control-mobile" type="text" name='number_of_module' value="{$data.number_of_module|default:''}" />	
+		</div>		
+	</div>		
+	<div class="form-group"><label class="col-sm-2 control-label">Maximum Number of Module</label>			
+		<div class="col-sm-10">		
+			<select class="form-control-mobile" name='tbl_mastertss_num3'>	
+				{$tbl_mastertss_num3}
+			</select>	
+		</div>		
+	</div>			
+	<div class="form-group"><label class="col-sm-2 control-label">Number of Broken/Fault/Unused Module</label>			
+		<div class="col-sm-10">		
+			<select class="form-control-mobile" name='tbl_mastertss_num4'>	
+				{$tbl_mastertss_num4}
+			</select>	
+		</div>		
+	</div>			
+	<div class="form-group"><label class="col-sm-2 control-label">Usage Capacity</label>			
+		<div class="col-sm-10">		
+			<input class="form-control-mobile" type="text" name='usage_capacity' value="{$data.usage_capacity|default:''}" />	
+		</div>		
+	</div>				
+	<div class="form-group"><label class="col-sm-2 control-label">Battery Brand</label>			
+		<div class="col-sm-10">		
+			<select class="form-control-mobile" name='tbl_mastertss_battbrand'>	
+				{$tbl_mastertss_battbrand}
+			</select>	
+		</div>		
+	</div>			
+	<div class="form-group"><label class="col-sm-2 control-label">Battery Type</label>			
+		<div class="col-sm-10">		
+			<input class="form-control-mobile" type="text" name='battery_type' value="{$data.batery_type|default:''}" />	
+		</div>		
+	</div>			
+	<div class="form-group"><label class="col-sm-2 control-label">Battery Bank Capacity</label>			
+		<div class="col-sm-10">		
+			<input class="form-control-mobile" type="text" name='battery_bank_capacity' value="{$data.batery_bank_capacity|default:''}" />	
+		</div>		
+	</div>	
+	<div class="form-group"><label class="col-sm-2 control-label">Number of Battery Bank (String)</label>			
+		<div class="col-sm-10">		
+			<input class="form-control-mobile" type="text" name='number_of_battery_bank_string' value="{$data.number_of_battery_bank_string|default:''}" />	
+		</div>		
+	</div>
+	<div class="form-group"><label class="col-sm-2 control-label">Remaining Rectifier Capacity</label>			
+		<div class="col-sm-10">		
+			<input class="form-control-mobile" type="text" name='remaining_rectifier_capacity' value="{$data.remaining_rectifier_capacity|default:''}" />	
+		</div>		
+	</div>					
+	<div class="form-group"><label class="col-sm-2 control-label">Space for New Rectifier Rack</label>			
+		<div class="col-sm-10">		
+			<select class="form-control-mobile" name='tbl_mastertss_space5'>	
+				{$tbl_mastertss_space5}
+			</select>	
+		</div>		
+	</div>			
+	<div class="form-group"><label class="col-sm-2 control-label">Rectifier Upgrade</label>			
+		<div class="col-sm-10">		
+			<select class="form-control-mobile" name='tbl_mastertss_recupg'>	
+				{$tbl_mastertss_recupg}
+			</select>	
+		</div>		
+	</div>
+	<div class="form-group"><label class="col-sm-2 control-label">Remark for Power DC</label>			
+		<div class="col-sm-10">		
+			<input class="form-control-mobile" type="text" name='remark_for_power_dc' value="{$data.remark_for_power_dc|default:''}" />	
+		</div>		
+	</div>		
+	<div class="form-group"><label class="col-sm-2 control-label">DC Output (Display)</label>			
+		<div class="col-sm-10">		
+			<input class="form-control-mobile" type="text" name='dc_output_display' value="{$data.dc_output_display|default:''}" />	
+		</div>		
+	</div>	
+	<div class="form-group"><label class="col-sm-2 control-label">Current Output (Display)</label>			
+		<div class="col-sm-10">		
+			<input class="form-control-mobile" type="text" name='current_output_display' value="{$data.current_output_display|default:''}" />	
+		</div>		
+	</div>
+	<div class="form-group"><label class="col-sm-2 control-label">SUM116</label>			
+		<div class="col-sm-10">		
+			<input class="form-control-mobile" type="text" name='sum116' value="{$data.sum116|default:''}" />	
+		</div>		
+	</div>
+	<div class="form-group"><label class="col-sm-2 control-label">SUM117</label>			
+		<div class="col-sm-10">		
+			<input class="form-control-mobile" type="text" name='sum117' value="{$data.sum117|default:''}" />	
+		</div>		
+	</div>
+	<div class="form-group"><label class="col-sm-2 control-label">SUM118</label>			
+		<div class="col-sm-10">		
+			<input class="form-control-mobile" type="text" name='sum118' value="{$data.sum118|default:''}" />	
+		</div>		
+	</div>
+	<div class="form-group"><label class="col-sm-2 control-label">SUM119</label>			
+		<div class="col-sm-10">		
+			<input class="form-control-mobile" type="text" name='sum119' value="{$data.sum119|default:''}" />	
+		</div>		
+	</div>
+	<div class="form-group"><label class="col-sm-2 control-label">SUM120</label>			
+		<div class="col-sm-10">		
+			<input class="form-control-mobile" type="text" name='sum120' value="{$data.sum120|default:''}" />	
+		</div>		
+	</div>							
+	<div class="active form-group">
+		<div class="easyui-linkbutton" type="button" value="bar" id="showOther" data-options="iconCls:'icon-add',plain:true"  style="font-weight: bold" >10. OTHER INFORMATION +</div>
+	</div>
+	<div class="form-group"><label class="col-sm-2 control-label">SUM121</label>			
+		<div class="col-sm-10">		
+			<input class="form-control-mobile" type="text" name='sum121' value="{$data.sum121|default:''}" />	
+		</div>		
+	</div>			
+	<div class="form-group"><label class="col-sm-2 control-label">SUM122</label>			
+		<div class="col-sm-10">		
+			<input class="form-control-mobile" type="text" name='sum122' value="{$data.sum122|default:''}" />	
+		</div>		
+	</div>			
+	<div class="form-group"><label class="col-sm-2 control-label">SUM123</label>			
+		<div class="col-sm-10">		
+			<input class="form-control-mobile" type="text" name='sum123' value="{$data.sum123|default:''}" />	
+		</div>		
+	</div>			
+	<div class="form-group"><label class="col-sm-2 control-label">SUM124</label>			
+		<div class="col-sm-10">		
+			<input class="form-control-mobile" type="text" name='sum124' value="{$data.sum124|default:''}" />	
+		</div>		
+	</div>			
+	<div class="form-group"><label class="col-sm-2 control-label">SUM125</label>			
+		<div class="col-sm-10">		
+			<input class="form-control-mobile" type="text" name='sum125' value="{$data.sum125|default:''}" />	
+		</div>		
+	</div>			
+	<div class="form-group"><label class="col-sm-2 control-label">SUM126</label>			
+		<div class="col-sm-10">		
+			<input class="form-control-mobile" type="text" name='sum126' value="{$data.sum126|default:''}" />	
+		</div>		
+	</div>			
+	<div class="form-group"><label class="col-sm-2 control-label">SUM127</label>			
+		<div class="col-sm-10">		
+			<input class="form-control-mobile" type="text" name='sum127' value="{$data.sum127|default:''}" />	
+		</div>		
+	</div>			
+	<div class="form-group"><label class="col-sm-2 control-label">SUM128</label>			
+		<div class="col-sm-10">		
+			<input class="form-control-mobile" type="text" name='sum128' value="{$data.sum128|default:''}" />	
+		</div>		
+	</div>			
+	<div class="form-group"><label class="col-sm-2 control-label">SUM129</label>			
+		<div class="col-sm-10">		
+			<input class="form-control-mobile" type="text" name='sum129' value="{$data.sum129|default:''}" />	
+		</div>		
+	</div>			
+	<div class="form-group"><label class="col-sm-2 control-label">SUM130</label>			
+		<div class="col-sm-10">		
+			<input class="form-control-mobile" type="text" name='sum130' value="{$data.sum130|default:''}" />	
+		</div>		
+	</div>		
+	<div class="hr-line-dashed"></div>
+    <div class="form-group">
+        <div class="col-sm-10 col-sm-offset-2">
+            <a class="btn btn-primary" id='saveTSS' >Save</a>
+            <a class="btn btn-danger" id='cancelTSS'>Cancel</a>
+        </div>
+    </div>	
+</form>
+
+<script>
+	var submodul = "{$submodul|default:''}";
+	var param = {};
+
+	$('#saveTSS').on('click',function(){
+		submit_form('frmtss_{$acak}',function(r){
+			if(r==1){
+				$.messager.alert('POIN', "Data Saved", 'info');
+				$('.info-empty').remove();
+			}else{
+				$.messager.alert('POIN', "Failed Saved", 'error');
+			}
+			closeWindow();
+			$('#grid_tss_database_3').datagrid('reload');
+		});
+		return false;
+	});
+	
+	$('#cancelTSS').on('click',function(){
+		closeWindow();
+		$('#grid_tss_database_3').datagrid('reload');
+		return false;
+	});
+
+	$('#dateboxpodate').datebox({
+    	required:false
+    });
+
+    $('#dateboxporeceived').datebox({
+    required:false
+    });
+
+    $('#datbeboxpodelivery').datebox({
+    required:false
+    });
+
+    $.fn.datebox.defaults.formatter = function(date){
+		var y = date.getFullYear();
+		var m = date.getMonth()+1;
+		var d = date.getDate();
+		return y+'-'+(m<10?('0'+m):m)+'-'+(d<10?('0'+d):d);
+	};
+	$.fn.datebox.defaults.parser = function(s){
+		if (!s) return new Date();
+		var ss = s.split('-');
+		var y = parseInt(ss[0],10);
+		var m = parseInt(ss[1],10);
+		var d = parseInt(ss[2],10);
+		if (!isNaN(y) && !isNaN(m) && !isNaN(d)){
+			return new Date(y,m-1,d);
+		} else {
+			return new Date();
+		}
+	};
+
+</script>
