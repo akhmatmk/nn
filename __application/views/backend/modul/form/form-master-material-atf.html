@@ -110,7 +110,7 @@
 					    	</td>
 					    </tr>
 				  </table>
-					{include file="backend/modul/form/preview-material-atf.html"}
+					
 					<link href="{$host}__assets/css/select2.min.css" rel="stylesheet" />
 			  		<script src="{$host}__assets/js/select2.min.js"></script>
 					
@@ -339,6 +339,33 @@
 							} 
 						}
 
+						$("#previewMaterial").click(function(){
+							$("#atr_content").hide();
+							$.ajax({ 
+					            url: '{$host}get/material-atf',
+					            data: {
+					            	'id_progress_atf' : $("#id").val()
+					            },
+					            type: 'get',
+					            dataType: 'json',
+					            success: function(dataMaterial)
+					            {
+					            	$("#list_material").html("");
+					            	var number = 1;
+					            	$.each(dataMaterial, function(index, element) {
+					            		$template = '<tr>' +
+					            						'<td width="2px">'+ number +'</td><td><b>' +
+					            						' '+ element.material_type_l3 +', '+ element.product_code_l4 + ', ' + element.quantity + ' ' + element.uom + '<br/>' + element.serial_number + ', ' + element.barcode + ', ' + element.cond + 
+					            					'</b></td></tr>';
+					            		$("#list_material").append($template);
+					            		number++;
+					        		});
+
+					            }
+					        });
+							$("#atf_list_data").show();
+						});
+
 						function editMaterial(idMaterial)
 						{
 							$.ajax({ 
@@ -440,3 +467,4 @@
 
 					</script>
 				</div>
+				{include file="backend/modul/form/preview-material-atf.html"}

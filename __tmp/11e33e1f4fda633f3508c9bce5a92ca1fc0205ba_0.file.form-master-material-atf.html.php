@@ -1,7 +1,7 @@
-<?php /* Smarty version 3.1.27, created on 2017-05-19 06:47:47
+<?php /* Smarty version 3.1.27, created on 2017-05-19 07:18:08
          compiled from "/home/vagrant/Code/nokia/__application/views/backend/modul/form/form-master-material-atf.html" */ ?>
 <?php
-/*%%SmartyHeaderCode:974352044591e32a3dde597_60273936%%*/
+/*%%SmartyHeaderCode:1624480495591e39c0c28927_38541359%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
@@ -9,11 +9,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '11e33e1f4fda633f3508c9bce5a92ca1fc0205ba' => 
     array (
       0 => '/home/vagrant/Code/nokia/__application/views/backend/modul/form/form-master-material-atf.html',
-      1 => 1495151263,
+      1 => 1495153084,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '974352044591e32a3dde597_60273936',
+  'nocache_hash' => '1624480495591e39c0c28927_38541359',
   'variables' => 
   array (
     'host' => 0,
@@ -21,13 +21,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => '3.1.27',
-  'unifunc' => 'content_591e32a3e0ebb0_92473979',
+  'unifunc' => 'content_591e39c0c704e5_88563189',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_591e32a3e0ebb0_92473979')) {
-function content_591e32a3e0ebb0_92473979 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_591e39c0c704e5_88563189')) {
+function content_591e39c0c704e5_88563189 ($_smarty_tpl) {
 
-$_smarty_tpl->properties['nocache_hash'] = '974352044591e32a3dde597_60273936';
+$_smarty_tpl->properties['nocache_hash'] = '1624480495591e39c0c28927_38541359';
 ?>
 			  	<div style="display: none;" id="atr_content">
 					<div class="row wrapper border-bottom bluedrak-bg page-heading" style="background-color : #134292;color: white">
@@ -385,6 +385,34 @@ get/material-atf',
 							} 
 						}
 
+						$("#previewMaterial").click(function(){
+							$("#atr_content").hide();
+							$.ajax({ 
+					            url: '<?php echo $_smarty_tpl->tpl_vars['host']->value;?>
+get/material-atf',
+					            data: {
+					            	'id_progress_atf' : $("#id").val()
+					            },
+					            type: 'get',
+					            dataType: 'json',
+					            success: function(dataMaterial)
+					            {
+					            	$("#list_material").html("");
+					            	var number = 1;
+					            	$.each(dataMaterial, function(index, element) {
+					            		$template = '<tr>' +
+					            						'<td width="2px">'+ number +'</td><td><b>' +
+					            						' '+ element.material_type_l3 +', '+ element.product_code_l4 + ', ' + element.quantity + ' ' + element.uom + '<br/>' + element.serial_number + ', ' + element.barcode + ', ' + element.cond + 
+					            					'</b></td></tr>';
+					            		$("#list_material").append($template);
+					            		number++;
+					        		});
+
+					            }
+					        });
+							$("#atf_list_data").show();
+						});
+
 						function editMaterial(idMaterial)
 						{
 							$.ajax({ 
@@ -491,6 +519,9 @@ get/data-material-atf',
 
 					<?php echo '</script'; ?>
 >
-				</div><?php }
+				</div>
+				<?php echo $_smarty_tpl->getSubTemplate ("backend/modul/form/preview-material-atf.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0);
+
+}
 }
 ?>
