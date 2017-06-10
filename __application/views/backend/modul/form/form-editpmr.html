@@ -3,10 +3,10 @@
 		<h3><b>Master Progress</b></h3>
 		<ol class="breadcrumb" style='margin-bottom:10px !important;'>
             <li>
-                Input PMR
+                Input ATF
             </li>
             <li class="active">
-                <strong>Input PMR</strong>
+                <strong>Input ATF</strong>
             </li>
         </ol>		
 	</div>
@@ -283,7 +283,7 @@ var countNoAtf = 1;
    			type: "POST",
    			url: '{$host}get/atf-'+url,
    			dataType: 'json',
-   			data: $('#frmpmr_header').serialize(),   
+   			data: $('#frmpmr_header').serialize(),
    			success: function(data){
    				if(data != false)
    				{
@@ -534,7 +534,7 @@ var countNoAtf = 1;
             			{
             				$("#new_site_name_2_copy_1").append("<option selected value='"+value+"'>"+element.wh_name+"</option>");
             				$("#new_site_name_2").val(element.wh_name);
-            				$("#region_2").val(element.wh_region).attr('readonly', true);
+            				$("#region_2").val(element.wh_region).attr('aonly', true);
             				$("#city_2").val(element.wh_city).attr('readonly', true);
             				$("#new_site_id_2").val(element.wh_id).attr('readonly', true);
             			} else {

@@ -1,7 +1,7 @@
-<?php /* Smarty version 3.1.27, created on 2017-05-19 06:44:50
+<?php /* Smarty version 3.1.27, created on 2017-05-19 14:36:16
          compiled from "/home/vagrant/Code/nokia/__application/views/backend/modul/form/form-editpmr.html" */ ?>
 <?php
-/*%%SmartyHeaderCode:1013018483591e31f265fe38_65334096%%*/
+/*%%SmartyHeaderCode:1775512361591ea070265aa8_82965888%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
@@ -9,11 +9,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '75175240316d4343830debaf0377b0cb91c8ffeb' => 
     array (
       0 => '/home/vagrant/Code/nokia/__application/views/backend/modul/form/form-editpmr.html',
-      1 => 1495151087,
+      1 => 1495167918,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '1013018483591e31f265fe38_65334096',
+  'nocache_hash' => '1775512361591ea070265aa8_82965888',
   'variables' => 
   array (
     'acak' => 0,
@@ -25,23 +25,23 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => '3.1.27',
-  'unifunc' => 'content_591e31f26ba741_24327151',
+  'unifunc' => 'content_591ea0702d4d48_61659981',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_591e31f26ba741_24327151')) {
-function content_591e31f26ba741_24327151 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_591ea0702d4d48_61659981')) {
+function content_591ea0702d4d48_61659981 ($_smarty_tpl) {
 
-$_smarty_tpl->properties['nocache_hash'] = '1013018483591e31f265fe38_65334096';
+$_smarty_tpl->properties['nocache_hash'] = '1775512361591ea070265aa8_82965888';
 ?>
 <div class="row wrapper border-bottom blueaye-bg page-heading">
 	<div class="col-lg-10" style='margin-left:20px;'>
 		<h3><b>Master Progress</b></h3>
 		<ol class="breadcrumb" style='margin-bottom:10px !important;'>
             <li>
-                Input PMR
+                Input ATF
             </li>
             <li class="active">
-                <strong>Input PMR</strong>
+                <strong>Input ATF</strong>
             </li>
         </ol>		
 	</div>
@@ -327,7 +327,7 @@ var countNoAtf = 1;
    			url: '<?php echo $_smarty_tpl->tpl_vars['host']->value;?>
 get/atf-'+url,
    			dataType: 'json',
-   			data: $('#frmpmr_header').serialize(),   
+   			data: $('#frmpmr_header').serialize(),
    			success: function(data){
    				if(data != false)
    				{
@@ -587,7 +587,7 @@ get/warehouse-data',
             			{
             				$("#new_site_name_2_copy_1").append("<option selected value='"+value+"'>"+element.wh_name+"</option>");
             				$("#new_site_name_2").val(element.wh_name);
-            				$("#region_2").val(element.wh_region).attr('readonly', true);
+            				$("#region_2").val(element.wh_region).attr('aonly', true);
             				$("#city_2").val(element.wh_city).attr('readonly', true);
             				$("#new_site_id_2").val(element.wh_id).attr('readonly', true);
             			} else {

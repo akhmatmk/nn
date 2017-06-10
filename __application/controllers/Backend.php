@@ -173,6 +173,9 @@ class Backend extends JINGGA_Controller {
 				$display = true;
 				
 				switch($p2){
+					case "atf":
+						//dd(1111);
+					break;
 					case "import-masterpo":
 						$temp = "backend/modul/".$p1."/form-import.html";
 						$type_import = $this->input->post('type_import');
@@ -686,35 +689,8 @@ class Backend extends JINGGA_Controller {
 					break;
 
 					case "input-tss":
-						if($editstatus == 'edit'){
-							$data = $this->db->get_where('tbl_master_tss', array('id'=>$id))->row_array();
-							$this->nsmarty->assign("data", $data);
-						}
-						$this->nsmarty->assign("tbl_master_phase_tss", $this->lib->fillcombo('tbl_database_tss', 'return'));
-
-						$this->nsmarty->assign("tbl_mastertss_siteowner", $this->lib->fillcombo('tbl_mastertss-siteowner', 'return', ($editstatus == 'edit' ? $data['tbl_mastertss_siteowner'] : "") ) );	
-						$this->nsmarty->assign("tbl_mastertss_sitetype", $this->lib->fillcombo('tbl_mastertss-sitetype', 'return', ($editstatus == 'edit' ? $data['tbl_mastertss_sitetype'] : "") ) );	
-						$this->nsmarty->assign("tbl_mastertss_btstype", $this->lib->fillcombo('tbl_mastertss-btstype', 'return', ($editstatus == 'edit' ? $data['tbl_mastertss_btstype'] : "") ) );	
-						$this->nsmarty->assign("tbl_mastertss_shelter", $this->lib->fillcombo('tbl_mastertss-shelter', 'return', ($editstatus == 'edit' ? $data['tbl_mastertss_shelter'] : "") ) );	
-						$this->nsmarty->assign("tbl_mastertss_accon", $this->lib->fillcombo('tbl_mastertss-accon', 'return', ($editstatus == 'edit' ? $data['tbl_mastertss_accon'] : "") ) );	
-						$this->nsmarty->assign("tbl_mastertss_towertype", $this->lib->fillcombo('tbl_mastertss-towertype', 'return', ($editstatus == 'edit' ? $data['tbl_mastertss_towertype'] : "") ) );	
-						$this->nsmarty->assign("tbl_mastertss_towerheight", $this->lib->fillcombo('tbl_mastertss-towerheight', 'return', ($editstatus == 'edit' ? $data['tbl_mastertss_towerheight'] : "") ) );	
-						$this->nsmarty->assign("tbl_mastertss_legtype", $this->lib->fillcombo('tbl_mastertss-legtype', 'return', ($editstatus == 'edit' ? $data['tbl_mastertss_legtype'] : "") ) );	
-						$this->nsmarty->assign("tbl_mastertss_legsize", $this->lib->fillcombo('tbl_mastertss-legsize', 'return', ($editstatus == 'edit' ? $data['tbl_mastertss_legsize'] : "") ) );	
-						$this->nsmarty->assign("tbl_mastertss_legtoleg", $this->lib->fillcombo('tbl_mastertss-legtoleg', 'return', ($editstatus == 'edit' ? $data['tbl_mastertss_legtoleg'] : "") ) );	
-						$this->nsmarty->assign("tbl_mastertss_towercon", $this->lib->fillcombo('tbl_mastertss-towercon', 'return', ($editstatus == 'edit' ? $data['tbl_mastertss_towercon'] : "") ) );	
-						$this->nsmarty->assign("tbl_mastertss_feedtype", $this->lib->fillcombo('tbl_mastertss-feedtype', 'return', ($editstatus == 'edit' ? $data['tbl_mastertss_feedtype'] : "") ) );	
-						$this->nsmarty->assign("tbl_mastertss_feedlength", $this->lib->fillcombo('tbl_mastertss-feedlength', 'return', ($editstatus == 'edit' ? $data['tbl_mastertss_feedlength'] : "") ) );	
-						$this->nsmarty->assign("tbl_mastertss_rfmeter", $this->lib->fillcombo('tbl_mastertss-rfmeter', 'return', ($editstatus == 'edit' ? $data['tbl_mastertss_rfmeter'] : "") ) );	
-						$this->nsmarty->assign("tbl_mastertss_opsi", $this->lib->fillcombo('tbl_mastertss-opsi', 'return', ($editstatus == 'edit' ? $data['tbl_mastertss_opsi'] : "") ) );	
-						$this->nsmarty->assign("tbl_mastertss_ant", $this->lib->fillcombo('tbl_mastertss-ant', 'return', ($editstatus == 'edit' ? $data['tbl_mastertss_ant'] : "") ) );	
-						$this->nsmarty->assign("tbl_mastertss_brand", $this->lib->fillcombo('tbl_mastertss-brand', 'return', ($editstatus == 'edit' ? $data['tbl_mastertss_brand'] : "") ) );	
-						$this->nsmarty->assign("tbl_mastertss_freqband", $this->lib->fillcombo('tbl_mastertss-freqband', 'return', ($editstatus == 'edit' ? $data['tbl_mastertss_freqband'] : "") ) );	
-						$this->nsmarty->assign("tbl_mastertss_rfpos", $this->lib->fillcombo('tbl_mastertss-rfpos', 'return', ($editstatus == 'edit' ? $data['tbl_mastertss_rfpos'] : "") ) );	
-						$this->nsmarty->assign("tbl_mastertss_smpos", $this->lib->fillcombo('tbl_mastertss-smpos', 'return', ($editstatus == 'edit' ? $data['tbl_mastertss_smpos'] : "") ) );	
-						$this->nsmarty->assign("tbl_mastertss_space", $this->lib->fillcombo('tbl_mastertss-space', 'return', ($editstatus == 'edit' ? $data['tbl_mastertss_space'] : "") ) );	
-						$this->nsmarty->assign("tbl_mastertss_spacerack", $this->lib->fillcombo('tbl_mastertss-spacerack', 'return', ($editstatus == 'edit' ? $data['tbl_mastertss_spacerack'] : "") ) );	
-						$this->nsmarty->assign("tbl_mastertss_accap", $this->lib->fillcombo('tbl_mastertss-accap', 'return', ($editstatus == 'edit' ? $data['tbl_mastertss_accap'] : "") ) );	
+						
+						
 					break;
 				}
 			break;
