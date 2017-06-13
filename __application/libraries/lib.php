@@ -12,7 +12,7 @@
 	- Json Datagrid
 	
 */
-class lib {
+class Lib {
 	public function __construct(){
 		
 	}
