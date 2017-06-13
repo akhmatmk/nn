@@ -65,7 +65,6 @@ class ProgresAtf extends CI_Model{
             $this->db->where($key, $value);
         }
         
-
         $this->db->from('tbl_progres_atf a');
         $this->db->join('tbl_master_tracker_siteinfo b', 'b.id = a.id_tracker_site_info');
 

@@ -1,7 +1,7 @@
-<?php /* Smarty version 3.1.27, created on 2017-04-20 22:01:47
+<?php /* Smarty version 3.1.27, created on 2017-06-13 12:57:02
          compiled from "/home/vagrant/Code/nokia/__application/views/backend/menu.html" */ ?>
 <?php
-/*%%SmartyHeaderCode:41105797358f8cd5bbc3947_50568139%%*/
+/*%%SmartyHeaderCode:1990995920593f7eae5b71a9_28818946%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
@@ -9,11 +9,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'fd06d5065d166d1a32240d9c62837b31fe43ebe3' => 
     array (
       0 => '/home/vagrant/Code/nokia/__application/views/backend/menu.html',
-      1 => 1492701477,
+      1 => 1492701478,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '41105797358f8cd5bbc3947_50568139',
+  'nocache_hash' => '1990995920593f7eae5b71a9_28818946',
   'variables' => 
   array (
     'host' => 0,
@@ -24,13 +24,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => '3.1.27',
-  'unifunc' => 'content_58f8cd5bc12a05_24359300',
+  'unifunc' => 'content_593f7eae5f9c75_33850571',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_58f8cd5bc12a05_24359300')) {
-function content_58f8cd5bc12a05_24359300 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_593f7eae5f9c75_33850571')) {
+function content_593f7eae5f9c75_33850571 ($_smarty_tpl) {
 
-$_smarty_tpl->properties['nocache_hash'] = '41105797358f8cd5bbc3947_50568139';
+$_smarty_tpl->properties['nocache_hash'] = '1990995920593f7eae5b71a9_28818946';
 ?>
 <ul class="nav metismenu" id="side-menu">
 	<li class="nav-header" style=''>

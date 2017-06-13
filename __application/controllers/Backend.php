@@ -688,19 +688,20 @@ class Backend extends JINGGA_Controller {
 						$this->nsmarty->assign("ne_system_combo", $this->lib->fillcombo('tbl_master_ne_system', 'return', ($editstatus == 'edit' ? $data['ne_system_combo'] : "") ) );
 					break;
 
-					case "input-tss":
-						
-						
+					case "form_input_pmr":
+						$this->nsmarty->assign("phase_no", $this->lib->fillcombo('tbl_master_phase', 'return', ($editstatus == 'edit' ? $data['phase_no'] : "") ) );
+
+						$this->nsmarty->assign("activity_combo", $this->lib->fillcombo('tbl_master_activity_atf', 'return', ($editstatus == 'edit' ? $data['activity_combo'] : "") ) );
+						$this->nsmarty->assign("ne_system_combo", $this->lib->fillcombo('tbl_master_ne_system', 'return', ($editstatus == 'edit' ? $data['ne_system_combo'] : "") ) );
 					break;
 				}
 			break;
 		}
-		
 		$this->nsmarty->assign("main", $p1);
 		$this->nsmarty->assign("submodul", $p2);
 		$this->nsmarty->assign("editstatus", $editstatus);
 		$this->nsmarty->assign("acak", md5(date('H:i:s')) );
-
+		
 		if($display == true){
 			if(!file_exists($this->config->item('appl').APPPATH.'views/'.$temp)){$this->nsmarty->display('konstruksi.html');
 			}else{$this->nsmarty->display($temp);}

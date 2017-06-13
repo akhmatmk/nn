@@ -32,7 +32,10 @@ $route['delete/material-atf']['post'] = 'Backend_atf/deleteMaterialAtf';
 
 $route['get/material-atf']['get'] = 'Backend_atf/MaterialAtf';
 
-
+$route['get/pmrNo']['get'] = 'Backend_pmr/pmrNo';
+$route['get/pmr-add']['post'] = 'Backend_pmr/store';
+$route['save/material-pmr']['post'] = 'Backend_pmr/saveMaterialPmr';
+$route['edit/material-pmr']['post'] = 'Backend_pmr/editMaterialPmr';
 
 /* Routes Front End Routes */
 
