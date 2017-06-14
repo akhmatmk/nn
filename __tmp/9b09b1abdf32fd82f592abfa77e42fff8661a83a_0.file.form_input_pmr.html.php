@@ -1,7 +1,7 @@
-<?php /* Smarty version 3.1.27, created on 2017-06-14 03:21:01
+<?php /* Smarty version 3.1.27, created on 2017-06-14 14:34:51
          compiled from "/home/vagrant/Code/nokia/__application/views/backend/modul/form/form_input_pmr.html" */ ?>
 <?php
-/*%%SmartyHeaderCode:8570766975940492d670d84_84822445%%*/
+/*%%SmartyHeaderCode:879119675940e71ba0e663_84688421%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
@@ -9,11 +9,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '9b09b1abdf32fd82f592abfa77e42fff8661a83a' => 
     array (
       0 => '/home/vagrant/Code/nokia/__application/views/backend/modul/form/form_input_pmr.html',
-      1 => 1497383875,
+      1 => 1497425686,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '8570766975940492d670d84_84822445',
+  'nocache_hash' => '879119675940e71ba0e663_84688421',
   'variables' => 
   array (
     'acak' => 0,
@@ -23,13 +23,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => '3.1.27',
-  'unifunc' => 'content_5940492d6c96a7_60944864',
+  'unifunc' => 'content_5940e71ba4c780_29193657',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_5940492d6c96a7_60944864')) {
-function content_5940492d6c96a7_60944864 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_5940e71ba4c780_29193657')) {
+function content_5940e71ba4c780_29193657 ($_smarty_tpl) {
 
-$_smarty_tpl->properties['nocache_hash'] = '8570766975940492d670d84_84822445';
+$_smarty_tpl->properties['nocache_hash'] = '879119675940e71ba0e663_84688421';
 ?>
 <div class="row wrapper border-bottom blueaye-bg page-heading">
 	<div class="col-lg-10" style='margin-left:20px;'>
@@ -88,6 +88,7 @@ $_smarty_tpl->properties['nocache_hash'] = '8570766975940492d670d84_84822445';
 				
 				<form style="display: none;" method="post" id='frmpmr_header' class="form-horizontal">
 					<input type="hidden" class="form-control" name="id_master_tracker" id="id_master_tracker">
+					<input type="hidden" class="form-control" name="phase_id" id="phase_id">
 					<div id="id_frm_header" style="display: none;" class="form-group"><label for="id" class="col-sm-2 control-label">ID</label>
 						<div class="col-sm-4">
 							<input type="text" readonly="readonly" class="form-control" name="id" id="id">
@@ -114,7 +115,9 @@ $_smarty_tpl->properties['nocache_hash'] = '8570766975940492d670d84_84822445';
 
 					<div class="form-group"><label for="region_at" class="col-sm-2 control-label">Region At</label>
 						<div class="col-sm-4">
-							<input type="text" class="form-control" name="region_at" id="region_at">
+							<select class="form-control-mobile" id="region_at" name='region_at'>
+				
+							</select>
 						</div>
 					</div>
 
@@ -126,35 +129,35 @@ $_smarty_tpl->properties['nocache_hash'] = '8570766975940492d670d84_84822445';
 
 					<div class="form-group"><label for="pic1" class="col-sm-2 control-label">Pic 1</label>
 						<div class="col-sm-4">
-							<input type="text" class="form-control" name="pic1" id="pic1">
+							<select class="form-control-mobile" id="pic1" name='pic1'>
+				
+							</select>
 						</div>
 					</div>
 
-					<div class="form-group"><label for="delivery_to" class="col-sm-2 control-label">Delivery 1</label>
+					<div class="form-group"><label for="delivery_ne" class="col-sm-2 control-label">Delivery To</label>
 						<div class="col-sm-4">
-							<input type="text" class="form-control" name="delivery_to" id="delivery_to">
+							<select class="form-control-mobile" id="delivery_ne" name='delivery_ne'>
+				
+							</select>
+							<input type="hidden" class="form-control" name="delivery_to" id="delivery_to">
 						</div>
 					</div>
 
 					<div class="form-group"><label for="site_addres_to" class="col-sm-2 control-label">Site Addres to</label>
 						<div class="col-sm-4">
-							<input type="text" class="form-control" name="site_addres_to" id="site_addres_to">
+							<input type="text" readonly="readonly" class="form-control" name="site_addres_to" id="site_addres_to">
 						</div>
 					</div>
 
-					<div class="form-group"><label for="site_addres_to" class="col-sm-2 control-label">Site Addres to</label>
+
+					<div class="form-group"><label for="region_to" class="col-sm-2 control-label">Region To</label>
 						<div class="col-sm-4">
-							<input type="text" class="form-control" name="site_addres_to" id="site_addres_to">
+							<input type="text" readonly="readonly" class="form-control" name="region_to" id="region_to">
 						</div>
 					</div>
 
-					<div class="form-group"><label for="region_to" class="col-sm-2 control-label">Site Addres to</label>
-						<div class="col-sm-4">
-							<input type="text" class="form-control" name="region_to" id="region_to">
-						</div>
-					</div>
-
-					<div class="form-group"><label for="tranporter" class="col-sm-2 control-label">Site Addres to</label>
+					<div class="form-group"><label for="tranporter" class="col-sm-2 control-label">Transporter</label>
 						<div class="col-sm-4">
 							<input type="text" class="form-control" name="tranporter" id="tranporter">
 						</div>
@@ -162,13 +165,17 @@ $_smarty_tpl->properties['nocache_hash'] = '8570766975940492d670d84_84822445';
 
 					<div class="form-group"><label for="pic2" class="col-sm-2 control-label">PIC 2</label>
 						<div class="col-sm-4">
-							<input type="text" class="form-control" name="pic2" id="pic2">
+							<select class="form-control-mobile" id="pic2" name='pic2'>
+				
+							</select>
 						</div>
 					</div>
 
 					<div class="form-group"><label for="hardware_ne" class="col-sm-2 control-label">HARDWARE NE</label>
 						<div class="col-sm-4">
-							<input type="text" class="form-control" name="hardware_ne" id="hardware_ne">
+							<select class="form-control-mobile" id="hardware_ne" name='hardware_ne'>
+				
+							</select>
 						</div>
 					</div>
 
@@ -178,12 +185,7 @@ $_smarty_tpl->properties['nocache_hash'] = '8570766975940492d670d84_84822445';
 						</div>
 					</div>
 
-					<div class="form-group"><label for="pick_up_request_time" class="col-sm-2 control-label">Pick up request time</label>
-						<div class="col-sm-4">
-							<input type="text" class="form-control" name="pick_up_request_time" id="pick_up_request_time">
-						</div>
-					</div>
-
+				
 					<div class="form-group"><label for="remark_delivery" class="col-sm-2 control-label">Remark delivery</label>
 						<div class="col-sm-4">
 							<input type="text" class="form-control" name="remark_delivery" id="remark_delivery">
@@ -192,13 +194,13 @@ $_smarty_tpl->properties['nocache_hash'] = '8570766975940492d670d84_84822445';
 
 					<div class="form-group"><label for="phase_code" class="col-sm-2 control-label">Phase Code</label>
 						<div class="col-sm-4">
-							<input type="text" class="form-control" name="phase_code" id="phase_code">
+							<input type="text" readonly="readonly" class="form-control" name="phase_code" id="phase_code">
 						</div>
 					</div>
 
 					<div class="form-group"><label for="phase_name" class="col-sm-2 control-label">Phase Name</label>
 						<div class="col-sm-4">
-							<input type="text" class="form-control" name="phase_name" id="phase_name">
+							<input type="text" readonly="readonly" class="form-control" name="phase_name" id="phase_name">
 						</div>
 					</div>
 
@@ -242,9 +244,88 @@ $_smarty_tpl->properties['nocache_hash'] = '8570766975940492d670d84_84822445';
 
 <?php echo '<script'; ?>
 >
+	$( document ).ready(function() {
+
+    	$.ajax({ 
+            url: '<?php echo $_smarty_tpl->tpl_vars['host']->value;?>
+get/dataRegion',
+            type: 'get',
+            dataType: 'json',
+            success: function(data)
+            {
+            	$.each(data, function(index, element) {
+            		$("#region_at").append("<option value='" +element.id+"'>"+element.remark+"</option>");
+        		});
+            }
+        });
+
+        $.ajax({ 
+            url: '<?php echo $_smarty_tpl->tpl_vars['host']->value;?>
+get/dataPic',
+            type: 'get',
+            dataType: 'json',
+            success: function(data)
+            {
+            	$.each(data, function(index, element) {
+            		$("#pic1").append("<option value='" +element.id+"'>"+element.pic_company+"</option>");
+            		$("#pic2").append("<option value='" +element.id+"'>"+element.pic_company+"</option>");
+        		});
+            }
+        });
+
+        var cek = 1;
+        $.ajax({ 
+            url: '<?php echo $_smarty_tpl->tpl_vars['host']->value;?>
+get/dataWarehouse',
+            type: 'get',
+            dataType: 'json',
+            success: function(data)
+            {
+            	$.each(data, function(index, element) {
+            		$("#delivery_ne").append("<option value='" +element.id+"-" +element.wh_name+"-" +element.wh_address+"-" +element.wh_region+"'>"+element.wh_name+"</option>");
+
+            		if(cek == 1) {
+	        			$("#delivery_to").val(element.id);
+	        			$("#site_addres_to").val(element.wh_address);
+	        			$("#region_to").val(element.wh_region);
+	        		}
+
+	        		cek = 0;
+        		});        		
+            }
+        });
+
+        $.ajax({ 
+            url: '<?php echo $_smarty_tpl->tpl_vars['host']->value;?>
+get/dataNeSystem',
+            type: 'get',
+            dataType: 'json',
+            success: function(data)
+            {
+            	$.each(data, function(index, element) {
+            		$("#hardware_ne").append("<option value='" +element.id+"'>"+element.ne_system+"</option>");
+        		});
+            }
+        });
+
+	});
+
+	$('#pick_up_request_date').datebox({
+    	required:false
+    });
+
+	$("#delivery_ne").change(function() {
+		var temp = $(this).val();
+		var res = temp.split("-");
+		$("#delivery_to").val(res[0]);
+		$("#site_addres_to").val(res[2]);
+		$("#region_to").val(res[3]);
+
+	});
+	
 	$("#phase_no").change(function() {
 
-		var selectedOption = $(this).find("option:selected").text();
+		var selectedOption = $(this).val();
 
 		var data = {
                 'phase_id'	: selectedOption,
@@ -261,7 +342,7 @@ get/pmrNo',
             	$("#pmr_no_na").append("<option value='null'>--silahkan pilih--</option>");
             	var no = 1;
             	$.each(data, function(index, element) {
-            		$("#pmr_no_na").append("<option value='" +element.id+ "-" +element.boqno+ "'>"+element.boqno+"</option>");
+            		$("#pmr_no_na").append("<option value='" +element.id+"'>"+element.pmr_no+"</option>");
             		no ++;
         		});
 
@@ -278,8 +359,8 @@ get/pmrNo',
 				} 
 				var today = dd+''+mm+''+yyyy;
 
-            	var getPMRNO = "PMR"+selectedOption+""+today;
-            	
+            	var getPMRNO = "PMR"+selectedOption+""+no+""+today;
+            
             	$("#newPMR").show();
             	$("#pmr_no").val(getPMRNO);
             	$("#method_send").val('POST');
@@ -290,11 +371,99 @@ get/pmrNo',
 
 	$("#newPMR").click(function() {
 		$("#frmpmr_header").show();
+    	$("#pick_up_at").val("");
+    	$("#site_addres_at").val("");
+    	$("#remark_delivery").val("");
+    	$("#method_send").val('POST');
+    	$("#company").val("");
+    	$("#tranporter").val("");
+    	$("#spare_3").val("");
+    	$("#spare_4").val("");
+    	$("#spare_5").val("");
 
 	});
 
+	$("#editPMR").click(function() {
+		$("#frmpmr_header").show();
+		var pmr_no_na = $("#pmr_no_na").val();
+		var data = {
+            'id'	: pmr_no_na,
+            'single'	: true
+        };
+
+        $.ajax({ 
+            url: '<?php echo $_smarty_tpl->tpl_vars['host']->value;?>
+get/pmrNo',
+            type: 'get',
+            data: data,
+            dataType: 'json',
+            success: function(data)
+            {
+            	$("#id").val(data.id);
+            	$("#phase_id").val(data.phase_id);
+            	$("#method_send").val('PUT');
+            	$("#pmr_no").val(data.pmr_no);
+            	$("#pick_up_at").val(data.pick_up_at);
+            	$("#site_addres_at").val(data.site_addres_at);
+            	$("#region_at").val(data.region_at);
+            	$("#company").val(data.company);
+            	$("#pic1").val(data.pic1);
+            	$("#delivery_to").val(data.delivery_to);
+            	$("#region_to").val(data.region_to);
+            	$("#site_addres_to").val(data.site_addres_to);
+            	$("#tranporter").val(data.tranporter);
+            	$("#pic2").val(data.pic2);
+            	$("#hardware_ne").val(data.hardware_ne);
+            	$("#pick_up_request_date").val(data.pick_up_request_date);
+            	$("#remark_delivery").val(data.remark_delivery);
+            	$("#phase_code").val(data.phase_code);
+            	$("#phase_name").val(data.phase_name);
+            	$("#spare_3").val(data.spare_3);
+            	$("#spare_4").val(data.spare_4);
+            	$("#spare_5").val(data.spare_5);
+            }
+        });
+	});
+
+	
+
+	$("#pmr_no_na").change(function() {
+		if ($(this).val() != 'null') {
+
+			$("#editPMR").show();
+			$("#newPMR").hide();
+
+		} else 
+		{
+			$("#editPMR").hide();
+			$("#newPMR").show();
+		}
+	});
+	
+
 	$("#newPMR").click(function() {
 		$("#frmpmr_header").show();
+		var idPhase = $("#phase_no").val();
+		var data = {
+            'id'		: idPhase,
+            'single'	: true
+        };
+
+        $.ajax({ 
+            url: '<?php echo $_smarty_tpl->tpl_vars['host']->value;?>
+get/dataPhase',
+            type: 'get',
+            data: data,
+            dataType: 'json',
+            success: function(data)
+            {
+            	$.each(data, function(index, element) {
+            		$("#phase_code").val(element.phase_code);
+            		$("#phase_name").val(element.phase_name);
+        		});
+            	
+            }
+        });
 
 	});
 
@@ -318,6 +487,34 @@ get/pmr-'+url,
    					$("#frmpmr_header").hide();
    					$("#id_progress_pmr").val(data);
    					$("#pmr_content").show();
+
+
+   					$.ajax({ 
+			            url: '<?php echo $_smarty_tpl->tpl_vars['host']->value;?>
+get/material-pmr',
+			            data: {
+			            	'id_progress_atf' : data
+			            },
+			            type: 'get',
+			            dataType: 'json',
+			            success: function(dataMaterial)
+			            {
+			            	$("#bodyPreview").html("");
+			            	var number = 1;
+			            	$.each(dataMaterial, function(index, element) {
+			            		$template = '<tr id="element_tr_'+ element.id + '">' +
+			            						'<td width="2px">'+ number +'<td>' +
+			            						'<td>'+element.atf_nokia_no+'</td>' +
+			            						'<td><a class="btn btn-primary" onClick="deleteMaterial('+ element.id +')"  id="deleteMaterial" for="save">delete</a> ' +
+			            						'</td>' +
+			            					'</tr>';
+			            		$("#bodyPreview").append($template);
+			            		number++;
+			        		});
+
+			            }
+			        });
+
    				} 
    				else 
    				{

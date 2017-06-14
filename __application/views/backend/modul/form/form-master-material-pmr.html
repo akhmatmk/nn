@@ -1,4 +1,5 @@
 			  	<div style="display: none" id="pmr_content">
+			  		<div>
 					<div class="row wrapper border-bottom bluedrak-bg page-heading" style="background-color : #134292;color: white">
 						<div class="col-lg-10" style="margin-left:20px;">
 							<h2 align="center">ADD ATF</h3>
@@ -25,7 +26,7 @@
 							</div>
 						</div>
 
-						<div style="display:none" id="frm_atf_no_no" class="form-group"><label for="atf_no" class="col-sm-2 control-label">ATF No</label>
+						<div id="frm_atf_no_no" class="form-group"><label for="atf_no" class="col-sm-2 control-label">ATF No</label>
 							<div class="col-sm-4">
 								<select class="form-control-mobile" id="atf_no" name='atf_no'>
 									
@@ -54,7 +55,7 @@
 					    </tbody>
 					    <tr>
 					    	<td colspan="3" align="right">
-					    		<a class="btn btn-primary" id='previewMaterial'>Next Review</a>
+					    		<!-- <a class="btn btn-primary" id='previewMaterial'>Next Review</a> -->
 					    	</td>
 					    </tr>
 				  </table>
@@ -113,6 +114,51 @@
 					  		
 						});
 
+						function deleteMaterial(idMaterial)
+						{
+							$.ajax({ 
+						            url: '{$host}delete/material-pmr',
+						            data: {
+						            	'id' : idMaterial
+						            },
+						            type: 'post',
+						            dataType: 'json',
+						            success: function(dataMaterial)
+						            {
+						     			$.ajax({ 
+								            url: '{$host}get/material-pmr',
+								            data: {
+								            	'id_progress_atf' : $("#id_progress_pmr").val()
+								            },
+								            type: 'get',
+								            dataType: 'json',
+								            success: function(dataMaterial)
+								            {
+								            	$("#bodyPreview").html("");
+								            	var number = 1;
+								            	$.each(dataMaterial, function(index, element) {
+								            		$template = '<tr id="element_tr_'+ element.id + '">' +
+								            						'<td width="2px">'+ number +'<td>' +
+								            						'<td>'+element.atf_nokia_no+'</td>' +
+								            						'<td><a class="btn btn-primary" onClick="deleteMaterial('+ element.id +')"  id="deleteMaterial" for="save">delete</a> ' +
+								            						'</td>' +
+								            					'</tr>';
+								            		$("#bodyPreview").append($template);
+								            		number++;
+								        		});
+
+								            }
+								        });    	
+						            }
+						       });
+						} 
+
+						$("#backPMR").click(function () {
+							$("#pmr_content").hide();
+							$("#frmpmr_{$acak}").show();
+							$("#frmpmr_header").show();
+						});
+
 						$("#saveDataPMR").click(function() {
 							if($("#type_save_material").val() == 'add')
 								var url = '{$host}save/material-pmr';
@@ -126,33 +172,6 @@
 					   			data: $('#atrmaterial_content').serialize(),   
 					   			success: function(data){
 
-					   	// 			if($("#type_save_material").val() == "add")
-					   	// 			{
-					   	// 				$bodytr = $('#bodyPreview tr').size() + 1;
-					   	// 				$template = '<tr id="element_tr_'+ data.id + '"">' +
-				     //        						'<td>'+  $bodytr +'<td>' +
-				     //        						'<td>'+ data.material_type_l3+ '</td>' +
-				     //        						'<td><a class="btn btn-primary" onClick="editMaterial(' + data.id + ')"  id="editMaterial" for="save">Edit</a> ' +
-				     //        							'<a class="btn btn-primary" onClick="deleteMaterial('+ data.id +')"  id="deleteMaterial" for="save">Delete</a> ' +
-				     //        						'</td>' +
-				     //        					'</tr>';
-				     //        			$("#bodyPreview").append($template);
-					   	// 			}
-
-					   	// 			$("#hardware_type_l1").val("null");
-					   	// 			$("#id_atf_material_content").val("");
-									// $("#remark").val("");
-									// $("#condition").val("");
-									// $("#uom").val("");
-									// $("#quantity").val("");
-									// $("#serial_number").val("");
-									// $("#barcode").val("");
-									// $("#equipment_type_l2").html("");
-									// $("#material_type_l3").html("");
-									// $("#product_code_l4").html("");
-									// $("#type_save_material").val("add");
-
-									// $('#myTable tr').size() 
 					   			}
 							});
 						});

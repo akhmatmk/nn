@@ -1,17 +1,10 @@
 <?php if (!defined('BASEPATH')) {exit('No direct script access allowed');}
 
-class MaterialPmr extends CI_Model{
+class tblMasterWarehouse extends CI_Model{
     
-    private $table = 'tbl_material_pmr';
+    private $table = 'tbl_master_warehouse';
 
-    public $id;
-    public $id_progress_pmr;
-    public $id_master_atf;
-    public $created_at;
-    public $updated_at;
-    public $created_name;
-    public $created_status;
-
+  
     public function __construct() 
     {
         parent::__construct();
@@ -59,12 +52,8 @@ class MaterialPmr extends CI_Model{
             }
         } else
             $this->db->select('a.*');
-            $this->db->select('b.atf_nokia_no');
-             
              
         $this->db->from($this->table.' a');
-
-        $this->db->join('tbl_progres_atf b', 'b.id=a.id_master_atf', 'left');
 
         $query = $this->db->get();
         if($query->num_rows() != 0)

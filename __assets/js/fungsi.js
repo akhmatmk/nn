@@ -3011,6 +3011,41 @@ function genGridEditable(modnya, divnya, lebarnya, tingginya, crud_table){
 				},
 			]
 		break;
+		case "point_pmr":
+			judulnya = "";
+			urlnya = "point_pmr";
+			urlglobal = host+'backend/getdata/'+urlnya;
+			frozen[modnya] = [
+				{field:'id',title:'ID',width:30, halign:'center',align:'left', sortable:true},
+				{field:'atf_nokia_no',title:'Atf No',width:130, halign:'center',align:'left', sortable:true},
+				{field:'id_tracker_site_info',title:'Site Info',width:75, halign:'center',align:'left', sortable:true},
+				{field:'atf_isat_no',title:'Isat No',width:150, halign:'center',align:'left', sortable:true},
+			]
+			kolom[modnya] = [
+				{field:'remark_atf',title:'Remark Atf',width:150, halign:'center',align:'left', sortable:true},
+				{field:'po_re_deploy',title:'Po re-deploy',width:75, halign:'center',align:'left', sortable:true},
+				{field:'po_number',title:'Po Number',width:50, halign:'center',align:'left', sortable:true},
+				{field:'atf_isat_type',title:'Isat Type',width:50, halign:'center',align:'left', sortable:true},
+				{field:'dismantle_plan_date',title:'Dismantle Date',width:100, halign:'center',align:'left', sortable:true,
+					editor:{
+                       type:'datebox',
+                       options:{
+						formatter : formatDate,
+						parser : parserDate,
+                       }
+                    }
+                },
+				{field:'status',title:'Status',width:75, halign:'center',align:'left', sortable:true,
+					formatter: function(value,row,index){
+						if (row.status == 1){
+							return "Active";
+						} else {
+							return "Inactive";
+						}
+					}
+				},
+			]
+		break;
 		case "sitebinder":
 			judulnya = "";
 			urlnya = "sitebinder";

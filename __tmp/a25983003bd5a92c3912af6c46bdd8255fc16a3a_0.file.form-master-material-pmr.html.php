@@ -1,7 +1,7 @@
-<?php /* Smarty version 3.1.27, created on 2017-06-14 03:23:20
+<?php /* Smarty version 3.1.27, created on 2017-06-14 14:29:24
          compiled from "/home/vagrant/Code/nokia/__application/views/backend/modul/form/form-master-material-pmr.html" */ ?>
 <?php
-/*%%SmartyHeaderCode:1011139538594049b84b1d06_22058926%%*/
+/*%%SmartyHeaderCode:9333630835940e5d4c500d4_44771506%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
@@ -9,27 +9,29 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a25983003bd5a92c3912af6c46bdd8255fc16a3a' => 
     array (
       0 => '/home/vagrant/Code/nokia/__application/views/backend/modul/form/form-master-material-pmr.html',
-      1 => 1497386343,
+      1 => 1497425353,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '1011139538594049b84b1d06_22058926',
+  'nocache_hash' => '9333630835940e5d4c500d4_44771506',
   'variables' => 
   array (
     'phase_no' => 0,
     'host' => 0,
+    'acak' => 0,
   ),
   'has_nocache_code' => false,
   'version' => '3.1.27',
-  'unifunc' => 'content_594049b84e5c44_36259663',
+  'unifunc' => 'content_5940e5d4c81a69_49675029',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_594049b84e5c44_36259663')) {
-function content_594049b84e5c44_36259663 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_5940e5d4c81a69_49675029')) {
+function content_5940e5d4c81a69_49675029 ($_smarty_tpl) {
 
-$_smarty_tpl->properties['nocache_hash'] = '1011139538594049b84b1d06_22058926';
+$_smarty_tpl->properties['nocache_hash'] = '9333630835940e5d4c500d4_44771506';
 ?>
 			  	<div style="display: none" id="pmr_content">
+			  		<div>
 					<div class="row wrapper border-bottom bluedrak-bg page-heading" style="background-color : #134292;color: white">
 						<div class="col-lg-10" style="margin-left:20px;">
 							<h2 align="center">ADD ATF</h3>
@@ -57,7 +59,7 @@ $_smarty_tpl->properties['nocache_hash'] = '1011139538594049b84b1d06_22058926';
 							</div>
 						</div>
 
-						<div style="display:none" id="frm_atf_no_no" class="form-group"><label for="atf_no" class="col-sm-2 control-label">ATF No</label>
+						<div id="frm_atf_no_no" class="form-group"><label for="atf_no" class="col-sm-2 control-label">ATF No</label>
 							<div class="col-sm-4">
 								<select class="form-control-mobile" id="atf_no" name='atf_no'>
 									
@@ -86,7 +88,7 @@ $_smarty_tpl->properties['nocache_hash'] = '1011139538594049b84b1d06_22058926';
 					    </tbody>
 					    <tr>
 					    	<td colspan="3" align="right">
-					    		<a class="btn btn-primary" id='previewMaterial'>Next Review</a>
+					    		<!-- <a class="btn btn-primary" id='previewMaterial'>Next Review</a> -->
 					    	</td>
 					    </tr>
 				  </table>
@@ -152,6 +154,54 @@ get/atf-data',
 					  		
 						});
 
+						function deleteMaterial(idMaterial)
+						{
+							$.ajax({ 
+						            url: '<?php echo $_smarty_tpl->tpl_vars['host']->value;?>
+delete/material-pmr',
+						            data: {
+						            	'id' : idMaterial
+						            },
+						            type: 'post',
+						            dataType: 'json',
+						            success: function(dataMaterial)
+						            {
+						     			$.ajax({ 
+								            url: '<?php echo $_smarty_tpl->tpl_vars['host']->value;?>
+get/material-pmr',
+								            data: {
+								            	'id_progress_atf' : $("#id_progress_pmr").val()
+								            },
+								            type: 'get',
+								            dataType: 'json',
+								            success: function(dataMaterial)
+								            {
+								            	$("#bodyPreview").html("");
+								            	var number = 1;
+								            	$.each(dataMaterial, function(index, element) {
+								            		$template = '<tr id="element_tr_'+ element.id + '">' +
+								            						'<td width="2px">'+ number +'<td>' +
+								            						'<td>'+element.atf_nokia_no+'</td>' +
+								            						'<td><a class="btn btn-primary" onClick="deleteMaterial('+ element.id +')"  id="deleteMaterial" for="save">delete</a> ' +
+								            						'</td>' +
+								            					'</tr>';
+								            		$("#bodyPreview").append($template);
+								            		number++;
+								        		});
+
+								            }
+								        });    	
+						            }
+						       });
+						} 
+
+						$("#backPMR").click(function () {
+							$("#pmr_content").hide();
+							$("#frmpmr_<?php echo $_smarty_tpl->tpl_vars['acak']->value;?>
+").show();
+							$("#frmpmr_header").show();
+						});
+
 						$("#saveDataPMR").click(function() {
 							if($("#type_save_material").val() == 'add')
 								var url = '<?php echo $_smarty_tpl->tpl_vars['host']->value;?>
@@ -167,33 +217,6 @@ edit/material-pmr';
 					   			data: $('#atrmaterial_content').serialize(),   
 					   			success: function(data){
 
-					   	// 			if($("#type_save_material").val() == "add")
-					   	// 			{
-					   	// 				$bodytr = $('#bodyPreview tr').size() + 1;
-					   	// 				$template = '<tr id="element_tr_'+ data.id + '"">' +
-				     //        						'<td>'+  $bodytr +'<td>' +
-				     //        						'<td>'+ data.material_type_l3+ '</td>' +
-				     //        						'<td><a class="btn btn-primary" onClick="editMaterial(' + data.id + ')"  id="editMaterial" for="save">Edit</a> ' +
-				     //        							'<a class="btn btn-primary" onClick="deleteMaterial('+ data.id +')"  id="deleteMaterial" for="save">Delete</a> ' +
-				     //        						'</td>' +
-				     //        					'</tr>';
-				     //        			$("#bodyPreview").append($template);
-					   	// 			}
-
-					   	// 			$("#hardware_type_l1").val("null");
-					   	// 			$("#id_atf_material_content").val("");
-									// $("#remark").val("");
-									// $("#condition").val("");
-									// $("#uom").val("");
-									// $("#quantity").val("");
-									// $("#serial_number").val("");
-									// $("#barcode").val("");
-									// $("#equipment_type_l2").html("");
-									// $("#material_type_l3").html("");
-									// $("#product_code_l4").html("");
-									// $("#type_save_material").val("add");
-
-									// $('#myTable tr').size() 
 					   			}
 							});
 						});

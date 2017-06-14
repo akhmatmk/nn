@@ -31,11 +31,21 @@ $route['edit/material-atf']['post'] = 'Backend_atf/editMaterialAtf';
 $route['delete/material-atf']['post'] = 'Backend_atf/deleteMaterialAtf';
 
 $route['get/material-atf']['get'] = 'Backend_atf/MaterialAtf';
+$route['get/material-pmr']['get'] = 'Backend_Pmr/MaterialPmr';
 
 $route['get/pmrNo']['get'] = 'Backend_pmr/pmrNo';
 $route['get/pmr-add']['post'] = 'Backend_pmr/store';
+$route['get/pmr-edit']['post'] = 'Backend_pmr/update';
+$route['delete/material-pmr']['post'] = 'Backend_pmr/deleteMaterialPmr';
 $route['save/material-pmr']['post'] = 'Backend_pmr/saveMaterialPmr';
 $route['edit/material-pmr']['post'] = 'Backend_pmr/editMaterialPmr';
+
+
+$route['get/dataRegion']['get'] = 'MasterRegion/getData';
+$route['get/dataPic']['get'] = 'MasterPic/getData';
+$route['get/dataWarehouse']['get'] = 'MasterWarehouse/getData';
+$route['get/dataNeSystem']['get'] = 'MasterNeSystem/getData';
+$route['get/dataPhase']['get'] = 'MasterPhase/getData';
 
 /* Routes Front End Routes */
 

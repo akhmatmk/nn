@@ -6,6 +6,7 @@ class ProgresPmr extends CI_Model{
 
     public $id;
     public $pmr_no;
+    public $phase_id;
     public $pick_up_at;
     public $site_addres_at;
     public $region_at;
@@ -45,7 +46,7 @@ class ProgresPmr extends CI_Model{
 
     public function update()
     {
-        $this->db->where('id', $this->id);  
+        $data = $this->db->where('id', $this->id);
         $data = $this->db->update($this->table, $this);
     }
 
