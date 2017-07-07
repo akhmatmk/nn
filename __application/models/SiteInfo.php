@@ -1,7 +1,10 @@
 <?php if (!defined('BASEPATH')) {exit('No direct script access allowed');}
 
 class Siteinfo extends CI_Model{
-	function __construct(){
+	
+    private $table = 'tbl_master_tracker_siteinfo';
+
+    function __construct(){
 		parent::__construct();
 	}
 
@@ -33,4 +36,21 @@ class Siteinfo extends CI_Model{
             return [];
         }
 	}
+
+    function getdataPhaseBoq() { 
+        $this->db->select('b.id, b.phase_code, b.phase_name, b.phase_year');
+        $this->db->from('tbl_master_tracker_siteinfo a');
+        $this->db->join('tbl_master_phase b', 'b.id=a.tbl_master_phase_id', 'left');
+        $this->db->group_by('b.id, b.phase_code, b.phase_name, b.phase_year');
+
+        $query = $this->db->get();
+        if($query->num_rows() != 0)
+        {
+            return $query->result_array();
+        }
+        else
+        {
+            return [];
+        }
+    }
 }

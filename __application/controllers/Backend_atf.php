@@ -17,10 +17,17 @@ class Backend_atf extends JINGGA_Controller {
 		if($this->input->get('id'))
 			$array['a.id'] = $this->input->get('id');
 
+		if($this->input->get('tbl_master_phase_id'))
+			$array['a.tbl_master_phase_id'] = $this->input->get('tbl_master_phase_id');
+
 		if($this->input->get('single'))
 			$single = true;
 
 		echo json_encode($this->siteinfo->getdata($array, $single));
+	}
+
+	public function getPhaseBoq() {
+		echo json_encode($this->siteinfo->getdataPhaseBoq());
 	}
 
 	public function getDataWarehouse() 
@@ -73,6 +80,11 @@ class Backend_atf extends JINGGA_Controller {
     	$this->progresAtf->remark_atf = $this->input->post('remark_atf');
     	$this->progresAtf->new_site_id_2 = $this->input->post('new_site_id_2');
     	$this->progresAtf->new_site_name_2 = $this->input->post('new_site_name_2');
+    	$this->progresAtf->updated_by = $this->auth['nama_user'];
+    	$this->progresAtf->updated_at = date('Y-m-d H:i:s');
+    	$this->progresAtf->created_by = $this->auth['nama_user'];
+    	$this->progresAtf->created_at = date('Y-m-d H:i:s');
+    	$this->progresAtf->created_at = 1;
     	
 		echo json_encode($this->progresAtf->insert());
 	}
@@ -103,6 +115,11 @@ class Backend_atf extends JINGGA_Controller {
     	$this->progresAtf->remark_atf = $this->input->post('remark_atf');
     	$this->progresAtf->new_site_id_2 = $this->input->post('new_site_id_2');
     	$this->progresAtf->new_site_name_2 = $this->input->post('new_site_name_2');
+    	$this->progresAtf->updated_by = $this->auth['nama_user'];
+    	$this->progresAtf->updated_at = date('Y-m-d H:i:s');
+    	$this->progresAtf->created_by = $this->input->post('created_by');
+    	$this->progresAtf->created_at = $this->input->post('created_at');
+    	$this->progresAtf->status = $this->input->post('status');
 
 
 		$this->progresAtf->update();

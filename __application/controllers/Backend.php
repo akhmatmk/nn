@@ -702,6 +702,7 @@ class Backend extends JINGGA_Controller {
 		$this->nsmarty->assign("submodul", $p2);
 		$this->nsmarty->assign("editstatus", $editstatus);
 		$this->nsmarty->assign("acak", md5(date('H:i:s')) );
+		//dd($temp);
 		if($display == true){
 			if(!file_exists($this->config->item('appl').APPPATH.'views/'.$temp)){$this->nsmarty->display('konstruksi.html');
 			}else{$this->nsmarty->display($temp);}

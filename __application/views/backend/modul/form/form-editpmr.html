@@ -1,6 +1,6 @@
 <div class="row wrapper border-bottom blueaye-bg page-heading">
 	<div class="col-lg-10" style='margin-left:20px;'>
-		<h3><b>Master Progress</b></h3>
+		<h3><b>ASSET TRANSFER FORM</b></h3>
 		<ol class="breadcrumb" style='margin-bottom:10px !important;'>
             <li>
                 Input ATF
@@ -25,12 +25,24 @@
 					<div class="form-group"><label class="col-sm-2 control-label">Choose Phase name</label>
 						<div class="col-sm-4">
 							<select class="form-control-mobile" id="phase_no" name='tbl_master_phase_id'>
-								{$phase_no}
+
 							</select>
 						</div>
 					</div>
 
-					<div class="form-group"><label class="col-sm-2 control-label">BBQ No</label>
+					<div class="form-group"><label for="Phase_Code" class="col-sm-2 control-label">Phase Code</label>
+						<div class="col-sm-4">
+							<input type="text" readonly="readonly" class="form-control" name="Phase_Code" id="Phase_Code">
+						</div>
+					</div>
+
+					<div class="form-group"><label for="Phase_Name" class="col-sm-2 control-label">Phase Name</label>
+						<div class="col-sm-4">
+							<input type="text" readonly="readonly" class="form-control" name="Phase_Name" id="Phase_Name">
+						</div>
+					</div>
+
+					<div class="form-group"><label class="col-sm-2 control-label">BOQ No</label>
 						<div class="col-sm-4">
 							<select class="form-control-mobile" id="bbq_id" name='bbq_id'>
 								
@@ -65,7 +77,7 @@
 						</div>
 					</div>
 
-					<div class="form-group"><label for="atf_nokia_no" class="col-sm-2 control-label">Atf Nokia No</label>
+					<div class="form-group"><label for="atf_nokia_no" class="col-sm-2 control-label">ATF Nokia No</label>
 						<div class="col-sm-4">
 							<input type="text" class="form-control" name="atf_nokia_no" id="atf_nokia_no">
 						</div>
@@ -77,7 +89,7 @@
 						</div>
 					</div>
 
-					<div class="form-group"><label for="atf_status" class="col-sm-2 control-label">Atf Status</label>
+					<div class="form-group"><label for="atf_status" class="col-sm-2 control-label">ATF Status</label>
 						<div class="col-sm-4">
 							<input type="text" value="open" class="form-control" name="atf_status" readonly="readonly" id="atf_status">
 						</div>
@@ -174,17 +186,19 @@
 						</div>
 					</div>
 
+					<div class="form-group"><label for="material_brand_1" class="col-sm-2 control-label">Material Brand 1</label>
+						<div class="col-sm-4">
+							<input type="text" class="form-control" name="material_brand_1" id="material_brand_1">
+						</div>
+					</div>
+
 					<div class="form-group"><label for="material_brand_1" class="col-sm-2 control-label"> Vedor Dismantle 1 </label>
 						<div class="col-sm-4">
 							<input type="text" readonly="readonly" value="NOKIA" class="form-control" name="vendor_dismantle_1" id="vendor_dismantle_1">
 						</div>
 					</div>
 
-					<div class="form-group"><label for="material_brand_1" class="col-sm-2 control-label">Material Brand 1</label>
-						<div class="col-sm-4">
-							<input type="text" class="form-control" name="material_brand_1" id="material_brand_1">
-						</div>
-					</div>
+					
 
 					<div class="form-group"><label for="division_2" class="col-sm-2 control-label">Division 2</label>
 						<div class="col-sm-4">
@@ -192,7 +206,7 @@
 						</div>
 					</div>
 
-					<div class="form-group"><label for="new_site_name_2_copy_1" class="col-sm-2 control-label">New Site Name 2</label>
+					<div class="form-group"><label for="new_site_name_2_copy_1" class="col-sm-2 control-label">New Site ID 2</label>
 						<div class="col-sm-4">
 							<select class="form-control" id="new_site_name_2_copy_1" name='new_site_name_2_copy_1'>
 								
@@ -203,7 +217,7 @@
 
 					<input type="hidden" name="new_site_name_2" id="new_site_name_2">
 
-					<div class="form-group"><label for="new_site_id_2" class="col-sm-2 control-label">New Site ID 2</label>
+					<div class="form-group"><label for="new_site_id_2" class="col-sm-2 control-label">New Site Name 2</label>
 						<div class="col-sm-4">
 							<input type="text" class="form-control" name="new_site_id_2" id="new_site_id_2">
 						</div>
@@ -244,7 +258,11 @@
 					<div class="form-group">
 						<div class="col-sm-4 col-sm-offset-4">
 							<input type="hidden" id="method_send"  name="method_send" value="POST">
+							<input type="hidden" id="created_by"  name="created_by">
+							<input type="hidden" id="created_at"  name="created_at">
+							<input type="hidden" id="status"  name="status">
 					        <a class="btn btn-primary" id='saveNext' for="save">Save and Next</a>
+					        <a class="btn btn-primary" id='saveNext_1' for="saveNext_1">Next</a>
 					    </div>
 					</div>
 				</form>
@@ -260,9 +278,29 @@
 </div>
 
 <script>
-var type = 'add';
-var countNoAtf = 1;
-	
+	var type = 'add';
+	var countNoAtf = 1;
+
+    $.ajax({
+		url: '{$host}get/PhaseBoqData',
+        type: 'get',
+        dataType: 'json',
+		success: function(data){
+			$("#Phase_Name").val("");
+			$("#Phase_Code").val("");
+			$("#phase_no").html("<option value=''>--Choose-- </option>");
+			$.each(data, function(index, element) {
+            	var value_1 = element.id+" - "+element.phase_code+" - "+element.phase_name+" - "+element.phase_year;
+            	var value_2 = element.phase_code+"-"+element.phase_year;
+				$("#phase_no").append("<option value='"+value_1+"'>"+value_2+"</option>");
+			});	
+   		}
+   	});
+
+    $("#saveNext_1").click(function() {
+   		$("#saveNext").click();
+   	});
+
     $('#dismantle_plan_date').datebox({
     	required:false
     });
@@ -395,6 +433,9 @@ var countNoAtf = 1;
 				$("#vendor_installation_2").val(data.vendor_instalation_2);
 				$("#po_re_deploy").val(data.po_re_deploy);
 				$("#remark_atf").val(data.remark_atf);
+				$("#created_at").val(data.created_at);
+				$("#created_by").val(data.created_by);
+				$("#status").val(data.status);
 
 				var new_site_id_2 = data.new_site_id_2;
 				var valBoq = $("#bbq_id").val();
@@ -574,10 +615,17 @@ var countNoAtf = 1;
 	});
 
 	$( "#phase_no" ).change(function() {
-		//$(".loader").show();
+		var str = $( this ).val();
+		var res = str.split(" - ");
+
+		$("#Phase_Code").val(res[1]);
+        $("#Phase_Name").val(res[2]);
 		var data = {
-                'phase_id'	: $( this ).val(),
+                'tbl_master_phase_id'	: res[0],
             };
+
+        var no = 1;
+
 		$.ajax({ 
             url: '{$host}get/BBQData',
             data: data,
@@ -588,7 +636,7 @@ var countNoAtf = 1;
             	$("#bbq_id").html("");
             	$("#bbq_id").append("<option value='null'>--silahkan pilih--</option>");
             	$.each(data, function(index, element) {
-            		$("#bbq_id").append("<option value='" +element.id+ "-" +element.boqno+ "'>"+element.boqno+"</option>");
+            		$("#bbq_id").append("<option value='" +element.id+ "-" +element.boqno+ "-" +"'>"+element.boqno+"</option>");
         		});
 
             }

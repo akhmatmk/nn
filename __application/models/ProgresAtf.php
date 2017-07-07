@@ -32,6 +32,11 @@ class ProgresAtf extends CI_Model{
     public $bts_config;
     public $link_sp_xlx;
     public $link_sp_pdf;
+    public $created_at;
+    public $updated_at;
+    public $created_by;
+    public $updated_by;
+    public $status;
 
   
     public function __construct() 

@@ -1,7 +1,7 @@
-<?php /* Smarty version 3.1.27, created on 2017-06-14 03:21:13
+<?php /* Smarty version 3.1.27, created on 2017-07-06 23:54:47
          compiled from "/home/vagrant/Code/nokia/__application/views/backend/modul/form/form-editpmr.html" */ ?>
 <?php
-/*%%SmartyHeaderCode:15825318459404939d2d4b8_10162037%%*/
+/*%%SmartyHeaderCode:1157151432595e6b572e1d69_85103821%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
@@ -9,33 +9,32 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '75175240316d4343830debaf0377b0cb91c8ffeb' => 
     array (
       0 => '/home/vagrant/Code/nokia/__application/views/backend/modul/form/form-editpmr.html',
-      1 => 1497386120,
+      1 => 1499360083,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '15825318459404939d2d4b8_10162037',
+  'nocache_hash' => '1157151432595e6b572e1d69_85103821',
   'variables' => 
   array (
     'acak' => 0,
     'data' => 0,
-    'phase_no' => 0,
     'activity_combo' => 0,
     'ne_system_combo' => 0,
     'host' => 0,
   ),
   'has_nocache_code' => false,
   'version' => '3.1.27',
-  'unifunc' => 'content_59404939d6e8b0_43445096',
+  'unifunc' => 'content_595e6b57322547_95508237',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_59404939d6e8b0_43445096')) {
-function content_59404939d6e8b0_43445096 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_595e6b57322547_95508237')) {
+function content_595e6b57322547_95508237 ($_smarty_tpl) {
 
-$_smarty_tpl->properties['nocache_hash'] = '15825318459404939d2d4b8_10162037';
+$_smarty_tpl->properties['nocache_hash'] = '1157151432595e6b572e1d69_85103821';
 ?>
 <div class="row wrapper border-bottom blueaye-bg page-heading">
 	<div class="col-lg-10" style='margin-left:20px;'>
-		<h3><b>Master Progress</b></h3>
+		<h3><b>ASSET TRANSFER FORM</b></h3>
 		<ol class="breadcrumb" style='margin-bottom:10px !important;'>
             <li>
                 Input ATF
@@ -62,13 +61,24 @@ $_smarty_tpl->properties['nocache_hash'] = '15825318459404939d2d4b8_10162037';
 					<div class="form-group"><label class="col-sm-2 control-label">Choose Phase name</label>
 						<div class="col-sm-4">
 							<select class="form-control-mobile" id="phase_no" name='tbl_master_phase_id'>
-								<?php echo $_smarty_tpl->tpl_vars['phase_no']->value;?>
 
 							</select>
 						</div>
 					</div>
 
-					<div class="form-group"><label class="col-sm-2 control-label">BBQ No</label>
+					<div class="form-group"><label for="Phase_Code" class="col-sm-2 control-label">Phase Code</label>
+						<div class="col-sm-4">
+							<input type="text" readonly="readonly" class="form-control" name="Phase_Code" id="Phase_Code">
+						</div>
+					</div>
+
+					<div class="form-group"><label for="Phase_Name" class="col-sm-2 control-label">Phase Name</label>
+						<div class="col-sm-4">
+							<input type="text" readonly="readonly" class="form-control" name="Phase_Name" id="Phase_Name">
+						</div>
+					</div>
+
+					<div class="form-group"><label class="col-sm-2 control-label">BOQ No</label>
 						<div class="col-sm-4">
 							<select class="form-control-mobile" id="bbq_id" name='bbq_id'>
 								
@@ -103,7 +113,7 @@ $_smarty_tpl->properties['nocache_hash'] = '15825318459404939d2d4b8_10162037';
 						</div>
 					</div>
 
-					<div class="form-group"><label for="atf_nokia_no" class="col-sm-2 control-label">Atf Nokia No</label>
+					<div class="form-group"><label for="atf_nokia_no" class="col-sm-2 control-label">ATF Nokia No</label>
 						<div class="col-sm-4">
 							<input type="text" class="form-control" name="atf_nokia_no" id="atf_nokia_no">
 						</div>
@@ -115,7 +125,7 @@ $_smarty_tpl->properties['nocache_hash'] = '15825318459404939d2d4b8_10162037';
 						</div>
 					</div>
 
-					<div class="form-group"><label for="atf_status" class="col-sm-2 control-label">Atf Status</label>
+					<div class="form-group"><label for="atf_status" class="col-sm-2 control-label">ATF Status</label>
 						<div class="col-sm-4">
 							<input type="text" value="open" class="form-control" name="atf_status" readonly="readonly" id="atf_status">
 						</div>
@@ -214,17 +224,19 @@ $_smarty_tpl->properties['nocache_hash'] = '15825318459404939d2d4b8_10162037';
 						</div>
 					</div>
 
+					<div class="form-group"><label for="material_brand_1" class="col-sm-2 control-label">Material Brand 1</label>
+						<div class="col-sm-4">
+							<input type="text" class="form-control" name="material_brand_1" id="material_brand_1">
+						</div>
+					</div>
+
 					<div class="form-group"><label for="material_brand_1" class="col-sm-2 control-label"> Vedor Dismantle 1 </label>
 						<div class="col-sm-4">
 							<input type="text" readonly="readonly" value="NOKIA" class="form-control" name="vendor_dismantle_1" id="vendor_dismantle_1">
 						</div>
 					</div>
 
-					<div class="form-group"><label for="material_brand_1" class="col-sm-2 control-label">Material Brand 1</label>
-						<div class="col-sm-4">
-							<input type="text" class="form-control" name="material_brand_1" id="material_brand_1">
-						</div>
-					</div>
+					
 
 					<div class="form-group"><label for="division_2" class="col-sm-2 control-label">Division 2</label>
 						<div class="col-sm-4">
@@ -232,7 +244,7 @@ $_smarty_tpl->properties['nocache_hash'] = '15825318459404939d2d4b8_10162037';
 						</div>
 					</div>
 
-					<div class="form-group"><label for="new_site_name_2_copy_1" class="col-sm-2 control-label">New Site Name 2</label>
+					<div class="form-group"><label for="new_site_name_2_copy_1" class="col-sm-2 control-label">New Site ID 2</label>
 						<div class="col-sm-4">
 							<select class="form-control" id="new_site_name_2_copy_1" name='new_site_name_2_copy_1'>
 								
@@ -243,7 +255,7 @@ $_smarty_tpl->properties['nocache_hash'] = '15825318459404939d2d4b8_10162037';
 
 					<input type="hidden" name="new_site_name_2" id="new_site_name_2">
 
-					<div class="form-group"><label for="new_site_id_2" class="col-sm-2 control-label">New Site ID 2</label>
+					<div class="form-group"><label for="new_site_id_2" class="col-sm-2 control-label">New Site Name 2</label>
 						<div class="col-sm-4">
 							<input type="text" class="form-control" name="new_site_id_2" id="new_site_id_2">
 						</div>
@@ -284,7 +296,11 @@ $_smarty_tpl->properties['nocache_hash'] = '15825318459404939d2d4b8_10162037';
 					<div class="form-group">
 						<div class="col-sm-4 col-sm-offset-4">
 							<input type="hidden" id="method_send"  name="method_send" value="POST">
+							<input type="hidden" id="created_by"  name="created_by">
+							<input type="hidden" id="created_at"  name="created_at">
+							<input type="hidden" id="status"  name="status">
 					        <a class="btn btn-primary" id='saveNext' for="save">Save and Next</a>
+					        <a class="btn btn-primary" id='saveNext_1' for="saveNext_1">Next</a>
 					    </div>
 					</div>
 				</form>
@@ -303,9 +319,30 @@ $_smarty_tpl->properties['nocache_hash'] = '15825318459404939d2d4b8_10162037';
 
 <?php echo '<script'; ?>
 >
-var type = 'add';
-var countNoAtf = 1;
-	
+	var type = 'add';
+	var countNoAtf = 1;
+
+    $.ajax({
+		url: '<?php echo $_smarty_tpl->tpl_vars['host']->value;?>
+get/PhaseBoqData',
+        type: 'get',
+        dataType: 'json',
+		success: function(data){
+			$("#Phase_Name").val("");
+			$("#Phase_Code").val("");
+			$("#phase_no").html("<option value=''>--Choose-- </option>");
+			$.each(data, function(index, element) {
+            	var value_1 = element.id+" - "+element.phase_code+" - "+element.phase_name+" - "+element.phase_year;
+            	var value_2 = element.phase_code+"-"+element.phase_year;
+				$("#phase_no").append("<option value='"+value_1+"'>"+value_2+"</option>");
+			});	
+   		}
+   	});
+
+    $("#saveNext_1").click(function() {
+   		$("#saveNext").click();
+   	});
+
     $('#dismantle_plan_date').datebox({
     	required:false
     });
@@ -443,6 +480,9 @@ get/atf-data',
 				$("#vendor_installation_2").val(data.vendor_instalation_2);
 				$("#po_re_deploy").val(data.po_re_deploy);
 				$("#remark_atf").val(data.remark_atf);
+				$("#created_at").val(data.created_at);
+				$("#created_by").val(data.created_by);
+				$("#status").val(data.status);
 
 				var new_site_id_2 = data.new_site_id_2;
 				var valBoq = $("#bbq_id").val();
@@ -627,10 +667,17 @@ get/warehouse-data',
 	});
 
 	$( "#phase_no" ).change(function() {
-		//$(".loader").show();
+		var str = $( this ).val();
+		var res = str.split(" - ");
+
+		$("#Phase_Code").val(res[1]);
+        $("#Phase_Name").val(res[2]);
 		var data = {
-                'phase_id'	: $( this ).val(),
+                'tbl_master_phase_id'	: res[0],
             };
+
+        var no = 1;
+
 		$.ajax({ 
             url: '<?php echo $_smarty_tpl->tpl_vars['host']->value;?>
 get/BBQData',
@@ -642,7 +689,7 @@ get/BBQData',
             	$("#bbq_id").html("");
             	$("#bbq_id").append("<option value='null'>--silahkan pilih--</option>");
             	$.each(data, function(index, element) {
-            		$("#bbq_id").append("<option value='" +element.id+ "-" +element.boqno+ "'>"+element.boqno+"</option>");
+            		$("#bbq_id").append("<option value='" +element.id+ "-" +element.boqno+ "-" +"'>"+element.boqno+"</option>");
         		});
 
             }

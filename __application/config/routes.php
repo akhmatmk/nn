@@ -20,6 +20,7 @@ $route['products']['get'] = 'product/insert';
 // Modul POIN
 $route['beranda'] = 'backend/modul/beranda/main';
 
+$route['get/PhaseBoqData']['get'] = 'Backend_atf/getPhaseBoq';
 $route['get/BBQData']['get'] = 'Backend_atf/getBBQ';
 $route['get/warehouse-data']['get'] = 'Backend_atf/getDataWarehouse';
 $route['get/atf-data']['get'] = 'Backend_atf/getDataAtf';

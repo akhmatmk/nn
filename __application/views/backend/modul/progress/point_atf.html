@@ -19,7 +19,7 @@
 				<div class="ibox-content" style='padding-bottom:0px !important;'>
 					
 					<div id='grid_nya_{$submodul}' style='height:400px;width:100%;'>
-						<div id='tb_{$submodul}' style='margin-bottom:5px;'>
+						<div id='tb_{$submodul}' style='margin-bottom:10px;'>
 							{*
 							<select id='{$submodul}_filter_kategori' style='width:100px;padding:5px;'>
 								<option value='all'>All</option>
@@ -33,6 +33,25 @@
 							</a>
 							*}
 
+							<div style='width:100%;margin-bottom: 3px;'>
+								{include file="backend/template/button_grid.html" varbutton="received"}	
+								<label>Atf No</label> : <input type='text' style='width:75px;padding:2px;' id='{$submodul}_atfno' /> &nbsp;
+								<label>Isat No</label> : <input type='text' style='width:75px;padding:2px;' id='{$submodul}_isatno' /> &nbsp;
+								<label>Site Info</label> : <input type='text' style='width:75px;padding:2px;' id='{$submodul}_siteinfo' /> &nbsp;
+								<label>Remark Atf</label> : <input type='text' style='width:75px;padding:2px;' id='{$submodul}_remarkatf' /> &nbsp;
+								<label>Po Number</label> : <input type='text' style='width:75px;padding:2px;' id='{$submodul}_ponumber' /> &nbsp;
+								<label>All Field</label> : <input type='text' style='width:75px;padding:2px;' id='{$submodul}_allfield' /> &nbsp;
+								<a href="javascript:void(0)" class="l-btn l-btn-small l-btn-plain" group="" id="search_{$submodul}" onClick="">
+									<span class="l-btn-left l-btn-icon-left">
+										<span class="l-btn-text">Filter Data</span><span class="l-btn-icon icon-search">&nbsp;</span>
+									</span>	
+								</a>	
+								<a href="javascript:void(0)" style="float: right;" class="l-btn l-btn-small l-btn-plain" group="" id="exportdata_receivedallexport" onClick="">
+									<span class="l-btn-left l-btn-icon-left">
+										<span class="l-btn-text">Export</span><span class="l-btn-icon icon-xls">&nbsp;</span>
+									</span>
+								</a>						
+							</div>
 						</div>
 						
 						{include file="backend/template/grid_editable.html" tinggi_grid="getClientHeight()-210" tablenya="tbl_master_tracker_atf"}
@@ -57,16 +76,34 @@
 		if(e.which == 13) {
 			$('#grid_{$submodul}').datagrid('reload',{
 				'table' : 'tbl_master_tracker_atf',
-				'siteid' : $('#{$submodul}_siteid').val(),
-				'sitename' : $('#{$submodul}_sitename').val(),
-				'regioncode' 	: $('#{$submodul}_regioncode').val(),
-				'phasecode' : $('#{$submodul}_phasecode').val(),
+				'atf_nokia_no' : $('#{$submodul}_atfno').val(),
+				'isat_no' : $('#{$submodul}_isatno').val(),
+				'site_info' : $('#{$submodul}_siteinfo').val(),
+				'remark_atf' : $('#{$submodul}_remarkatf').val(),
+				'po_number' : $('#{$submodul}_ponumber').val(),
 				'allfield' 	: $('#{$submodul}_allfield').val(),
-				'initial_phase' : 'G',
-				'initial_regioncode' : 'D',
-				'initial_site' : 'B'
+				'initial_phase' : 'B',
+				'initial_potype' : 'D',
+				'initial_pono' : 'C',
+				'initial_itemtext' : 'A'
 			});
 		}
+	});
+
+	$('#search_{$submodul}').on('click', function(){
+		$('#grid_{$submodul}').datagrid('reload',{
+			'table' : 'tbl_all_database',
+				'atf_nokia_no' : $('#{$submodul}_atfno').val(),
+				'isat_no' : $('#{$submodul}_isatno').val(),
+				'site_info' : $('#{$submodul}_siteinfo').val(),
+				'remark_atf' : $('#{$submodul}_remarkatf').val(),
+				'po_number' : $('#{$submodul}_ponumber').val(),
+				'allfield' 	: $('#{$submodul}_allfield').val(),
+				'initial_phase' : 'B',
+				'initial_potype' : 'D',
+				'initial_pono' : 'C',
+				'initial_itemtext' : 'A'
+		});
 	});
 	
 </script>

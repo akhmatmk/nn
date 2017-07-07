@@ -14,6 +14,6 @@ class MasterPhase extends JINGGA_Controller {
 		if($this->input->get('id'))
 			$array['a.id'] = $this->input->get('id');
 
-		echo json_encode($this->tblMasterPhase->getdata($array, $single));
+	echo json_encode($this->tblMasterPhase->getdata($array, $single));
 	}
 }
