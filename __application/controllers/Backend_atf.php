@@ -26,6 +26,25 @@ class Backend_atf extends JINGGA_Controller {
 		echo json_encode($this->siteinfo->getdata($array, $single));
 	}
 
+	public function importAtf()
+	{
+		$p1 = $this->input->post('typeimport');
+		$import = $this->mbackend->importdata($p1);
+		echo $p1;
+		// if($import == 1){
+		// 	echo $import;
+		// }else{
+		// 	if(isset($import['folder_upload'])){
+		// 		//unlink($import['folder_upload']);
+		// 	}
+			
+		// 	//$this->nsmarty->assign('type', $p1);
+		// 	//$this->nsmarty->assign('data', $import);
+		// 	//$this->nsmarty->display("backend/modul/".$this->input->post('folder')."/hasil_import.html");
+			
+		// }
+	}
+
 	public function getPhaseBoq() {
 		echo json_encode($this->siteinfo->getdataPhaseBoq());
 	}

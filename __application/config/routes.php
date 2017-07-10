@@ -47,6 +47,7 @@ $route['get/dataPic']['get'] = 'MasterPic/getData';
 $route['get/dataWarehouse']['get'] = 'MasterWarehouse/getData';
 $route['get/dataNeSystem']['get'] = 'MasterNeSystem/getData';
 $route['get/dataPhase']['get'] = 'MasterPhase/getData';
+$route['importAtf']['post'] = 'Backend_atf/importAtf';
 
 /* Routes Front End Routes */
 

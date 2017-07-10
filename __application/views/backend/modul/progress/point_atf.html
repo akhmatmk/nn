@@ -37,7 +37,7 @@
 								{include file="backend/template/button_grid.html" varbutton="received"}	
 								<label>Atf No</label> : <input type='text' style='width:75px;padding:2px;' id='{$submodul}_atfno' /> &nbsp;
 								<label>Isat No</label> : <input type='text' style='width:75px;padding:2px;' id='{$submodul}_isatno' /> &nbsp;
-								<label>Site Info</label> : <input type='text' style='width:75px;padding:2px;' id='{$submodul}_siteinfo' /> &nbsp;
+								<label>Reason For Handover</label> : <input type='text' style='width:75px;padding:2px;' id='{$submodul}_reason_for_handover' /> &nbsp;
 								<label>Remark Atf</label> : <input type='text' style='width:75px;padding:2px;' id='{$submodul}_remarkatf' /> &nbsp;
 								<label>Po Number</label> : <input type='text' style='width:75px;padding:2px;' id='{$submodul}_ponumber' /> &nbsp;
 								<label>All Field</label> : <input type='text' style='width:75px;padding:2px;' id='{$submodul}_allfield' /> &nbsp;
@@ -45,8 +45,13 @@
 									<span class="l-btn-left l-btn-icon-left">
 										<span class="l-btn-text">Filter Data</span><span class="l-btn-icon icon-search">&nbsp;</span>
 									</span>	
+								</a>
+								<a href="javascript:void(0)" style="float: right;" class="l-btn l-btn-small l-btn-plain" group="" id="" onClick="genform('import_data', '{$main}','{$submodul}', 'windowform');">
+									<span class="l-btn-left l-btn-icon-left">
+										<span class="l-btn-text">Import</span><span class="l-btn-icon icon-import">&nbsp;</span>
+									</span>
 								</a>	
-								<a href="javascript:void(0)" style="float: right;" class="l-btn l-btn-small l-btn-plain" group="" id="exportdata_receivedallexport" onClick="">
+								<a href="javascript:void(0)" style="float: right;" class="l-btn l-btn-small l-btn-plain" group="" id="exportdata_{$submodul}" onClick="">
 									<span class="l-btn-left l-btn-icon-left">
 										<span class="l-btn-text">Export</span><span class="l-btn-icon icon-xls">&nbsp;</span>
 									</span>
@@ -78,7 +83,7 @@
 				'table' : 'tbl_master_tracker_atf',
 				'atf_nokia_no' : $('#{$submodul}_atfno').val(),
 				'isat_no' : $('#{$submodul}_isatno').val(),
-				'site_info' : $('#{$submodul}_siteinfo').val(),
+				'reason_for_handover' : $('#{$submodul}_reason_for_handover').val(),
 				'remark_atf' : $('#{$submodul}_remarkatf').val(),
 				'po_number' : $('#{$submodul}_ponumber').val(),
 				'allfield' 	: $('#{$submodul}_allfield').val(),
@@ -95,7 +100,7 @@
 			'table' : 'tbl_all_database',
 				'atf_nokia_no' : $('#{$submodul}_atfno').val(),
 				'isat_no' : $('#{$submodul}_isatno').val(),
-				'site_info' : $('#{$submodul}_siteinfo').val(),
+				'reason_for_handover' : $('#{$submodul}_reason_for_handover').val(),
 				'remark_atf' : $('#{$submodul}_remarkatf').val(),
 				'po_number' : $('#{$submodul}_ponumber').val(),
 				'allfield' 	: $('#{$submodul}_allfield').val(),

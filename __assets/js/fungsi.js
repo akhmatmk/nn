@@ -2987,6 +2987,10 @@ function genGridEditable(modnya, divnya, lebarnya, tingginya, crud_table){
 				{field:'atf_isat_no',title:'Isat No',width:150, halign:'center',align:'left', sortable:true},
 			]
 			kolom[modnya] = [
+				{field:'vendor_dismantle_1',title:'Vendor Dismantle 1',width:150, halign:'center',align:'left', sortable:true},
+				{field:'material_brand_1',title:'Material Brand 1',width:150, halign:'center',align:'left', sortable:true},
+				{field:'new_site_id_2',title:'New Site Id 2',width:150, halign:'center',align:'left', sortable:true},
+				{field:'new_site_name_2',title:'New Site Name 2',width:150, halign:'center',align:'left', sortable:true},
 				{field:'remark_atf',title:'Remark Atf',width:150, halign:'center',align:'left', sortable:true},
 				{field:'po_re_deploy',title:'Po re-deploy',width:75, halign:'center',align:'left', sortable:true},
 				{field:'po_number',title:'Po Number',width:50, halign:'center',align:'left', sortable:true},
@@ -5247,6 +5251,18 @@ function genform(type, modulnya, submodulnya, stswindow, tabel){
 			lebar_import = 700;
 			tinggi_import = 600;
 			type_import = "materialatf";
+		break;
+		case "point_atf":
+			table = "tbl_master_material_atf";
+			judulwindow = 'Form Pogress ATF';
+			lebar = 600;
+			tinggi = 400;
+			urlpost = host+'backend/getdisplay/master/form-'+submodulnya;
+
+			urlimport = host+'backend/getdisplay/master/import-'+submodulnya;
+			lebar_import = 700;
+			tinggi_import = 600;
+			type_import = "point_atf";
 		break;
 		case "warehouse":
 			table = "tbl_master_warehouse";
