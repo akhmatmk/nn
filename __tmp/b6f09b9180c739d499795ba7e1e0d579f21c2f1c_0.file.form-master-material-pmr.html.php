@@ -1,7 +1,7 @@
-<?php /* Smarty version 3.1.27, created on 2017-07-09 13:13:29
+<?php /* Smarty version 3.1.27, created on 2017-07-19 07:06:06
          compiled from "C:\xampp\htdocs\nn\__application\views\backend\modul\form\form-master-material-pmr.html" */ ?>
 <?php
-/*%%SmartyHeaderCode:10794618935961c989f0e3c0_94029534%%*/
+/*%%SmartyHeaderCode:2021393521596ea26ec359a9_31335864%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
@@ -9,11 +9,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'b6f09b9180c739d499795ba7e1e0d579f21c2f1c' => 
     array (
       0 => 'C:\\xampp\\htdocs\\nn\\__application\\views\\backend\\modul\\form\\form-master-material-pmr.html',
-      1 => 1499518691,
+      1 => 1500422761,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '10794618935961c989f0e3c0_94029534',
+  'nocache_hash' => '2021393521596ea26ec359a9_31335864',
   'variables' => 
   array (
     'phase_no' => 0,
@@ -22,13 +22,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => '3.1.27',
-  'unifunc' => 'content_5961c989f160c2_53661552',
+  'unifunc' => 'content_596ea26ec6c4b1_03476671',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_5961c989f160c2_53661552')) {
-function content_5961c989f160c2_53661552 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_596ea26ec6c4b1_03476671')) {
+function content_596ea26ec6c4b1_03476671 ($_smarty_tpl) {
 
-$_smarty_tpl->properties['nocache_hash'] = '10794618935961c989f0e3c0_94029534';
+$_smarty_tpl->properties['nocache_hash'] = '2021393521596ea26ec359a9_31335864';
 ?>
 			  	<div style="display: none" id="pmr_content">
 			  		<div>
@@ -216,7 +216,18 @@ edit/material-pmr';
 					   			dataType: 'json',
 					   			data: $('#atrmaterial_content').serialize(),   
 					   			success: function(data){
-
+					   				if($("#type_save_material").val() == "add")
+					   				{
+					   					$bodytr = $('#bodyPreview tr').size() + 1;
+					   					$template = '<tr id="element_tr_'+ data.id + '"">' +
+				            						'<td>'+  $bodytr +'<td>' +
+				            						'<td>'+ data.created_name+ '</td>' +
+				            						'<td>' +
+				            							'<a class="btn btn-primary" onClick="deleteMaterial('+ data.id +')"  id="deleteMaterial" for="save">Delete</a> ' +
+				            						'</td>' +
+				            					'</tr>';
+				            			$("#bodyPreview").append($template);
+					   				}
 					   			}
 							});
 						});

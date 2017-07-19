@@ -171,7 +171,18 @@
 					   			dataType: 'json',
 					   			data: $('#atrmaterial_content').serialize(),   
 					   			success: function(data){
-
+					   				if($("#type_save_material").val() == "add")
+					   				{
+					   					$bodytr = $('#bodyPreview tr').size() + 1;
+					   					$template = '<tr id="element_tr_'+ data.id + '"">' +
+				            						'<td>'+  $bodytr +'<td>' +
+				            						'<td>'+ data.created_name+ '</td>' +
+				            						'<td>' +
+				            							'<a class="btn btn-primary" onClick="deleteMaterial('+ data.id +')"  id="deleteMaterial" for="save">Delete</a> ' +
+				            						'</td>' +
+				            					'</tr>';
+				            			$("#bodyPreview").append($template);
+					   				}
 					   			}
 							});
 						});

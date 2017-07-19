@@ -40,7 +40,7 @@ class Backend_pmr extends JINGGA_Controller {
 		$this->progresPmr->pic2 = $this->input->post('pic2');
 		$this->progresPmr->hardware_ne = $this->input->post('hardware_ne');
 		$this->progresPmr->pick_up_request_date = $this->input->post('pick_up_request_date');
-		$this->progresPmr->pick_up_request_time = date('h:i:s');
+		$this->progresPmr->pick_up_request_time = $this->input->post('pick_up_request_time');
 		$this->progresPmr->remark_delivery = $this->input->post('remark_delivery');
 		$this->progresPmr->phase_code = $this->input->post('phase_code');
 		$this->progresPmr->phase_name = $this->input->post('phase_name');
@@ -71,7 +71,7 @@ class Backend_pmr extends JINGGA_Controller {
 		$this->progresPmr->pic2 = $this->input->post('pic2');
 		$this->progresPmr->hardware_ne = $this->input->post('hardware_ne');
 		$this->progresPmr->pick_up_request_date = $this->input->post('pick_up_request_date');
-		$this->progresPmr->pick_up_request_time = date('h:i:s');
+		$this->progresPmr->pick_up_request_time =$this->input->post('pick_up_request_time');
 		$this->progresPmr->remark_delivery = $this->input->post('remark_delivery');
 		$this->progresPmr->phase_code = $this->input->post('phase_code');
 		$this->progresPmr->phase_name = $this->input->post('phase_name');

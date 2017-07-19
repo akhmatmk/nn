@@ -1,7 +1,7 @@
-<?php /* Smarty version 3.1.27, created on 2017-07-09 13:13:29
+<?php /* Smarty version 3.1.27, created on 2017-07-19 06:40:24
          compiled from "C:\xampp\htdocs\nn\__application\views\backend\modul\form\form_input_pmr.html" */ ?>
 <?php
-/*%%SmartyHeaderCode:16288903925961c989ea0da8_15474572%%*/
+/*%%SmartyHeaderCode:1980364063596e9c68264f88_40024975%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
@@ -9,11 +9,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'b1db9cfa9051efc698326551576707dcc1d8b746' => 
     array (
       0 => 'C:\\xampp\\htdocs\\nn\\__application\\views\\backend\\modul\\form\\form_input_pmr.html',
-      1 => 1499518691,
+      1 => 1500421221,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '16288903925961c989ea0da8_15474572',
+  'nocache_hash' => '1980364063596e9c68264f88_40024975',
   'variables' => 
   array (
     'acak' => 0,
@@ -23,13 +23,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => '3.1.27',
-  'unifunc' => 'content_5961c989eeefb4_62422143',
+  'unifunc' => 'content_596e9c682af315_64223651',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_5961c989eeefb4_62422143')) {
-function content_5961c989eeefb4_62422143 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_596e9c682af315_64223651')) {
+function content_596e9c682af315_64223651 ($_smarty_tpl) {
 
-$_smarty_tpl->properties['nocache_hash'] = '16288903925961c989ea0da8_15474572';
+$_smarty_tpl->properties['nocache_hash'] = '1980364063596e9c68264f88_40024975';
 ?>
 <div class="row wrapper border-bottom blueaye-bg page-heading">
 	<div class="col-lg-10" style='margin-left:20px;'>
@@ -101,6 +101,24 @@ $_smarty_tpl->properties['nocache_hash'] = '16288903925961c989ea0da8_15474572';
 						</div>
 					</div>
 
+					<div class="form-group"><label for="phase_code" class="col-sm-2 control-label">Phase Code</label>
+						<div class="col-sm-4">
+							<input type="text" readonly="readonly" class="form-control" name="phase_code" id="phase_code">
+						</div>
+					</div>
+
+					<div class="form-group"><label for="phase_name" class="col-sm-2 control-label">Phase Name</label>
+						<div class="col-sm-4">
+							<input type="text" readonly="readonly" class="form-control" name="phase_name" id="phase_name">
+						</div>
+					</div>
+
+					<div class="form-group"><label for="pmr_status" class="col-sm-2 control-label">PMR Status</label>
+						<div class="col-sm-4">
+							<input type="text" readonly="readonly" class="form-control" name="pmr_status" id="pmr_status" value="OPEN">
+						</div>
+					</div>
+
 					<div class="form-group"><label for="pick_up_at" class="col-sm-2 control-label">Pick up at</label>
 						<div class="col-sm-4">
 							<input type="text" class="form-control" name="pick_up_at" id="pick_up_at">
@@ -110,14 +128,6 @@ $_smarty_tpl->properties['nocache_hash'] = '16288903925961c989ea0da8_15474572';
 					<div class="form-group"><label for="site_addres_at" class="col-sm-2 control-label">Site Addres At</label>
 						<div class="col-sm-4">
 							<input type="text" class="form-control" name="site_addres_at" id="site_addres_at">
-						</div>
-					</div>
-
-					<div class="form-group"><label for="region_at" class="col-sm-2 control-label">Region At</label>
-						<div class="col-sm-4">
-							<select class="form-control-mobile" id="region_at" name='region_at'>
-				
-							</select>
 						</div>
 					</div>
 
@@ -185,6 +195,12 @@ $_smarty_tpl->properties['nocache_hash'] = '16288903925961c989ea0da8_15474572';
 						</div>
 					</div>
 
+					<div class="form-group"><label for="pick_up_request_time" class="col-sm-2 control-label">Pick up request time</label>
+						<div class="col-sm-4">
+							<input type="text" class="form-control" name="pick_up_request_time" id="pick_up_request_time">
+						</div>
+					</div>
+
 				
 					<div class="form-group"><label for="remark_delivery" class="col-sm-2 control-label">Remark delivery</label>
 						<div class="col-sm-4">
@@ -192,40 +208,11 @@ $_smarty_tpl->properties['nocache_hash'] = '16288903925961c989ea0da8_15474572';
 						</div>
 					</div>
 
-					<div class="form-group"><label for="phase_code" class="col-sm-2 control-label">Phase Code</label>
-						<div class="col-sm-4">
-							<input type="text" readonly="readonly" class="form-control" name="phase_code" id="phase_code">
-						</div>
-					</div>
-
-					<div class="form-group"><label for="phase_name" class="col-sm-2 control-label">Phase Name</label>
-						<div class="col-sm-4">
-							<input type="text" readonly="readonly" class="form-control" name="phase_name" id="phase_name">
-						</div>
-					</div>
-
-					<div class="form-group"><label for="spare_3" class="col-sm-2 control-label">Spare 3</label>
-						<div class="col-sm-4">
-							<input type="text" class="form-control" name="spare_3" id="spare_3">
-						</div>
-					</div>
-
-					<div class="form-group"><label for="spare_4" class="col-sm-2 control-label">Spare 4</label>
-						<div class="col-sm-4">
-							<input type="text" class="form-control" name="spare_4" id="spare_4">
-						</div>
-					</div>
-
-					<div class="form-group"><label for="spare_5" class="col-sm-2 control-label">Spare 5</label>
-						<div class="col-sm-4">
-							<input type="text" class="form-control" name="spare_5" id="spare_5">
-						</div>
-					</div>
-
 					<div class="form-group">
 						<div class="col-sm-4 col-sm-offset-4">
 							<input type="hidden" id="method_send"  name="method_send" value="POST">
 					        <a class="btn btn-primary" id='saveNext' for="save">Save and Next</a>
+					        <a class="btn btn-primary" id='saveNext' for="save">Save</a>
 					    </div>
 					</div>
 				</form>
