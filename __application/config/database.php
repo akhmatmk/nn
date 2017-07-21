@@ -74,10 +74,10 @@ $active_group = 'default';
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => '',
-	'database' => 'pointnokia',
+	'hostname' => '156.67.210.51',
+	'username' => 'u6865813_demo',
+	'password' => 'sukasamasuka',
+	'database' => 'u6865813_point',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

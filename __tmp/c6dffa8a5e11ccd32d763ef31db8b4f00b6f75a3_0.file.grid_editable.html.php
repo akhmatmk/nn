@@ -1,0 +1,65 @@
+<?php /* Smarty version 3.1.27, created on 2017-07-21 14:37:02
+         compiled from "/var/www/nokia.dev/public_html/__application/views/backend/template/grid_editable.html" */ ?>
+<?php
+/*%%SmartyHeaderCode:5382027255971af1e396823_98240457%%*/
+if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+$_valid = $_smarty_tpl->decodeProperties(array (
+  'file_dependency' => 
+  array (
+    'c6dffa8a5e11ccd32d763ef31db8b4f00b6f75a3' => 
+    array (
+      0 => '/var/www/nokia.dev/public_html/__application/views/backend/template/grid_editable.html',
+      1 => 1500619509,
+      2 => 'file',
+    ),
+  ),
+  'nocache_hash' => '5382027255971af1e396823_98240457',
+  'variables' => 
+  array (
+    'submodul' => 0,
+    'tinggi_grid' => 0,
+    'tablenya' => 0,
+  ),
+  'has_nocache_code' => false,
+  'version' => '3.1.27',
+  'unifunc' => 'content_5971af1e39e3a4_97509746',
+),false);
+/*/%%SmartyHeaderCode%%*/
+if ($_valid && !is_callable('content_5971af1e39e3a4_97509746')) {
+function content_5971af1e39e3a4_97509746 ($_smarty_tpl) {
+
+$_smarty_tpl->properties['nocache_hash'] = '5382027255971af1e396823_98240457';
+?>
+<style type="text/css">
+	.datagrid-row-over td{
+		background:#D0E5F5;
+	}
+	.datagrid-row-selected td{
+		background:#FBEC88;
+		color:#000;
+	}
+</style>
+<div id='maingrid_<?php echo $_smarty_tpl->tpl_vars['submodul']->value;?>
+'>
+	<div id='grid_<?php echo $_smarty_tpl->tpl_vars['submodul']->value;?>
+' style='height:100%;'></div>
+</div>
+<?php echo '<script'; ?>
+>
+$(function(){
+	$('#maingrid_<?php echo $_smarty_tpl->tpl_vars['submodul']->value;?>
+').css({
+		'height':(<?php echo (($tmp = @$_smarty_tpl->tpl_vars['tinggi_grid']->value)===null||$tmp==='' ? 'getClientHeight()-230' : $tmp);?>
+)
+	});
+	genGridEditable('<?php echo $_smarty_tpl->tpl_vars['submodul']->value;?>
+','grid_<?php echo $_smarty_tpl->tpl_vars['submodul']->value;?>
+', '', '', '<?php echo $_smarty_tpl->tpl_vars['tablenya']->value;?>
+');
+});
+<?php echo '</script'; ?>
+>
+
+<?php }
+}
+?>
