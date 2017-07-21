@@ -11,4 +11,36 @@
 					      
 					    </tbody>
 					  </table>
+					  	<div class="form-group">
+							<div class="col-sm-4 col-sm-offset-4">
+						        <a class="btn btn-primary" id='backMaterialAtf'>Back</a>
+						        <a class="btn btn-primary" id='req-aproval'>Req Aproval</a>
+						    </div>
+						</div>
 				</div>
+
+				<script type="text/javascript">
+					
+					$("#req-aproval").click(function (){
+						$("#atf_list_data").hide();
+						$("#req_aprove").show();
+						var no_atf = $("#atf_nokia_no").val();
+
+						$.ajax({ 
+					    	url: '{$host}get/groupByIsatNo',
+					    	type: 'get',
+					    	data: {'isat_no' : no_atf}
+					    	dataType: 'json',
+					    	success: function(dataGroup)
+					    	{
+					    		$("#to").html("<option>-Pilih-</option>");
+					    		$.each(dataGroup, function(index, element) {
+									$("#to").append("<option value='"+element.id+"'>"+element.name+"</option>");
+								});
+					    	}
+					});
+
+					});
+				</script>
+
+				{include file="backend/modul/form/send_approval_atf.html"}

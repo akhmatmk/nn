@@ -2417,6 +2417,7 @@ class Backend extends JINGGA_Controller {
 	}		
 
 	function simpandata($p1="",$p2="",$p3=""){
+		//dd($p1=$this->input->post('mod'));
 		if($this->input->post('mod'))$p1=$this->input->post('mod');
 		$post = array();
         foreach($_POST as $k=>$v){

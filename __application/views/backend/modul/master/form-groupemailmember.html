@@ -1,0 +1,76 @@
+<form method="post" id='frmregion_{$acak}' url='{$host}backend/simpandata/tbl_member_master_group' class="form-horizontal">
+	<input type='hidden' name='editstatus' value='{$editstatus}' /> 
+	<input type='hidden' name='id' value="{$data.id|default:''}" /> 
+	
+	<div class="form-group"><label class="col-sm-2 control-label">Name Group</label>
+		<div class="col-sm-8">
+			  	<select class="form-control" id="id_name_group" name="id_group">
+  				</select>
+		</div>
+	</div>
+
+	<div class="form-group"><label class="col-sm-2 control-label">User</label>
+		<div class="col-sm-8">
+			  	<select class="form-control" id="id_name_user" name="id_user">
+  				</select>
+		</div>
+	</div>
+	<div class="hr-line-dashed"></div>
+    <div class="form-group">
+        <div class="col-sm-4 col-sm-offset-2">
+            <a class="btn btn-primary" id='saveRegion' >Save</a>
+            <a class="btn btn-danger" id='cancelRegion'>Cancel</a>
+        </div>
+    </div>	
+</form>
+
+<script>
+	$('#saveRegion').on('click',function(){
+		submit_form('frmregion_{$acak}',function(r){
+			if(r==1){
+				$.messager.alert('POIN', "Data Saved", 'info');
+				$('.info-empty').remove();
+			}else{
+				$.messager.alert('POIN', "Failed Saved", 'error');
+			}
+			closeWindow();
+			$('#grid_region').datagrid('reload');
+		});
+		return false;
+	});
+	
+	$('#cancelRegion').on('click',function(){
+		closeWindow();
+		$('#grid_region').datagrid('reload');
+		return false;
+	});
+
+	 $.ajax({ 
+	    url: '{$host}get/group',
+	    type: 'get',
+	    dataType: 'json',
+	    success: function(dataGroup)
+	    {
+	    	var a = 1;
+	    	$("#id_name_group").html("<option>-Pilih-</option>");
+	    	$.each(dataGroup, function(index, element) {
+				$("#id_name_group").append("<option value='"+element.id+"'>"+element.name+"</option>");
+			});
+	    }
+	});
+
+	 $.ajax({ 
+	    url: '{$host}get/user',
+	    type: 'get',
+	    dataType: 'json',
+	    success: function(dataGroup)
+	    {
+	    	var a = 1;
+	    	$("#id_name_user").html("<option>-Pilih-</option>");
+	    	$.each(dataGroup, function(index, element) {
+				$("#id_name_user").append("<option value='"+element.id+"'>"+element.nama_user+"</option>");
+			});
+	    }
+	});
+
+</script>

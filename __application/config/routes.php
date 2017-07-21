@@ -49,6 +49,10 @@ $route['get/dataNeSystem']['get'] = 'MasterNeSystem/getData';
 $route['get/dataPhase']['get'] = 'MasterPhase/getData';
 $route['importAtf']['post'] = 'Backend_atf/importAtf';
 
+$route['get/group']['get'] = 'Backend_atf/getGroup';
+$route['get/user']['get'] = 'Backend_atf/getUser';
+$route['get/user']['get'] = 'Backend_atf/groupByIsatNo';
+
 /* Routes Front End Routes */
 
 

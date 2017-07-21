@@ -243,6 +243,36 @@ function genGrid(modnya, divnya, lebarnya, tingginya, par1){
 				{field:'endorse_approved',title:'ATP Endorse',width:100, halign:'center',align:'left', sortable:false},
 			]
 		break;
+		case "groupemail":
+			judulnya = "";
+			urlnya = "groupemail";
+			//height = 800;
+			urlglobal = host+'backend/getdata/'+urlnya;
+			frozen[modnya] = [
+				{field:'name',title:'name',width:100, halign:'center',align:'left', sortable:false},
+			]
+		break;
+		case "groupemailmember":
+			judulnya = "";
+			urlnya = "groupemailmember";
+			//height = 800;
+			urlglobal = host+'backend/getdata/'+urlnya;
+			frozen[modnya] = [
+				{field:'nama_grup',title:'Nama Group',width:100, halign:'center',align:'left', sortable:false},
+				{field:'nama_user',title:'Nama User',width:100, halign:'center',align:'left', sortable:false},
+				{field:'email',title:'Email',width:100, halign:'center',align:'left', sortable:false},
+			]
+		break;
+		case "aproval":
+			judulnya = "";
+			urlnya = "aproval";
+			//height = 800;
+			urlglobal = host+'backend/getdata/'+urlnya;
+			frozen[modnya] = [
+				{field:'nama_grup',title:'Nama Group',width:100, halign:'center',align:'left', sortable:false},
+				{field:'approval',title:'Aproval',width:100, halign:'center',align:'left', sortable:false},
+			]
+		break;
 		case "phase":
 			judulnya = "";
 			urlnya = "phase";
@@ -5628,6 +5658,27 @@ function genform(type, modulnya, submodulnya, stswindow, tabel){
 			lebar = 600;
 			tinggi = 200;
 			urlpost = host+'backend/getdisplay/usermanagement/form-'+submodulnya;
+		break;
+		case "groupemail":
+			table = "tbl_master_group";
+			judulwindow = 'Form Nama Group';
+			lebar = 600;
+			tinggi = 200;
+			urlpost = host+'backend/getdisplay/master/form-'+submodulnya;
+		break;
+		case "groupemailmember":
+			table = " tbl_member_master_group";
+			judulwindow = 'Form Nama Member Group';
+			lebar = 600;
+			tinggi = 200;
+			urlpost = host+'backend/getdisplay/master/form-'+submodulnya;
+		break;
+		case "aproval":
+			table = " tbl_master_approval";
+			judulwindow = 'Form Aproval';
+			lebar = 600;
+			tinggi = 200;
+			urlpost = host+'backend/getdisplay/master/form-'+submodulnya;
 		break;
 		//End Modul User Management
 	}

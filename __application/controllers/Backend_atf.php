@@ -1,3 +1,4 @@
+
 <?php if (!defined('BASEPATH')) {exit('No direct script access allowed');}
 
 class Backend_atf extends JINGGA_Controller {
@@ -24,6 +25,13 @@ class Backend_atf extends JINGGA_Controller {
 			$single = true;
 
 		echo json_encode($this->siteinfo->getdata($array, $single));
+	}
+
+	public function groupByIsatNo() 
+	{
+		$query = $this->db->query("SELECT * FROM tbl_progres_atf where tbl_progres_atf = '".$_GET['']."'");
+		$q = $query->result_array();
+		echo json_encode($q);
 	}
 
 	public function importAtf()
@@ -73,6 +81,21 @@ class Backend_atf extends JINGGA_Controller {
 
 		echo json_encode($this->progresAtf->getdata($array, $single));
 	}
+
+	public function getGroup()
+	{
+		$query = $this->db->query("SELECT * FROM tbl_master_group");
+		$q = $query->result_array();
+		echo json_encode($q);
+	}
+
+	public function getUser()
+	{
+		$query = $this->db->query("SELECT * FROM tbl_user where status = 1");
+		$q = $query->result_array();
+		echo json_encode($q);
+	}
+	
 
 	public function store()
 	{
